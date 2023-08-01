@@ -1,0 +1,8 @@
+{
+    "label": "Domains",
+    "position": 2,
+    "link": {
+      "type": "generated-index",
+      "description": "Domains are the logical extension of our basic decoupled execution framework, taking it from a single monolithic execution environment into a modular and interoperable network of namespaced execution environments"
+    }
+}

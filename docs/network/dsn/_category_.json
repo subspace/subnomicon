@@ -1,0 +1,9 @@
+{
+    "label": "Distributed Storage Network",
+    "position": 2,
+    "link": {
+      "type": "generated-index",
+      "description": "The Distributed Storage Network (DSN) is a key component of the Subspace Network. 
+      The DSN provides load balancing, durability, retrievability of data on the network and node synchronization."
+    }
+}

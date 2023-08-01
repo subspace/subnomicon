@@ -1,0 +1,33 @@
+{
+  "unversionedId": "intro/terminology",
+  "id": "intro/terminology",
+  "title": "Terminology",
+  "description": "Definitions for all things Subspace",
+  "source": "@site/docs/intro/terminology.md",
+  "sourceDirName": "intro",
+  "slug": "/intro/terminology",
+  "permalink": "/docs/intro/terminology",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "title": "Terminology",
+    "sidebar_position": 2,
+    "description": "Definitions for all things Subspace",
+    "keywords": [
+      "Terminology",
+      "Definitions",
+      "Glossary"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Motivation",
+    "permalink": "/docs/intro/motivation"
+  },
+  "next": {
+    "title": "Architecture Overview",
+    "permalink": "/docs/overview"
+  }
+}

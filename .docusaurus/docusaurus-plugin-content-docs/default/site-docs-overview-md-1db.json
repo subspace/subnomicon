@@ -1,0 +1,32 @@
+{
+  "unversionedId": "overview",
+  "id": "overview",
+  "title": "Architecture Overview",
+  "description": "Overview the Subspace Network",
+  "source": "@site/docs/overview.md",
+  "sourceDirName": ".",
+  "slug": "/overview",
+  "permalink": "/docs/overview",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "title": "Architecture Overview",
+    "sidebar_position": 2,
+    "description": "Overview the Subspace Network",
+    "keywords": [
+      "Architecture",
+      "Overview"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Terminology",
+    "permalink": "/docs/intro/terminology"
+  },
+  "next": {
+    "title": "Dilithium Consensus",
+    "permalink": "/docs/category/dilithium-consensus"
+  }
+}

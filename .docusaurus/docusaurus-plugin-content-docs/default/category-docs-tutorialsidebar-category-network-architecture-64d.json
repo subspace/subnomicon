@@ -1,0 +1,16 @@
+{
+  "title": "Network Architecture",
+  "description": "How Subspace is structured as a decentralized network.",
+  "slug": "/category/network-architecture",
+  "permalink": "/docs/category/network-architecture",
+  "navigation": {
+    "previous": {
+      "title": "Security",
+      "permalink": "/docs/consensus/security"
+    },
+    "next": {
+      "title": "Node Types",
+      "permalink": "/docs/network/nodes"
+    }
+  }
+}

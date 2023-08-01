@@ -1,0 +1,34 @@
+{
+  "unversionedId": "network/nodes",
+  "id": "network/nodes",
+  "title": "Node Types",
+  "description": "Participants in the Subspace Network",
+  "source": "@site/docs/network/nodes.md",
+  "sourceDirName": "network",
+  "slug": "/network/nodes",
+  "permalink": "/docs/network/nodes",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "Node Types",
+    "sidebar_position": 1,
+    "description": "Participants in the Subspace Network",
+    "keywords": [
+      "Consensus",
+      "Network",
+      "Node",
+      "Peer"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Network Architecture",
+    "permalink": "/docs/category/network-architecture"
+  },
+  "next": {
+    "title": "Distributed Storage Network",
+    "permalink": "/docs/category/distributed-storage-network"
+  }
+}

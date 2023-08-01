@@ -1,0 +1,34 @@
+{
+  "unversionedId": "network/dsn/layers",
+  "id": "network/dsn/layers",
+  "title": "Network Layers",
+  "description": "DSN Layers",
+  "source": "@site/docs/network/dsn/layers.md",
+  "sourceDirName": "network/dsn",
+  "slug": "/network/dsn/layers",
+  "permalink": "/docs/network/dsn/layers",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "title": "Network Layers",
+    "sidebar_position": 3,
+    "description": "DSN Layers",
+    "keywords": [
+      "Consensus",
+      "Network",
+      "Storage",
+      "DSN"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Overview",
+    "permalink": "/docs/network/dsn/"
+  },
+  "next": {
+    "title": "Decoupled Execution",
+    "permalink": "/docs/category/decoupled-execution"
+  }
+}

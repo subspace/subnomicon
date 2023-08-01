@@ -1,0 +1,185 @@
+{
+  "docusaurus-plugin-google-gtag": {
+    "default": {
+      "trackingID": "G-25NWNJB9MR",
+      "anonymizeIP": false,
+      "id": "default"
+    }
+  },
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "intro",
+          "docs": [
+            {
+              "id": "consensus/consensus/archiving",
+              "path": "/docs/consensus/consensus/archiving",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "consensus/consensus/crypto_primitives",
+              "path": "/docs/consensus/consensus/crypto_primitives",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "consensus/consensus/farming",
+              "path": "/docs/consensus/consensus/farming",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "consensus/consensus/plotting",
+              "path": "/docs/consensus/consensus/plotting",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "consensus/consensus/pos",
+              "path": "/docs/consensus/consensus/pos",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "consensus/consensus/pot",
+              "path": "/docs/consensus/consensus/pot",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "consensus/data_flow",
+              "path": "/docs/consensus/data_flow",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "consensus/genesis",
+              "path": "/docs/consensus/genesis",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "consensus/overview",
+              "path": "/docs/consensus/overview",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "consensus/security",
+              "path": "/docs/consensus/security",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "decex/domains/core_evm",
+              "path": "/docs/decex/domains/core_evm",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "decex/domains/overview",
+              "path": "/docs/decex/domains/overview",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "decex/domains/taxonomy",
+              "path": "/docs/decex/domains/taxonomy",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "decex/domains/workflow",
+              "path": "/docs/decex/domains/workflow",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "decex/overview",
+              "path": "/docs/decex/overview",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro",
+              "path": "/docs/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro/motivation",
+              "path": "/docs/intro/motivation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "intro/terminology",
+              "path": "/docs/intro/terminology",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "network/dsn/dsn",
+              "path": "/docs/network/dsn/",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "network/dsn/layers",
+              "path": "/docs/network/dsn/layers",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "network/nodes",
+              "path": "/docs/network/nodes",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "overview",
+              "path": "/docs/overview",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "roadmap",
+              "path": "/docs/roadmap",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/background",
+              "path": "/docs/category/background",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/dilithium-consensus",
+              "path": "/docs/category/dilithium-consensus",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/proof-of-archival-storage",
+              "path": "/docs/category/proof-of-archival-storage",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/network-architecture",
+              "path": "/docs/category/network-architecture",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/distributed-storage-network",
+              "path": "/docs/category/distributed-storage-network",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/decoupled-execution",
+              "path": "/docs/category/decoupled-execution",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/domains",
+              "path": "/docs/category/domains",
+              "sidebar": "tutorialSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/docs/intro",
+                "label": "intro"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

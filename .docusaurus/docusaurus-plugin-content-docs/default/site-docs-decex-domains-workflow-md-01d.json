@@ -1,0 +1,33 @@
+{
+  "unversionedId": "decex/domains/workflow",
+  "id": "decex/domains/workflow",
+  "title": "General Workflow",
+  "description": "Domains Workflow",
+  "source": "@site/docs/decex/domains/workflow.md",
+  "sourceDirName": "decex/domains",
+  "slug": "/decex/domains/workflow",
+  "permalink": "/docs/decex/domains/workflow",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "title": "General Workflow",
+    "sidebar_position": 3,
+    "description": "Domains Workflow",
+    "keywords": [
+      "DecEx",
+      "Domains",
+      "Staking"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Core EVM",
+    "permalink": "/docs/decex/domains/core_evm"
+  },
+  "next": {
+    "title": "Roadmap",
+    "permalink": "/docs/roadmap"
+  }
+}

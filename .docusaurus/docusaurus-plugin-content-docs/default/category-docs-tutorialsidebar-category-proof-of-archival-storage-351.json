@@ -1,0 +1,16 @@
+{
+  "title": "Proof-of-Archival-Storage",
+  "description": "Building blocks of Dilithium Consensus",
+  "slug": "/category/proof-of-archival-storage",
+  "permalink": "/docs/category/proof-of-archival-storage",
+  "navigation": {
+    "previous": {
+      "title": "Data Model and Flow",
+      "permalink": "/docs/consensus/data_flow"
+    },
+    "next": {
+      "title": "Cryptographic Primitives",
+      "permalink": "/docs/consensus/consensus/crypto_primitives"
+    }
+  }
+}

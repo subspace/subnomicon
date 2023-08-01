@@ -1,0 +1,33 @@
+{
+  "unversionedId": "decex/domains/core_evm",
+  "id": "decex/domains/core_evm",
+  "title": "Core EVM",
+  "description": "Core EVM domain",
+  "source": "@site/docs/decex/domains/core_evm.md",
+  "sourceDirName": "decex/domains",
+  "slug": "/decex/domains/core_evm",
+  "permalink": "/docs/decex/domains/core_evm",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "title": "Core EVM",
+    "sidebar_position": 3,
+    "description": "Core EVM domain",
+    "keywords": [
+      "DecEx",
+      "Domains",
+      "EVM"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Taxonomy",
+    "permalink": "/docs/decex/domains/taxonomy"
+  },
+  "next": {
+    "title": "General Workflow",
+    "permalink": "/docs/decex/domains/workflow"
+  }
+}

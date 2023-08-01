@@ -1,0 +1,16 @@
+{
+  "title": "Decoupled Execution",
+  "description": "How Subspace separates consensus and computation.",
+  "slug": "/category/decoupled-execution",
+  "permalink": "/docs/category/decoupled-execution",
+  "navigation": {
+    "previous": {
+      "title": "Network Layers",
+      "permalink": "/docs/network/dsn/layers"
+    },
+    "next": {
+      "title": "Overview",
+      "permalink": "/docs/decex/overview"
+    }
+  }
+}

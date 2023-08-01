@@ -1,0 +1,32 @@
+{
+  "unversionedId": "decex/overview",
+  "id": "decex/overview",
+  "title": "Overview",
+  "description": "Decoupled Execution Overview",
+  "source": "@site/docs/decex/overview.md",
+  "sourceDirName": "decex",
+  "slug": "/decex/overview",
+  "permalink": "/docs/decex/overview",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "Overview",
+    "sidebar_position": 1,
+    "description": "Decoupled Execution Overview",
+    "keywords": [
+      "DecEx",
+      "Domains"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Decoupled Execution",
+    "permalink": "/docs/category/decoupled-execution"
+  },
+  "next": {
+    "title": "Domains",
+    "permalink": "/docs/category/domains"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "unversionedId": "consensus/consensus/pos",
+  "id": "consensus/consensus/pos",
+  "title": "Proof-of-Space",
+  "description": "Proof-of-Space Consensus component",
+  "source": "@site/docs/consensus/consensus/pos.md",
+  "sourceDirName": "consensus/consensus",
+  "slug": "/consensus/consensus/pos",
+  "permalink": "/docs/consensus/consensus/pos",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "title": "Proof-of-Space",
+    "sidebar_position": 5,
+    "description": "Proof-of-Space Consensus component",
+    "keywords": [
+      "Consensus"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Farming",
+    "permalink": "/docs/consensus/consensus/farming"
+  },
+  "next": {
+    "title": "Proof-of-Time",
+    "permalink": "/docs/consensus/consensus/pot"
+  }
+}

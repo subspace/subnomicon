@@ -1,0 +1,33 @@
+{
+  "unversionedId": "intro/motivation",
+  "id": "intro/motivation",
+  "title": "Motivation",
+  "description": "Why did we create Subspace",
+  "source": "@site/docs/intro/motivation.md",
+  "sourceDirName": "intro",
+  "slug": "/intro/motivation",
+  "permalink": "/docs/intro/motivation",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "Motivation",
+    "sidebar_position": 1,
+    "description": "Why did we create Subspace",
+    "keywords": [
+      "Introduction",
+      "Motivation",
+      "Goals"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Background",
+    "permalink": "/docs/category/background"
+  },
+  "next": {
+    "title": "Terminology",
+    "permalink": "/docs/intro/terminology"
+  }
+}

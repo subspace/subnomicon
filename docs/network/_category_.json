@@ -1,0 +1,8 @@
+{
+  "label": "Network Architecture",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "How Subspace is structured as a decentralized network."
+  }
+}

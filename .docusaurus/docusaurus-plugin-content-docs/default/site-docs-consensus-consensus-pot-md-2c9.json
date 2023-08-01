@@ -1,0 +1,31 @@
+{
+  "unversionedId": "consensus/consensus/pot",
+  "id": "consensus/consensus/pot",
+  "title": "Proof-of-Time",
+  "description": "Proof-of-Time Consensus component",
+  "source": "@site/docs/consensus/consensus/pot.md",
+  "sourceDirName": "consensus/consensus",
+  "slug": "/consensus/consensus/pot",
+  "permalink": "/docs/consensus/consensus/pot",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "title": "Proof-of-Time",
+    "sidebar_position": 6,
+    "description": "Proof-of-Time Consensus component",
+    "keywords": [
+      "Consensus"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Proof-of-Space",
+    "permalink": "/docs/consensus/consensus/pos"
+  },
+  "next": {
+    "title": "Genesis",
+    "permalink": "/docs/consensus/genesis"
+  }
+}

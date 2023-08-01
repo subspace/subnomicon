@@ -1,0 +1,8 @@
+{
+  "label": "Dilithium Consensus",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "How Subspace achieves consensus through its storage-based design."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "unversionedId": "decex/domains/overview",
+  "id": "decex/domains/overview",
+  "title": "Overview",
+  "description": "Domains Overview",
+  "source": "@site/docs/decex/domains/overview.md",
+  "sourceDirName": "decex/domains",
+  "slug": "/decex/domains/overview",
+  "permalink": "/docs/decex/domains/overview",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "Overview",
+    "sidebar_position": 1,
+    "description": "Domains Overview",
+    "keywords": [
+      "DecEx",
+      "Domains"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Domains",
+    "permalink": "/docs/category/domains"
+  },
+  "next": {
+    "title": "Taxonomy",
+    "permalink": "/docs/decex/domains/taxonomy"
+  }
+}

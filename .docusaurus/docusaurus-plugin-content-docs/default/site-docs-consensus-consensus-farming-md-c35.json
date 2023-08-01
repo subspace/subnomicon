@@ -1,0 +1,32 @@
+{
+  "unversionedId": "consensus/consensus/farming",
+  "id": "consensus/consensus/farming",
+  "title": "Farming",
+  "description": "Farming Phase",
+  "source": "@site/docs/consensus/consensus/farming.md",
+  "sourceDirName": "consensus/consensus",
+  "slug": "/consensus/consensus/farming",
+  "permalink": "/docs/consensus/consensus/farming",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "title": "Farming",
+    "sidebar_position": 4,
+    "description": "Farming Phase",
+    "keywords": [
+      "Consensus",
+      "Farming"
+    ]
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Plotting",
+    "permalink": "/docs/consensus/consensus/plotting"
+  },
+  "next": {
+    "title": "Proof-of-Space",
+    "permalink": "/docs/consensus/consensus/pos"
+  }
+}
