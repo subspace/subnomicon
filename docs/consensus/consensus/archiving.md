@@ -50,6 +50,6 @@ With this two-tier commitment, we can later show that a given chunk belongs to a
 7. Build 256 pieces: each *piece* consists of a *record* of 1 MiB, a 48-byte commitment to record data and a 48-byte witness of inclusion in a segment.
 8. Append the new pieces to the canonical history, and store the segment commitment in the chain state. 
 
-Once a segment has been archived and the pieces are ready for the farmers to store, the next phase is Plotting.
-
 The segment commitment is also included in the successive segment to link back to the last segment and form the chain of segments that represent the canonical history of the blockchain.
+
+Once a segment has been archived and the pieces are ready for the farmers to store, the next phase is Plotting.
