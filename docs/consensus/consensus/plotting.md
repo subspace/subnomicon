@@ -29,22 +29,18 @@ In addition, the farmer must save the current history size, as it will determine
 ![RawSector](../../../src/Images/Raw_Sector.png)
 
 
-Once the farmer has obtained all 1,300 pieces for this sector from the network, they can create an encoded replica. Only the piece’s historical data, the record part, is encoded. The commitment and witness included in a piece are saved separately in the sector metadata, as they will be needed later for farming.
+Once the farmer has obtained all 1,000 pieces for this sector from the network, they can create an encoded replica. Only the piece’s historical data, the record part, is encoded. The KZG commitment and witness included in a piece are saved separately in the sector metadata, as they will be needed later for farming.
 
-Each record is encoded separately and sequentially. For each record, the Plotting algorithm performs the following steps:
+For each record, the Plotting algorithm performs the following steps:
 
-1. Derive a unique pseudorandom and verifiable *seed*.
-2. Based on this *seed*, generate a proof-of-space table using memory bandwidth resources set by the global protocol memory requirement parameter *k*. 1. This memory-intensive computation prevents malicious farmers from creating replicas after the new block challenge is announced, making it more rational for them to store the replica rather than try to compute it on the fly every time.
-3. Given the PoS table for this record, the farmer must:
-    - Derive a starting index for lookup, which will also serve as the starting index for the extended (or erasure-coded) record.
-    - Query the table for enough ($2^{15}$) proof-of-space values to mask every chunk of the record.
+1. Erasure code (extend) the record data by interpolating a polynomial over chunks of the record. 
+2. Derive a unique pseudorandom and verifiable *seed*.
+3. Based on this *seed*, generate a proof-of-space table using memory bandwidth resources set by the global protocol memory requirement parameter *k*. This memory-intensive computation prevents malicious farmers from creating replicas after the new block challenge is announced, making it more rational for them to store the replica rather than try to compute it on the fly every time.
+4. Given the PoS table for this record, the farmer must derive a starting index for lookup and query the table for enough ($2^{15}$) proof-of-space values to mask every chunk of the record.
 
 ![PoSLookup](../../../src/Images/PoS_Lookup.png)
 
-Challenging the PoS table for proofs
-
-1. Erasure code (extend) the record data by interpolating a polynomial over chunks of the record and evaluating it over the lookup indices for the PoS table from the previous step.
-2. Encode each extended record chunk by XOR-masking it with the corresponding proof-of-space value.
+5. Encode each extended record chunk by XOR-masking it with the corresponding proof-of-space value.
 
 ![PieceEncoding](../../../src/Images/Piece_Encoding.png)
 
@@ -55,3 +51,12 @@ After all records in the sector have been encoded as described, the farmer sprea
 Each bucket represents a potential winning ticket in the block proposer lottery. For each challenge, a farmer will scan one s-bucket containing one chunk of each record they store in a sector and see whether any of them are eligible to win a block.
 
 As a result, a farmer has a unique encoded replica that is difficult to compress or compute on demand. An economically rational farmer is incentivized to store as many honestly encoded replicas as possible to maximize their chances of winning a block.
+
+## Plot Updates
+
+As the chain grows, we need a way to ensure that new data is replicated as much as older data in blockchain history. To keep the replication factor constant, the farmers must periodically update their plots by repopulating sectors with a new selection of pieces.
+Recall that when plotting a sector, the farmer saves the history size at the time, and it determines a point in the future when the sector will expire. When a sector reaches its expiry point, the block proposer challenge solutions coming from this sector will no longer be accepted by other peers, incentivizing the farmer to update their plot. The farmer simply erases the expired sector and repeats the Plotting process anew, replicating a fresh history sample.
+
+![Replotting](../../../src/Images/Replotting.png)
+
+In a plot spanning multiple gigabytes, the sectors will be updated in a random fashion, one at a time, so replotting is amortized over a long period. There is never a moment when a farmer needs to erase and re-create their whole plot and miss out on challenges. The plot refreshing will be practically invisible to the farmer and allow their uninterrupted participation in consensus.
