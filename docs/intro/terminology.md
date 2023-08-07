@@ -64,7 +64,7 @@ keywords:
 - old alternative names used in some context
     - executor
 
-## Clockmaster
+## Timekeeper
 - a role on the Subspace Network that is responsible for running Proof-of-Time chain and maintaining the randomness beacon for the consensus chain.
 
 ## Client

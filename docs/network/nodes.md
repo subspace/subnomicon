@@ -29,6 +29,6 @@ A Subspace Node can run in several modes depending on configuration (following S
  - a role on the Subspace Network that is responsible for running arbitrary computation on Domains, state transitions, maintaining state (liveness of the Execution Chains)
 
 
-### Clockmaster
+### Timekeeper
 - a role on the Subspace Network that is responsible for running Proof-of-Time chain and maintaining the randomness beacon for the consensus chain.
 - gossips the time proofs and randomness to the network, consumed by other nodes

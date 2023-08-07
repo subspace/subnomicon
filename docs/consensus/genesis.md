@@ -12,4 +12,6 @@ TODO
 - genesis block w random data
 - first segment archived
 - farmers plot
+- proof-of-time
 - block production
+
