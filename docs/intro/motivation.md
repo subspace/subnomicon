@@ -43,3 +43,5 @@ high levels of participation.
 ![FarmersDilemmaSolution](../../src/Images/Farmers_Dilemma_Solution.png)
 
 ## Blockchain Bloat
+
+The Subspace consensus protocol is designed to overcome the key problem of blockchain bloat, or the tendency for blockchains to become more centralized over time, especially as they scale. Bloat is a result of the desire for every full node to store the chain’s entire transaction history and resulting execution state. Subspace eliminates bloat by combining the best parts of layer-one blockchains like Ethereum, Filecoin and Chia in a unique way, resulting in a new storage based consensus protocol; a permanent distributed storage service, and a scalable off-chain execution framework. 
