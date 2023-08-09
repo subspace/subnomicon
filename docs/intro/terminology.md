@@ -84,8 +84,8 @@ An integral part of Dilithium consensus, a process of participation in the conse
 
 A collection of (potentially partial) blocks of the blockchain history
 Specifically in Subspace means two things:
-    - **Recorded History Segment**: a fixed-size portion of the Blockchain History in a buffer before Archiving. A Recorded History Segment consists of Raw Records.
-    - **Archived History Segment**: a fixed-size portion of the Archived History. An Archived History Segment is a Recorded History Segment transformed by the Archiving process. An Archived History Segment consists of Pieces. An Archived History Segment can be later turned back into a Recorded History Segment History with Reconstructing process
+- **Recorded History Segment**: a fixed-size portion of the Blockchain History in a buffer before Archiving. A Recorded History Segment consists of Raw Records.
+- **Archived History Segment**: a fixed-size portion of the Archived History. An Archived History Segment is a Recorded History Segment transformed by the Archiving process. An Archived History Segment consists of Pieces. An Archived History Segment can be later turned back into a Recorded History Segment History with Reconstructing process
 
 ## Segment Header
 
