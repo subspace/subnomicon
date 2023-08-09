@@ -15,7 +15,7 @@ Our staking model consists of two tiers:
 
 NPoS allows for virtually all SSC holders to participate, thus maintaining high levels of security by putting more value at stake and allowing more people to earn a yield based on their holdings.
 
-![DelegatedStaking](../../src/Images/DelegatedStaking.png)
+![Nomination](../../src/Images/Nomination.png)
 
 ## Power Balance 
 
