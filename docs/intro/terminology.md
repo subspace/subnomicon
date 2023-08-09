@@ -114,8 +114,8 @@ A collection of Sectors written to disk that can be used for Farming
 ## Commitment
 
 Specifically in Subspace in the context of Archiving implementation means two things:
-    - **Record Commitment:** a KZG commitment to blockchain data in a Raw Record
-    - **Segment Commitment:** a KZG commitment to hashes of all Record Commitments in an Archived History Segment
+- **Record Commitment:** a KZG commitment to blockchain data in a Raw Record
+- **Segment Commitment:** a KZG commitment to hashes of all Record Commitments in an Archived History Segment
 
 ## Reconstruction
 
