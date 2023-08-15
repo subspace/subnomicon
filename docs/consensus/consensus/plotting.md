@@ -18,7 +18,7 @@ The memory-bandwidth encoding construction comes from the paper **[Beyond Hellma
 In short, the PoS plotter generates a table of permuted outputs from a set of random functions. The size of the table is determined by a memory bandwidth requirement parameter, *k*, and the random functions are determined by a *seed*. When challenged at an *index*, the table outputs a short *proof-of-space* that can be efficiently verified.
 We do not use the Proof-of-Space directly to verify that a farmer has pledged a certain amount of space, as Chia does. Instead, we use it to prove that a farmer utilized the required memory bandwidth for encoding the plot.
 
-![PoSTable](../../../src/Images/PoS_Table.png)
+<!-- ![PoSTable](../../../src/Images/PoS_Table.png) -->
 
 ## Workflow
 
@@ -26,7 +26,7 @@ A plot can cover the entire disk or span across multiple disks, and there is no 
 
 In addition, the farmer must save the current history size, as it will determine the point in the future when the sector will need to be updated with newer pieces. 
 
-![RawSector](../../../src/Images/Raw_Sector.png)
+<!-- ![RawSector](../../../src/Images/Raw_Sector.png) -->
 
 
 Once the farmer has obtained all 1,000 pieces for this sector from the network, they can create an encoded replica. Only the piece’s historical data, the record part, is encoded. The KZG commitment and witness included in a piece are saved separately in the sector metadata, as they will be needed later for farming.
@@ -38,15 +38,15 @@ For each record, the Plotting algorithm performs the following steps:
 3. Based on this *seed*, generate a proof-of-space table using memory bandwidth resources set by the global protocol memory requirement parameter *k*. This memory-intensive computation prevents malicious farmers from creating replicas after the new block challenge is announced, making it more rational for them to store the replica rather than try to compute it on the fly every time.
 4. Given the PoS table for this record, the farmer must derive a starting index for lookup and query the table for enough ($2^{15}$) proof-of-space values to mask every chunk of the record.
 
-![PoSLookup](../../../src/Images/PoS_Lookup.png)
+<!-- ![PoSLookup](../../../src/Images/PoS_Lookup.png) -->
 
 5. Encode each extended record chunk by XOR-masking it with the corresponding proof-of-space value.
 
-![PieceEncoding](../../../src/Images/Piece_Encoding.png)
+<!-- ![PieceEncoding](../../../src/Images/Piece_Encoding.png) -->
 
 After all records in the sector have been encoded as described, the farmer spreads them into s-buckets chunk-wise. Ultimately, each bucket will contain chunks from all records. The first bucket will have the first chunks of each record, the second bucket will have the second chunks, and so on. The s-buckets are then written to disk, and the plotting process is complete.
 
-![EncodedSector](../../../src/Images/Encoded_Sector.png)
+<!-- ![EncodedSector](../../../src/Images/Encoded_Sector.png) -->
 
 Each bucket represents a potential winning ticket in the block proposer lottery. For each challenge, a farmer will scan one s-bucket containing one chunk of each record they store in a sector and see whether any of them are eligible to win a block.
 
@@ -57,6 +57,6 @@ As a result, a farmer has a unique encoded replica that is difficult to compress
 As the chain grows, we need a way to ensure that new data is replicated as much as older data in blockchain history. To keep the replication factor constant, the farmers must periodically update their plots by repopulating sectors with a new selection of pieces.
 Recall that when plotting a sector, the farmer saves the history size at the time, and it determines a point in the future when the sector will expire. When a sector reaches its expiry point, the block proposer challenge solutions coming from this sector will no longer be accepted by other peers, incentivizing the farmer to update their plot. The farmer simply erases the expired sector and repeats the Plotting process anew, replicating a fresh history sample.
 
-![Replotting](../../../src/Images/Replotting.png)
+<!-- ![Replotting](../../../src/Images/Replotting.png) -->
 
 In a plot spanning multiple gigabytes, the sectors will be updated in a random fashion, one at a time, so replotting is amortized over a long period. There is never a moment when a farmer needs to erase and re-create their whole plot and miss out on challenges. The plot refreshing will be practically invisible to the farmer and allow their uninterrupted participation in consensus.

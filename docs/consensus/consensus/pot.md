@@ -20,13 +20,13 @@ Every slot, farmers receive the fresh global randomness and audit their plots to
 
 Every interval of 18 blocks, randomness from the consensus chain is injected back to the PoT chain to counter any speedups gained by adversarial nodes in the previous interval. This also prevents an adversary from simulation a PoT chain without also having to simulate a consensus chain fork. The injection takes the hash of a deep consensus block header as the new seed for the PRP function.
 
-![ProofOfTimeChallenges](../../../src/Images/PoTChallenges.png)
+<!-- ![ProofOfTimeChallenges](../../../src/Images/PoTChallenges.png) -->
 
 ## Function Choice
 We choose AES for the iterated function because there is already a extremely efficient hardware and software implementation using hardware acceleration instructions, and we don't expect a significant speedup over this.
 Every time slot Timekeepers publish the output of AES-128 run for a specified number of iterations. Alongside the output, they publish a set of intermediate checkpoints, currently 8, spaced uniformly. 
 
-![ProofOfTime](../../../src/Images/ProofofTime.png)
+<!-- ![ProofOfTime](../../../src/Images/ProofofTime.png) -->
 
 The inclusion of checkpoints allows other nodes to validate the output ~6.5 times faster and using ~4x less power than evaluation by leveraging instruction level parallelism.
 On consumer hardware it is estimated that validating the PoT outputs expends ~2.7 kWh of electricity monthly per node, ~80000x less than PoW consensus.
