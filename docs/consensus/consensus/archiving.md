@@ -21,7 +21,7 @@ A *record* of blockchain history is a vector of $2^{15}$ *chunks*.
 A *chunk* is the smallest atomic unit of data measurement in Subspace. A *chunk* is a field element for KZG and is 254 bits in size. In most cases, we round it up to 32 bytes by padding with zero for convenience. 
 
 A *piece* is a *record* concatenated with a *KZG commitment* and a *witness* of inclusion in a specific *segment*.
-![Piece](../../../src/Images/Piece.png)
+<!-- ![Piece](../../../src/Images/Piece.png) -->
 
 
 The Archiving process produces *segments* of *pieces*.
@@ -38,7 +38,7 @@ The blockchain history data is eligible for archiving when it reaches the confir
 Step 4 allows us to show that the erasure coding of data was performed correctly: the secret ingredient is the homomorphic property of KZG. As a result, the extended commitments (the yellow ones on the diagram below) obtained by erasure-coding the source commitments are the same as if we were to commit to the extended rows.
 
 
-![Segment](../../../src/Images/Archived_Segment.png)
+<!-- ![Segment](../../../src/Images/Archived_Segment.png) -->
 
 After step 4, the Archiver has produced 256 records and 256 commitments to those records. 
 

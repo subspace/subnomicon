@@ -23,7 +23,7 @@ towards consensus. Rational farmers will always choose the latter,
 at best becoming light clients, while at worst encouraging pooled
 farming under a few trusted operators. 
 
-![FarmersDilemma](../../src/Images/Farmers_Dilemma.png)
+<!-- ![FarmersDilemma](../../src/Images/Farmers_Dilemma.png) -->
 
 To resolve this dilemma,
 we created Subspace, a PoC blockchain in which farmers
@@ -40,7 +40,7 @@ reduces the storage and compute overhead needed to operate a
 farmer, even in an Ethereum-style execution model, allowing for
 high levels of participation.
 
-![FarmersDilemmaSolution](../../src/Images/Farmers_Dilemma_Solution.png)
+<!-- ![FarmersDilemmaSolution](../../src/Images/Farmers_Dilemma_Solution.png) -->
 
 ## Eliminating Blockchain Bloat
 

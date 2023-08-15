@@ -45,6 +45,10 @@ An application-specific blockchain anchored and validated by the Subspace Networ
 
 An application-specific blockchain that operators use to run the state transitions over transaction bundles, that blindly follows the consensus of the Consensus Chain and deterministically executes transaction bundles in the order defined by the Consensus Chain.
 
+## Domain Epoch
+
+An interval, in domain chain blocks, between each stake allocation re-adjustment. Operator stakes are fixed at the start of the epoch for its duration. At the end of each epoch, the stake distribution is adjusted based on new stake deposits, withdrawal requests and slashing events.
+
 ## Node
 
 A participant in the P2P network. A node connects to other nodes on the P2P network, maintains history and state, can do block production for consensus, all things around execution, serve as an endpoint for client or farmer, etc. Encompasses the various roles like Farmer, Domain Operator, Timekeeper, etc.

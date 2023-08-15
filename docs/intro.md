@@ -23,7 +23,7 @@ Subnomicon provides a comprehensive overview of the Subspace Protocol, covering 
 7. Blockspace Marketplace (Coming soon) - *How Subspace prices blockspace through a two-sided marketplace.*
 8. Governance (Coming soon) - *How Subspace protocol is governed by the community.*
 
-## ❓ Learn About the Subspace Network 
+## Learn About the Subspace Network 
 ---
 - [What is the Subspace Network](https://subspace.network/technology)
 - [Frequently Asked Questions](https://subspace.network/faq)
