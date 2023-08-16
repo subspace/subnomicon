@@ -7,7 +7,7 @@ keywords:
   - Motivation
   - Goals
 ---
-Designed from first principles, the Subspace Protocol resolves several systemic problems within the industry:
+Designed from first principles, the Subspace Protocol resolves several key challenges within the industry:
 
 ## Resolving Farmer's Dilemma
 
@@ -51,7 +51,9 @@ To resolve the problem of state-bloat, Subspace introduces a decoupled execution
 
 ## Scaling Blockspace
 
-The overall execution throughput is ultimately constrained by the blockspace bandwidth. Blockspace is space on a blockchain that can run code or store data. To be optimal, our scalability framework should then seek to increase the blockspace linearly as more nodes contribute resources to the network – without reducing security or decentralization. Subspace achieves optimal scalability through Orthogonal Execution (OE), by first horizontally scaling the blockspace of the base data availability layer and then vertically scaling the transaction throughput for each domain. OE starts with the unique properties of the Subspace core protocol and extends them with several ideas originating within the Tse Lab at Stanford University. These include the Prism protocol for vertical scaling, the Free2Shard protocol for horizontal scaling, the Semi-AVID-PR scheme for distributed data-availability, and Ebb-and-Flow protocols for flexible finality.
+The overall execution throughput is ultimately constrained by the blockspace bandwidth. Blockspace is space on a blockchain that can run code or store data. To be optimal, our scalability framework should then seek to increase the blockspace linearly as more nodes contribute resources to the network – without reducing security or decentralization. 
+
+Subspace achieves optimal scalability through Orthogonal Execution (OE), by first horizontally scaling the blockspace of the base data availability layer and then vertically scaling the transaction throughput for each domain. OE starts with the unique properties of the Subspace protocol and extends them with several ideas originating within the Tse Lab at Stanford University. These include the Prism protocol for vertical scaling, the Free2Shard protocol for horizontal scaling, the Semi-AVID-PR scheme for distributed data-availability, and Ebb-and-Flow protocols for flexible finality.
 
 ## Aligning Incentives for Optimal Scalability
 
