@@ -20,7 +20,7 @@ Subspace is a modular blockchain network, divided into a base-layer root chain, 
 
 ## Permissionless Peer-to-peer Network
 
-The Subspace Netwok is a permissionless peer-to-peer network where any peer can participate as a farmer by storing data and proposing new blocks or as an operator by executing transactions.
+The Subspace Network is a permissionless peer-to-peer network where any peer can participate as a farmer by storing data and proposing new blocks or as an operator by executing transactions.
 
 The [hardware requirements](https://docs.subspace.network/docs/protocol/cli#system-requirements) for farmers are minimal, requiring only an SSD drive and commodity CPU to participate, making it one of the most decentralized blockchain networks.
 
@@ -31,6 +31,8 @@ The DSN ensures all chain is stored in a load-balanced, fault-tolerant, and effi
 
 Farmers are incentivized to store data through block rewards and fees. They do not have to store the blockchain history alongside their plot and can dedicate all of the available space to farming.
 
-## EVM
+## Execution Environment
 
-As the first execution domain launched with Subspace Network, the EVM domain supports running Ethereum smart contracts and executing Ethereum transactions. This allows Ethereum dApps and DeFi protocols to run on Subspace with significantly higher throughput, lower costs, and improved scalability.
+The Subspace Network decouples consensus from computation by separating transaction execution onto independent domains. Domains can support any conceivable state transition framework and are execution environment agnostic.
+
+As the first execution domain launched with Subspace Network, the Ethereum Virtual Machine (EVM) domain supports running Ethereum smart contracts and executing Ethereum transactions. This allows Ethereum dApps and DeFi protocols to run on Subspace with significantly higher throughput, lower costs, and improved scalability.

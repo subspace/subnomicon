@@ -36,7 +36,7 @@ For each record, the Plotting algorithm performs the following steps:
 1. Erasure code (extend) the record data by interpolating a polynomial over chunks of the record. 
 2. Derive a unique pseudorandom and verifiable *seed*.
 3. Based on this *seed*, generate a proof-of-space table using memory bandwidth resources set by the global protocol memory requirement parameter *k*. This memory-intensive computation prevents malicious farmers from creating replicas after the new block challenge is announced, making it more rational for them to store the replica rather than try to compute it on the fly every time.
-4. Given the PoS table for this record, the farmer must derive a starting index for lookup and query the table for enough ($2^{15}$) proof-of-space values to mask every chunk of the record.
+4. Query the PoS table for enough ($2^{15}$) proof-of-space values to mask every chunk of the record.
 
 <!-- ![PoSLookup](../../../src/Images/PoS_Lookup.png) -->
 

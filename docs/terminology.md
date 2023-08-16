@@ -1,6 +1,6 @@
 ---
 title: Terminology
-sidebar_position: 2
+sidebar_position: 4
 description: Definitions for all things Subspace
 keywords:
     - Terminology

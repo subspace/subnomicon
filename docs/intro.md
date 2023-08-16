@@ -11,11 +11,13 @@ keywords:
 Subspace is the first layer-one blockchain that is able to fully resolve the blockchain trilemma. 
 ![Trilemma](../src/Images/Trilemma.png)
 
-This seemingly impossible problem is solved by virtue of Subspace’s unique storage-based consensus design, which allows it to efficiently price blockspace (the space on a blockchain that can run code or store data). Subspace does this by creating the world’s first two-sided marketplace for blockspace, allowing it to have a dynamic on-chain cost-of-blockspace and a stable off-chain price-of-blockspace. When combined with existing scalability frameworks, Subspace is able to achieve linear scaling of the blockspace as more nodes join the network, without sacrificing security or decentralization. This massive scalability allows Subspace to serve as the leading Web3 backend infrastructure provider supporting Internet-scale. 
+We have built Subspace from first principles to achieve scalability, security and decentralization simultaneously. At its core, Subspace introduces a novel storage-based consensus protocol that separates consensus from execution. This allows Subspace to scale transaction throughput and storage requirements independently while maintaining a fully decentralized blockchain.
+ 
 ## Scope
 Subnomicon provides a comprehensive overview of the Subspace Protocol, covering the following:
-1. [Background & Motivation](/docs/category/background) - *Why Subspace was created and the issues it aims to solve.*
-2. [Architecture Overview](/docs/overview) - *The modular architecture and design principles.*
+
+1. [Architecture Overview](/docs/overview) - *The Subspace modular architecture.*
+2. [Advancing Blockchain](/docs/advancements) - *How Subspace advances the state of blockchain technology.*
 3. [Consensus Mechanism](/docs/category/dilithium-consensus) - *How Subspace achieves consensus through its storage-based design.*
 4. [Network Architecture](/docs/category/network-architecture) - *How Subspace is structured as a decentralized network.*
 5. [Decoupled Execution](/docs/category/decoupled-execution) - *How Subspace separates consensus and computation.*
