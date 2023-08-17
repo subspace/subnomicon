@@ -31,3 +31,7 @@ If the farmer finds a winning chunk for the current block challenge, they perfor
 6. Compute a KZG witness that the winning chunk belongs to a piece in the archived history. 
 
 Finally, the farmer can propose a block with the attached solution and proof of a valid solution.
+
+## Difficulty Adjustment
+
+Similarly to Bitcoin, Dilithium uses an automatic difficulty adjustment mechanism to address fluctuations in network storage and keep block times relatively stable. Subspace targets a block time of approximately 6 seconds. The difficulty is adjusted every 2016 blocks based on the actual time it took to farm the previous 2016 blocks.

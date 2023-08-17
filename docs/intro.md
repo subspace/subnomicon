@@ -17,7 +17,7 @@ We have built Subspace from first principles to achieve scalability, security an
 
 We have been drawn to the crypto space because of the opportunity it presents for a more open and inclusive future. However, the reality today is far from the dream. We set out to build the Subspace Network to address this gap at a fundamental level and be a network able to realize Nakamoto’s original vision for a more equitable and decentralized future.
 
-Subspace Netwrok was designed from the ground up to achieve this vision - by:
+Subspace Network was designed from the ground up to achieve this vision - by:
 
 1. Providing an energy-efficient and eco-friendly alternative to crypto mining, which still allows for mass participation by ordinary users.
 2. Creating an incentive-compatible network, that resists pooling and is able to encourage and maintain decentralization over the long-term.
