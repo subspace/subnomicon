@@ -29,6 +29,7 @@ We have been very intentional about solving these problems in a manner that refl
 - The power to control a blockchain network should be distributed amongst as many stakeholders as possible — we are unapologetic *decentralization maximalists*
 - The barriers to entry should be as low as possible, allowing access to anyone who desires to participate — we believe blockchains should be *permissionless systems*
 - Everyone who participates in the system should be treated equally, regardless of the resources at their disposal — the network should be *fair for all*
+- The time and effort we have spent building the Subspace Network should benefit the entire ecosystem, not just ourselves — we believe in *open source collaboration* and *sharing knowledge* for the betterment of all
 
 ## Scope
 Subnomicon provides a comprehensive overview of the Subspace Protocol, covering the following:
@@ -48,5 +49,6 @@ Subnomicon provides a comprehensive overview of the Subspace Protocol, covering 
 - [Frequently Asked Questions](https://subspace.network/faq) -->
 - [Whitepaper - *Summarized*](https://subspace.network/news/subspace-network-whitepaper)
 - [Whitepaper - *Full Length*](https://assets.website-files.com/61526a2af87a54e565b0ae92/617759c00edd0e3bd279aa29_Subspace_%20A%20solution%20to%20the%20farmer%27s%20dilemma.pdf)
+- [Reference Implementation](https://github.com/subspace/subspace)
 
 

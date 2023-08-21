@@ -127,7 +127,7 @@ A process of transforming Archived History back into Blockchain History. Specifi
 
 ## SSC    
 
-Short for Subspace Credit, the native token of Subspace Network. SSC is used to pay transaction fees, participate in staking/farming, and more.
+Short for Subspace Credit, the native token of Subspace Network. While SSC is both integral to and necessary for the operation of the Subspace Network, it is intended as a utility currency to pay for use of the Subspace (i.e., transaction fees, domains leader election, etc.).
 
 ## Subspace CLI
 

@@ -57,7 +57,7 @@ Subspace achieves optimal scalability through Orthogonal Execution (OE), by firs
 
 ## Aligning Incentives for Optimal Scalability
 
-Subspace includes a novel algorithm to dynamically adjust the cost of blockspace, in response to changes in supply and demand, such that the network naturally remains incentive compatible, both for farmers, providing storage and data availabilty bandwidth, and for operators providing raw compute power. 
+Subspace includes a novel algorithm to dynamically adjust the cost of blockspace, in response to changes in supply and demand to economically secure the network in an open environment. Such adjustment naturally keeps the network incentive compatible, both for farmers, providing storage and data availabilty bandwidth, and for operators providing raw compute power. 
 
 Subspace creates the world’s first two-sided marketplace for blockspace, allowing it to have a dynamic on-chain cost-of-blockspace and a stable off-chain price-of-blockspace without relying on centralized control or coordination.
 On one side are the farmers, who collectively supply blockspace bandwidth through their storage of the blockchain history. On the other side are dApp developers and users, who demand blockspace to deploy and run their applications. Subspace’s marketplace algorithm adjusts the on-chain cost-of-blockspace paid out to farmers based on real-time supply and demand. When demand is high, the cost rises to incentivize more farmers to join. When demand is low, the cost falls to disincentivize over-investment in storage. This dynamic adjustment process occurs transparently on-chain through the protocol rules.
