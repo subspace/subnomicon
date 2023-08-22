@@ -30,7 +30,7 @@ A bundle contains multiple transactions in a particular domain (e.g. EVM contrac
 - The Merkle root of the trie of transactions included in this bundle
 - Execution receipt that should extend the receipt chain
 - The size of the bundle body in bytes, used to calculate the storage cost
-- The total (estimated) weight of all extrinsics in the bundle, used to prevent overloading the bundle with compute.
+- The total estimated weight of all extrinsics in the bundle, used to prevent overloading the bundle with compute.
 - The time slot claimed by the bundle
 - The global randomness at the claimed time slot derived from the proof-of-time chain
 - The proof-of-election of the operator as bundle producer for the claimed time slot based on slot challenge and operator's stake in the current epoch

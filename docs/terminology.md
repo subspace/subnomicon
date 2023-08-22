@@ -129,6 +129,12 @@ A process of transforming Archived History back into Blockchain History. Specifi
 
 Short for Subspace Credit, the native token of Subspace Network. While SSC is both integral to and necessary for the operation of the Subspace Network, it is intended as a utility currency to pay for use of the Subspace (i.e., transaction fees, domains leader election, etc.).
 
+## Shannon
+
+A Shannon is the smallest unit of an SSC, equal to $10^{-18}$ SSC. SSCs are divisible up to 18 decimal places to allow for microtransactions.
+
+Shannon is named after Claude Shannon, a mathematician, electrical engineer, and cryptographer known as "the father of information theory". His work was central to the rise of digital computing and laid the foundations for the information age.
+
 ## Subspace CLI
 
 A Command Line Interface application automates the tasks of Subspace Farmers and Executors by running an instance of Farmer and Full Node within the same terminal instance

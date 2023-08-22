@@ -43,7 +43,7 @@ As the first execution domain launched with Subspace Network, the Ethereum Virtu
 
 ## Software Client
 
-The Subspace Network software client open source reference implementation is maintained by Subspace Labs. It is written in Rust and provides a full-featured CLI for farmers and operators to participate in the network.
+The Subspace Network software client open source reference implementation is maintained by Subspace Labs. It is written in Rust based on Substrate and provides a full-featured CLI for farmers and operators to participate in the network.
 
 ## Subspace 
 
