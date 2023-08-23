@@ -14,6 +14,7 @@ In PoAS, farmers (not miners) store as many unique pieces of the blockchain hist
 <!-- ![ConsensusPhases](../../src/Images/Consensus_Phases.png) -->
 
 Formally, PoAS is a three phase protocol, consisting of:
+- an initial **Genesis** phase (starting the chain)
 - a recurring deterministic **Archiving** phase (given new blocks of the chain, constructing a canonical history)
 - a unique setup or **Plotting** phase done individually by each farmer (given the canonical history of the blockchain, generate a unique replica (the plot) and store it on disk)
 - a probabilistic audit phase, known as **Farming** (given a challenge from a secure randomness beacon, audit the plot for a solution that satisfies some threshold, return a proof, and propose a block). The audit is based on a recurring slot challenge from a secure randomness beacon, with a frequency of one timeslot per second. 
