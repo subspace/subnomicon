@@ -27,7 +27,7 @@ The result of executing transactions on a blockchain (like state of account bala
 
 ## Dilithium
 
-The Subspace Network Proof-of-Archival-Storage consensus mechanism that describes Archiving, Plotting, Audit, Proving and Verificatio, including Proof-of-Space and Proof-of-Time components.
+The Subspace Network Proof-of-Archival-Storage consensus mechanism that describes Archiving, Plotting, Audit, Proving and Verification, including Proof-of-Space and Proof-of-Time components.
 
 ## Consensus Chain
 
