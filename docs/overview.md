@@ -1,7 +1,7 @@
 ---
 title: Architecture Overview
 sidebar_position: 2
-description: Overview the Subspace Network
+description: Overview of the Subspace Network
 keywords:
     - Architecture
     - Overview
@@ -29,7 +29,7 @@ Operators are free to choose any infrastructure that meets their performance and
 
 ## Data Availability
 
-The Consensus layer provides Data Availibility through the Dilithium Proof-of-Archival-Storage protocol. The chain data is distributed across the network of farmers who store and serve the blockchain history via the Distributed Storage Network (DSN). 
+The Consensus layer provides Data Availability through the Dilithium Proof-of-Archival-Storage protocol. The chain data is distributed across the network of farmers who store and serve the blockchain history via the Distributed Storage Network (DSN). 
 
 The DSN ensures all chain data is stored in a load-balanced, fault-tolerant, and efficiently retrievable manner across all farmers.
 
@@ -47,4 +47,4 @@ The Subspace Network software client open source reference implementation is mai
 
 ## Subspace 
 
-We often use the term "Subspace" interchangeably to refer to the entire system including the consensus layer, domains, and distributed storage network as well the client applications and developer tools built on top. Together this creates an open, scalable and interoperable blockchain infrastructure to power the decentralized applications and services of the future.
+We often use the term "Subspace" interchangeably to refer to the entire system including the consensus layer, domains, and distributed storage network as well as the client applications and developer tools built on top. Together this creates an open, scalable and interoperable blockchain infrastructure to power the decentralized applications and services of the future.

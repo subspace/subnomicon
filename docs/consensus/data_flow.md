@@ -12,7 +12,7 @@ keywords:
 From the moment a transaction is submitted to the Subspace blockchain to the point it is permanently archived, data goes through several stages:
 1. Transaction is validated and included in a consensus chain block directly or through inclusions of domain bundles
 2. Transactions and bundles in the block are executed, activating a global and domain state change
-3. When that block reaches certain depth (currently 100 blocks) it is archived following the Archiving protocol alongside other blocks. At this point it irrereversibly becomes a part of Archival History of chain
+3. When that block reaches certain depth (currently 100 blocks) it is archived following the Archiving protocol alongside other blocks. At this point it irreversibly becomes a part of Archival History of chain
 4. Newly archived pieces are added to farmer caches through the Distributed Storage Network and replicated multiple times throughout the network
 5. From there they are encoded into farmer plots on disk for permanent storage, following the Plotting protocol
 6. When requested by a client, the original data is reconstructed from archived pieces on the fly
