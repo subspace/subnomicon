@@ -33,7 +33,8 @@ Pieces cache layer serves to quickly get pieces for data reconstruction and farm
 The piece cache layer stores pieces in the DHT by the proximity of piece index hash to peer ID. While any peer can store pieces in the L2 cache, at the moment we mostly rely on farmers as the most suitable candidates for pieces L2. Farmers dedicate a tiny part of their total pledged storage space to store L2 pieces. Several farmers closest to each other as peers by peer ID may store the same piece, determined by the overall storage network replication factor.
 
 Piece cache layer is populated as follows:
-- New pieces are produced by nodes during the Archiving process. 
+- New segments of pieces are produced by nodes during the Archiving process. 
+- Nodes temporarily store in their cache the new segments they produce.
 - Farmers receive the segment index from the latest block header from the connected node. 
 - Farmers derive the piece index hashes from the segment index and compare their peer ID with those hashes to determine whether they should download any pieces from this segment to their L2. 
 - Farmers pull relevant pieces to their local L2 cache.

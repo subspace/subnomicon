@@ -13,7 +13,7 @@ Subspace networking stack is based on libp2p and implements Subspace-specific pr
 
 ## Transaction Propagation
 
-Transactions are gossiped across the network to ensure nodes have a consistent view of unconfirmed transactions. The Subspace Network uses a flooding mechanism to propagate transactions to peers. When a node receives a new transaction, it first validates the transaction and if valid, adds it to their transaction pool and broadcasts it to all of its directly connected peers. As soon as a connected peer receives the transaction, they verify its validity. If deemed valid, they retain a copy and share it with all their connected peers, excluding the one from which it was received. Consequently, the transaction disseminates from its source, spreading throughout the network, like a flood, ensuring every node gets a copy. 
+Transactions are propagated across the network to ensure nodes have a consistent view of unconfirmed transactions. The Subspace Network uses a gossip mechanism to propagate transactions to peers. When a node receives a new transaction, it first validates the transaction and if valid, adds it to their transaction pool and broadcasts it to all of its directly connected peers. As soon as a connected peer receives the transaction, they verify its validity. If deemed valid, they retain a copy and share it with all their connected peers, excluding the one from which it was received. Consequently, the transaction disseminates from its source, spreading throughout the network, like a flood, ensuring every node gets a copy. 
 
 ## Block and Bundle Relay
 
@@ -30,7 +30,7 @@ Subspace Network employs an adaptive synchronization protocol to efficiently syn
 ### DSN Sync
 
 DSN Sync is a specialized sync method made possible by the unique way Subspace archives the chain data and stores in the Distributed Storage Network (DSN). 
-The DSN sync is attempted every time a node joins the network or detects it is more than a hundred blocks behind the network tip. The node first gathers information from its peers about the latest archived segment headers to see whether there has been any new data archived sin/ce it last synced. If there are new segments available, it downloads the headers and verifies whether they form a chain. Once verified, it downloads full segment data from the DSN, verifies commitments and locally reconstructs blocks from pieces. The DSN Sync allows a node to sync hundreds or thousands of blocks in one shot by downloading archived data directly from the DSN rather than fetching individual blocks from peers.
+The DSN sync is attempted every time a node joins the network or detects it is more than a hundred blocks behind the network tip. The node first gathers information from its peers about the latest archived segment headers to see whether there has been any new data archived since it last synced. If there are new segments available, it downloads the headers and verifies whether they form a chain. Once verified, it downloads full segment data from the DSN, verifies commitments and locally reconstructs blocks from pieces. The DSN Sync allows a node to sync hundreds or thousands of blocks in one shot by downloading archived data directly from the DSN rather than fetching individual blocks from peers.
 Once the node has downloaded all missing segments and imported archived history, it then switches to syncing the recent blocks from other nodes until it reaches the network tip.
 
 ## Piece Retrieval
