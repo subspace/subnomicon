@@ -10,7 +10,8 @@ keywords:
 ---
 
 ## Node Configurations
-A Subspace Node can run in several modes depending on configuration (following Substrate naming):
+A Subspace Node can run in several modes depending on configuration:
+
 ### Full Node
 
 Full Nodes participate fully in the network by processing all blocks, participating in consensus, and serving peers. Full nodes retain recent history and state for a configurable number of recent blocks until it is archived and pruned. A full node is a default configuration for farmers and operators.
