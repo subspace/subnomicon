@@ -26,7 +26,7 @@ There is also an initial [**Genesis** phase](genesis.md) that starts the chain.
 
 For those familiar with our initial consensus design, *Dilithium* fulfills all the fundamental ideas described in the original [whitepaper](https://subspace.network/news/subspace-network-whitepaper) but implements them better.
 
-## *Technical Overview*
+## Technical Overview
 
 Similar to other proof-of-capacity projects, the resource that participants allocate to secure the Subspace network is
 disk space. As a resource, disk space is widely distributed and in general the notion of an ASIC does not apply to
