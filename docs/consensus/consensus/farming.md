@@ -13,7 +13,7 @@ The plot audits are designed to be SSD-friendly by favoring the random read appr
 
 <!-- ![Farming](../../../src/Images/Farming.png) -->
 
-After the farmer plots at least one sector, they can begin farming. As soon as they observe a new challenge from the global randomness beacon, the farmer audits each plot sector for a solution and proposes a block if they find one, as follows:
+After the farmer plots at least one sector, they can begin farming. As soon as they observe a new challenge from the global randomness beacon, the farmer scans each plot sector for a solution and proposes a block if they find one, as follows:
 
 1. For each sector, derive a corresponding audit index.
 2. Read from disk the s-bucket at that index.
