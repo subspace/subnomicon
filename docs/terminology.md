@@ -29,6 +29,7 @@ The result of executing transactions on a blockchain (like state of account bala
 
 The Subspace Network Proof-of-Archival-Storage consensus mechanism which defines Archiving, Plotting, Farming, Proving and Verification, including Proof-of-Space and Proof-of-Time components.
 
+
 ## Consensus Chain
 
 A blockchain over which farmers achieve consensus. A lightweight, quick to sync chain, free from most of the computation to reduce the storage and computation overhead for Farmers.

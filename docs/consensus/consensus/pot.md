@@ -24,6 +24,7 @@ Every 50 blocks, entropy from the consensus chain is injected back into the PoT 
 
 ## Function Choice
 We choose AES for the iterated function because there is already an extremely efficient hardware and software implementation using hardware acceleration instructions, and we don't expect a significant speedup over this.
+
 Every time slot, Timekeepers publish the output of AES-128 run for a specified number of iterations. Alongside the output, they publish a set of intermediate checkpoints, currently 8, spaced uniformly. 
 
 <!-- ![ProofOfTime](../../../src/Images/ProofofTime.png) -->

@@ -19,7 +19,7 @@ Digital signature scheme secures different parts of consensus by providing a mea
 
 We currently use Schnorr/Ristretto x25519 (also known as sr25519) as the key derivation and signing algorithm (with the [schnorrkel](https://github.com/w3f/schnorrkel) library).
 
-- Non-canonical Schnorr signatures are used to sign rewards for a newly forged block (as defined in Substrate) and votes by farmers, as well transactions and transaction bundles by domain operators.
+- Non-canonical Schnorr signatures are used to sign rewards for a newly forged block (as defined in Substrate) and votes by farmers, as well as transactions and transaction bundles by domain operators.
 - Canonical (deterministic) signatures are used as a verifiable random function (VRF) in the slot leader election among domain operators. A canonical scheme is necessary for these cases to prevent attackers from repeatedly signing until they produce an election solution that meets the threshold (as part of a grinding attack).
 
 ## Erasure Code

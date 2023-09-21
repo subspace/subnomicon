@@ -10,6 +10,7 @@ keywords:
 ---
 
 From the moment a transaction is submitted to the Subspace blockchain to the point it is permanently archived, data goes through several stages:
+
 1. Transaction is validated and included in a consensus chain block directly or through inclusions of domain bundles.
 2. Transactions and bundles in the block are executed, activating a global and domain state change.
 3. When that block reaches a certain depth (currently 100 blocks), it is archived following the Archiving protocol alongside other blocks. At this point, it irreversibly becomes a part of the Archival History of the chain.
