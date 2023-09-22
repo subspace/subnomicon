@@ -31,7 +31,7 @@ For those familiar with our initial consensus design, *Dilithium* fulfills all
 
 Similar to other proof-of-capacity projects, the resource that participants allocate to secure the Subspace network is
 disk space. As a resource, disk space is widely distributed and in general the notion of an ASIC does not apply to
-storage. As such, the protocol has the Subspace protocol has the potential to be highly decentralized and more fair than
+storage. As such, the Subspace protocol has the potential to be highly decentralized and more fair than
 other blockchain protocols.
 
 Unlike other proof-of-capacity projects where the data stored is some "cryptographic data", uniquely generated per
