@@ -62,3 +62,26 @@ show that sufficient time has passed for the lifespan of this fork. In other wor
 spend a significant amount of sequential work in maintaining the attack.
 
 For more information about how proof of time is used see [this page](consensus/pot.md).
+
+# Security against attacks on proof of capacity / storage
+
+The masking function that we apply during farmer's plot creation has specific properties that help us in preventing the 
+following attacks on the protocol.
+
+## Time-Memory algorithms (plot compression)
+
+We adopt the function described in the work ["Beyond Hellman's Time-Memory Trade-Offs with Applications to Proofs of Space"](https://eprint.iacr.org/2017/893) 
+as our masking function. This function is designed such that the gain in trading computation (time) over storage (memory) 
+is very small.
+
+## On-the-fly plot creation
+
+Preventing farmers from creating plots on the fly, after seeing the challenge, has two favours.
+First, the masking 
+function is memory hard, which means that creating a plot is constrained by the amount of memory the farmer has, as well 
+as the rate of the memory IO operations it can perform.
+Secondly, creating plots on demand is not economical, hence not a rational choice. Because of the different resource 
+requirements in running the masking function, the cost of running it to simulate some (sufficiently high) amount of 
+storage is significantly higher than the cost of purchasing this amount of storage, plotting once (more precisely, 
+according to the protocol specification) and maintaining a farmer. In other words, a farmer who is willing to spend the 
+cost for on-demand plotting is better off spending this cost on "real" plotting. 
