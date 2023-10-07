@@ -17,9 +17,9 @@ keywords:
 A complex system like the Subspace protocol has many potential attack vectors, some are more general, blockchain related, 
 while other are focused on proof of capacity and specifically proof of archival storage, as used in Subspace.  
 
-This page attempts to give an overview of how such attacks are mitigated in the Subspace protocol. There are many things
- to cover, so the reader should be aware that at the current state this page is not exhaustive. Furthermore, the 
-presentation mostly highlights the techniques used.
+This page gives an overview of how such attacks are mitigated in the Subspace protocol. There are many things 
+to cover, so the reader should be aware that at the current state this page is not exhaustive. Furthermore, the 
+presentation mostly highlights the techniques and methods, without the full technical details.
 For detailed security analysis please refer to our paper [Dilithium: A Proof-of-Archival-Storage Consensus Protocol for Subspace](https://github.com/subspace/consensus-v2-research-paper).
 
 # Security against general blockchain attacks
@@ -28,12 +28,12 @@ For detailed security analysis please refer to our paper [Dilithium: A Proof-of-
 
 To prevent grinding on block challenges, we use the proof-of-time outputs to draw unique challenges.
 
-Unlike in proof-of-work-based blockchains, where the "challenge" for block creation comes from the previous block, in 
-Subspace this is not the case, as changing the block content does not affect the proof of space validity. Instead, 
-challenges are unique (and unpredictable), and are based on the network's proof of time component. In more detail, the 
-blockchain progress is based on "timeslots", where each timeslot is associated with a run of the proof of time 
-algorithm. We use the algorithm output to draw a block challenge for this timeslot. By design, grinding on proof of 
-time is extremely hard.
+In proof-of-work-based blockchains the "challenge" for block creation comes from the full previous block.
+The Subspace protocol cannot follow this approach, as changing the block content does not affect the proof of space 
+validity. Instead, challenges are unique (and unpredictable), and are based on the network's proof of time component. 
+In more detail, the blockchain progress is based on "timeslots", where each timeslot is associated with a run of the 
+proof of time algorithm. We use the algorithm output to draw a block challenge for this timeslot. By design, grinding 
+on proof of time is extremely hard.
 
 For more information about the proof of time component see [this page](consensus/pot.md).
 
@@ -76,10 +76,9 @@ is very small.
 
 ## On-the-fly plot creation
 
-Preventing farmers from creating plots on the fly, after seeing the challenge, has two favours.
-First, the masking 
-function is memory hard, which means that creating a plot is constrained by the amount of memory the farmer has, as well 
-as the rate of the memory IO operations it can perform.
+Preventing farmers from creating plots on the fly, after seeing the challenge, has two flavors.
+First, the masking function is memory hard, which means that creating a plot is constrained by the amount of memory the 
+farmer has, as well as the rate of the memory IO operations it can perform.
 Secondly, creating plots on demand is not economical, hence not a rational choice. Because of the different resource 
 requirements in running the masking function, the cost of running it to simulate some (sufficiently high) amount of 
 storage is significantly higher than the cost of purchasing this amount of storage, plotting once (more precisely, 
