@@ -15,7 +15,7 @@ keywords:
 - Detecting Long-Range Attacks -->
 
 A complex system like the Subspace protocol has many potential attack vectors, some are more general, blockchain related, 
-while other are focused on proof of capacity and specifically proof of archive storage, as used in Subspace.  
+while other are focused on proof of capacity and specifically proof of archival storage, as used in Subspace.  
 
 This page attempts to give an overview of how such attacks are mitigated in the Subspace protocol. There are many things
  to cover, so the reader should be aware that at the current state this page is not exhaustive. Furthermore, the 
