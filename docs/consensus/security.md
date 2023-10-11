@@ -1,6 +1,6 @@
 ---
 title: Security
-sidebar_position: 5
+sidebar_position: 6
 description: Resistance to attacks
 keywords:
     - Consensus
@@ -8,11 +8,8 @@ keywords:
     - Attacks
 ---
 <!-- TODO
-- Deterring Compression
-- Preventing Grinding
-- Constraining Simulation
 - Handling Equivocation
-- Detecting Long-Range Attacks -->
+ -->
 
 A complex system like the Subspace protocol has many potential attack vectors, some are more general, blockchain related, 
 while other are focused on proof of capacity and specifically proof of archival storage, as used in Subspace.  
