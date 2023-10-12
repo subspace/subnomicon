@@ -26,7 +26,7 @@ On the other hand, in Bitcoin it takes a long time to mine such a chain from the
 
 ## Arrow of Time
 
-Subspace's Proof-of-Time component addresses long-range attacks by enforcing an arrow of time similar to PoW protocols. PoT guarantees a certain amount of wall-clock time must elapse between block proposals, preventing an adversary from rewriting history by "going back in time". Similar to PoW, Proof-of-Time is constrained physically, however it is not parallelizable (technically, it is proof of _sequential_ work). We prevent the aforementioned attack by integrating the blockchain with a Proof-of-Time process. The attacker can not immediately generate a years-long fork on the spot even with faster hardware.
+Subspace's Proof-of-Time component addresses long-range attacks by enforcing an arrow of time similar to PoW protocols. PoT guarantees that a certain amount of wall-clock time must elapse between block proposals, preventing an adversary from rewriting history by "going back in time". Similar to PoW, Proof-of-Time is constrained physically, however it is not parallelizable (technically, it is proof of _sequential_ work). We prevent the aforementioned attack by integrating the blockchain with a Proof-of-Time process. The attacker can not immediately generate a years-long fork on the spot even with faster hardware.
 The elapsed time guarantee is achieved by iterative evaluation of an inherently sequential function. The output of such a function is unpredictable and is used to build a randomness beacon for block challenges. 
 
 ## Timekeeping
