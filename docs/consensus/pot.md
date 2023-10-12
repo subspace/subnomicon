@@ -18,13 +18,13 @@ Subspace's consensus obtains a farming dynamic that mimics the random time inter
 
 ## Long-range attack
 
-Unlike in Proof-of-Work, the process of block production in Proof-of-Stake and Proof-of-Capacity-based
-blockchains is not physically constrained. This opens the door to a _long-range attack_.
+Unlike in Proof-of-Work, the process of block production in Proof-of-Stake and Proof-of-Space-based
+blockchains is not physically constrained. This makes such protocols vulnerable to a _long-range attack_, when an attacker can produce, very quickly a chain all the way from genesis to the current time, and this chain can potentially be heavier than the current "canonical" chain.
 
-A long-range attack refers to an adversary controlling enough resources at some point of chain life to rewrite a significant portion of the chain history. In PoW protocols like Bitcoin, this requires controlling over 50% of the total network hashrate for a sustained period of time which is infeasible in practice. However, long-range attacks remain a serious threat in alternative consensus protocols that do not rely on proof-of-work.
+A long-range attack refers to an adversary controlling enough resources at some point of chain life to rewrite a significant portion of the chain history. In PoW protocols like Bitcoin, this requires controlling over 50% of the total network hashrate for a sustained period of time which is infeasible in practice. However, long-range attacks remain a serious threat in alternative consensus protocols that do not rely on Proof-of-Work.
 Let's show how a Proof-of-Space blockchain can be vulnerable to long-range attacks. An equivalent setup is also true for Proof-of-Stake protocols.
 Suppose in the first year of the blockchain's operation, all farmers were honest and have collectively pledged 100TB of storage. Now, suppose by the second year the total storage pledged reached 1PB, out of which an adversary has dedicated 200TB worth of storage. At no point does an adversary control more than 20% of storage, which is way less than a majority. However, using his 200TB, an adversary could rewrite the past year's history by participating in all past lotteries to win blocks back to the genesis and then grow a chain instantaneously from the genesis to surpass the current longest chain. This is possible because the adversary's resources are enough to win a disproportionately large number of past lotteries compared to his share of total storage. Such a long-range rewrite seriously threatens the security and immutability of blockchain history.
-On the other hand, in Bitcoin it takes a long time to mine such a chain from the past and that chain will always be behind the current longest chain. Thus, PoW enforces an arrow of time, meaning nodes cannot “go back in time” to mine blocks. This property is key to tolerating a fully dynamic honest and adversarial participation.
+On the other hand, in Bitcoin this attack is prevented as it takes a long time to mine an alternative chain from the past and that chain will always be behind the current longest chain. Thus, PoW enforces an arrow of time, meaning nodes cannot “go back in time” to mine blocks. This property is key to tolerating a fully dynamic honest and adversarial participation.
 
 ## Solution
 
