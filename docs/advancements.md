@@ -12,7 +12,7 @@ Designed from first principles, the Subspace Protocol resolves several critical 
 ## Resolving Farmer's Dilemma
 
 In an effort to make blockchains more energy-efficient, egalitarian, and decentralized, several protocols
-employ consensus based on Proofs-of-Capacity (PoC), replacing compute-intensive mining with storage-intensive farming. PoC consensus introduces a unique mechanism
+employ consensus based on Proof-of-Space, replacing compute-intensive mining with storage-intensive farming. PoSpace consensus introduces a unique mechanism
 design challenge called the farmer's dilemma, which
 suggests that existing constructions are not actually incentive-compatible. Simply put, farmers must decide whether to allocate
 scarce storage resources to maintain the chain

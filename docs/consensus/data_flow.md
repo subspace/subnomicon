@@ -32,7 +32,7 @@ In Subspace, the consensus block header contains:
 - The Merkle root of the trie of extrinsics included in this block
 - The Merkle root of the state trie after processing this block
 - The time slot number claimed by the block producer
-- The global randomness at the claimed time slot derived from the proof-of-time chain
+- The global randomness at the claimed time slot derived from the Proof-of-Time chain
 - The solution to the slot challenge for the claimed time slot. The solution includes a winning chunk of history, a proof-of-space for the farmer's plot and KZG witness that the winning chunk is indeed a part of the archival history at the claimed height
 - The solution range used to find the winning chunk of history
 - The signature of the block producer over the header
@@ -47,7 +47,7 @@ A bundle contains multiple transactions in a particular domain (e.g., EVM contra
 - The size of the bundle body in bytes, used to calculate the storage cost
 - The total estimated weight of all extrinsics in the bundle, used to prevent overloading the bundle with compute
 - The time slot claimed by the bundle
-- The global randomness at the claimed time slot derived from the proof-of-time chain
+- The global randomness at the claimed time slot derived from the Proof-of-Time chain
 - The proof-of-election of the operator as bundle producer for the claimed time slot based on slot challenge and the operator's stake in the current epoch
 
 ## Domain Block

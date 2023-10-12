@@ -16,7 +16,7 @@ During this phase, the pieces are gathered and organized into a plot of several 
 The memory-bandwidth encoding construction comes from the paper **[Beyond Hellman's Time-Memory Trade-Offs with Applications to Proofs of Space](https://www.semanticscholar.org/paper/Beyond-Hellman's-Time-Memory-Trade-Offs-with-to-of-Abusalah-Alwen/39e70d67eeb5ce140171f6d0629daec3b54d74f3)** which predates the [Chia](https://www.chia.net/) protocol. We adopt a custom implementation of the Chia Proof-of-Space plotting function as a memory-bandwidth-bound function to encode, or “mask,” the pieces in the farmer plot.
 
 In short, the PoS plotter generates a table of permuted outputs from a set of random functions. The table size is determined by a memory bandwidth requirement parameter, *k*, and the random functions are determined by a *seed*. When challenged at an *index*, the table outputs a short *proof-of-space* that can be efficiently verified.
-We do not use the Proof-of-Space directly to verify that a farmer has pledged a certain amount of space, as Chia does. Instead, we use it to prove that a farmer utilized the required memory bandwidth for encoding the plot.
+We do not use the proof-of-space directly to verify that a farmer has pledged a certain amount of space, as Chia does. Instead, we use it to prove that a farmer utilized the required memory bandwidth for encoding the plot.
 
 <!-- ![PoSTable](../../../src/Images/PoS_Table.png) -->
 
@@ -36,7 +36,7 @@ For each record, the Plotting algorithm performs the following steps:
 1. Erasure code (extend) the record data by interpolating a polynomial over chunks of the record. 
 2. Derive a unique pseudorandom and verifiable *seed*.
 3. Based on this *seed*, generate a proof-of-space table using memory bandwidth resources set by the global protocol memory requirement parameter *k*. This memory-intensive computation prevents malicious farmers from creating replicas after the new block challenge is announced, making it more rational for them to store the replica rather than try to compute it on the fly every time.
-4. Query the PoS table for enough ($2^{15}$) proof-of-space values to mask every chunk of the record.
+4. Query the generated table for enough ($2^{15}$) proof-of-space values to mask every chunk of the record.
 
 <!-- ![PoSLookup](../../../src/Images/PoS_Lookup.png) -->
 
