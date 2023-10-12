@@ -77,7 +77,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       colorMode:{
-        defaultMode: 'dark'
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
       },
       navbar: {
         title: 'Subspace',
