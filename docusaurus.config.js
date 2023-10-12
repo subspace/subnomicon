@@ -82,7 +82,6 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'Subspace',
         logo: {
           alt: 'Subspace Labs Logo',
           src: 'img/logo-black.svg',
@@ -101,12 +100,12 @@ const config = {
             position: 'left',
             items: [
               {
-                label: 'Subspace Telemetry',
-                href: 'https://telemetry.subspace.network',
+                label: 'Subspace Explorer',
+                href: 'https://explorer.subspace.network/',
               },
               {
-                label: 'Subspace Explorer',
-                href: 'https://subspace.subscan.io/',
+                label: 'Subspace Telemetry',
+                href: 'https://telemetry.subspace.network',
               },
               {
                 label: 'PolkadotJS Portal',
@@ -116,7 +115,7 @@ const config = {
           },
           {
             href: 'https://docs.subspace.network',
-            label: 'Farming',
+            label: 'Documentation',
             position: 'right',
           },
           {
