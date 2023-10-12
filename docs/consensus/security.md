@@ -32,7 +32,7 @@ In more detail, the blockchain progress is based on "timeslots", where each time
 proof of time algorithm. We use the algorithm output to draw a block challenge for this timeslot. By design, grinding 
 on proof of time is extremely hard.
 
-For more information about the proof of time component see [this page](consensus/pot.md).
+For more information about the proof of time component see [this page](pot.md).
 
 ## Costless simulation
 
@@ -58,7 +58,7 @@ Attackers that try to bootstrap a competing and longer (i.e. heavier) chain cann
 show that sufficient time has passed for the lifespan of this fork. In other words, like in proof of work, they must 
 spend a significant amount of sequential work in maintaining the attack.
 
-For more information about how proof of time is used see [this page](consensus/pot.md).
+For more information about how proof of time is used see [this page](pot.md).
 
 # Security against attacks on proof of capacity / storage
 
