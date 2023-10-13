@@ -11,11 +11,11 @@ keywords:
 
 From the moment a transaction is submitted to the Subspace blockchain to the point it is permanently archived, data goes through several stages:
 
-1. Transaction is validated and included in a consensus chain block directly or through inclusions of domain bundles.
+1. The transaction is validated and included in a consensus chain block directly or through inclusions of domain bundles.
 2. Transactions and bundles in the block are executed, activating a global and domain state change.
-3. When that block reaches a certain depth (currently 100 blocks), it is archived following the Archiving protocol alongside other blocks. At this point, it irreversibly becomes a part of the Archival History of the chain.
-4. Newly archived pieces are added to farmer caches through the Distributed Storage Network and replicated multiple times throughout the network.
-5. Pieces are encoded into farmer plots on disk for permanent storage, following the Plotting protocol.
+3. After that block reaches a certain depth (currently 100 blocks), it is archived following the [Archiving](./consensus/archiving.md) protocol alongside other blocks. At this point, it becomes a part of the Archival History of the chain.
+4. Newly archived pieces are added to farmer caches through the [Distributed Storage Network](../network/dsn.md) and replicated multiple times throughout the network.
+5. Pieces are encoded into farmer plots on disk for permanent storage, following the [Plotting](./consensus/plotting.md) protocol.
 6. When a client requests, the original data is reconstructed from archived pieces on the fly.
 
 <!-- ![DataFlow](../../src/Images/DataFlow.png) -->
@@ -35,7 +35,7 @@ In Subspace, the consensus block header contains:
 - The global randomness at the claimed time slot derived from the proof-of-time chain
 - The solution to the slot challenge for the claimed time slot. The solution includes a winning chunk of history, a proof-of-space for the farmer's plot and KZG witness that the winning chunk is indeed a part of the archival history at the claimed height
 - The solution range used to find the winning chunk of history
-- The signature of the block producer over the header
+- The signature of the farmer over the header
 
 ## Domain Bundle
 
