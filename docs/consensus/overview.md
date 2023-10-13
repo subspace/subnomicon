@@ -11,7 +11,10 @@ Subspace is powered by *Dilithium* - a lightweight and secure consensus mechanis
 
 In PoAS, farmers (not miners) store as many unique pieces of the blockchain history as their disk space allows. PoAS incentivizes the storage of the blockchain history, resolving the critical mechanism design failure, which has hindered scalability and led to centralization within Proof-of-Space blockchains like Filecoin and Chia. Since PoAS consensus is based on storage rather than computing power or wealth, it is eco-friendly and accessible to ordinary people with available disk space. This approach allows us to combine the high security of Bitcoin-style Proof-of-Work with the energy efficiency of Ethereum-style Proof-of-Stake. PoAS also provides the basis for a more generic solution to the blockchain bloat problem. 
 
-![ConsensusPhases](../../src/Images/Consensus_Phases-light.svg#gh-light-mode-only)![ConsensusPhases](../../src/Images/Consensus_Phases-dark.svg#gh-dark-mode-only)
+<div align="center">
+    <img src="/img/Consensus_Phases-light.svg#gh-light-mode-only" alt="ConsensusPhases" />
+    <img src="/img/Consensus_Phases-dark.svg#gh-dark-mode-only" alt="ConsensusPhases" />
+</div>
 
 Formally, PoAS is a three-phase protocol, consisting of:
 - an initial **Genesis** phase (starting the chain)
