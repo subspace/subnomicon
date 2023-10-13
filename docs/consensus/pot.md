@@ -7,19 +7,15 @@ keywords:
     - randomness
     - challenge
 ---
-Dilithium is secured by a Proof-of-Time (PoT) component to introduce unpredictability and deter long-range attacks. 
-
-## Availability and Unpredictability
-
-Dynamic availability in blockchains refers to the capacity of the system to maintain robust operation in environments where nodes may join or leave dynamically. In this setting, unpredictability refers to the inability to predict who will get to propose the next block.
-
-The permissionless Proof-of-Work (PoW) used by Bitcoin remains the most robust method for achieving consistent availability and unpredictability in a decentralized system. In longest-chain PoW, a new block can be appended to the tip of the chain by a miner who solves a cryptographic hash challenge. However, mining requires massive energy expenditure to brute-force hash solutions, which has led to the introduction of various alternative consensus mechanisms. Energy-efficient proof systems, including Proof-of-Stake and Proof-of-Capacity, strive for certain important features of PoW, like dynamic availability. Bitcoin has been continuously available for over a decade despite an always varying hashrate due to miners joining and leaving the network. 
-Subspace's consensus obtains a farming dynamic that mimics the random time interval of Bitcoin's mining dynamic while only expending a small constant amount of electricity. This is achieved through a Proof-of-Time for block proposal lottery based on the paper [PoSAT: Proof-of-Work Availability and Unpredictability, without the Work](https://arxiv.org/abs/2010.08154) by Soubhik Deb, Sreeram Kannan and David Tse. It ensures the fairness of the farming process to all participants through complete unpredictability of who will get to propose a block next. This unpredictability is at the same level as PoW protocols and is stronger than in the protocols using verifiable random functions.
+In addition to Proof-of-Space component described in previous section, Dilithium is secured by a Proof-of-Time (PoT) component. The chosen PoT algorithm is sequential AES, tuned for 1 proof per second. PoT is a measure against long-range attacks, and addresses unpredictability and dynamic availability issues. 
+The permissionless Proof-of-Work (PoW) used by Bitcoin remains the most robust consensus method in decentralized systems. However, mining requires massive energy expenditure to brute-force hash solutions, which has led to the introduction of various alternative consensus mechanisms. When transitioning to energy-efficient proof systems, like Proof-of-Stake and Proof-of-Space, however, several issues arise. 
 
 ## Long-range attack
 
 Unlike in Proof-of-Work, the process of block production in Proof-of-Stake and Proof-of-Space-based
 blockchains is not physically constrained. This makes such protocols vulnerable to a _long-range attack_, when an attacker can produce, very quickly a chain all the way from genesis to the current time, and this chain can potentially be heavier than the current "canonical" chain.
+
+<!-- ![LongRangeAttack](../../../src/Images/Long-Range_Attack.png) -->
 
 A long-range attack refers to an adversary controlling enough resources at some point of chain life to rewrite a significant portion of the chain history. In PoW protocols like Bitcoin, this requires controlling over 50% of the total network hashrate for a sustained period of time which is infeasible in practice. However, long-range attacks remain a serious threat in alternative consensus protocols that do not rely on Proof-of-Work.
 Let's show how a Proof-of-Space blockchain can be vulnerable to long-range attacks. An equivalent setup is also true for Proof-of-Stake protocols.
@@ -27,7 +23,16 @@ Suppose in the first year of the blockchain's operation, all farmers were honest
 
 On the other hand, in PoW this attack is prevented as it takes a long time to mine an alternative chain from the past. Thus, PoW enforces an arrow of time, meaning nodes cannot “go back in time” to mine blocks. This property is key to tolerating a fully dynamic honest and adversarial participation.
 
-## Subspace Solution
+## Availability and Unpredictability 
+
+Alternative proof systems, including Proof-of-Stake and Proof-of-Space, strive for certain important features of PoW, like dynamic availability and unpredictability.
+
+Dynamic availability in blockchains refers to the capacity of the system to maintain robust operation in environments where nodes may join or leave dynamically. The permissionless PoW remains the most robust method for achieving consistent availability and unpredictability in a decentralized system. Bitcoin has been continuously available for over a decade despite an always varying hashrate due to miners joining and leaving the network. 
+In this setting, unpredictability refers to the inability to predict who will get to propose the next block. Unpredictability of block proposers ensures the fairness of the farming process to all participants. However, the protocols using verifiable random functions do not achieve this property at the same level as in PoW and suffer from predictability of block challenges.
+
+# Subspace Approach
+
+Subspace's consensus obtains a farming dynamic that mimics the random nature of Bitcoin's mining dynamic while only expending a small constant amount of electricity. This is achieved through a Proof-of-Time for block proposal lottery based on the paper [PoSAT: Proof-of-Work Availability and Unpredictability, without the Work](https://arxiv.org/abs/2010.08154) by Soubhik Deb, Sreeram Kannan and David Tse. It ensures the fairness of the farming process to all participants through complete unpredictability of who will get to propose a block next. This unpredictability is at the same level as PoW protocols and is stronger than in the protocols using verifiable random functions.
 
 Subspace's Proof-of-Time component addresses long-range attacks by enforcing an arrow of time similar to PoW protocols. PoT guarantees that a certain amount of wall-clock time must elapse between block proposals, preventing an adversary from rewriting history by "going back in time". Similar to PoW, Proof-of-Time is constrained physically, however it is not parallelizable (technically, it is proof of _sequential_ work). We prevent the aforementioned attack by integrating the blockchain with a Proof-of-Time process. The attacker can not immediately generate a years-long fork on the spot even with faster hardware.
 The elapsed time guarantee is achieved by iterative evaluation of an inherently sequential function. The output of such a function is unpredictable and is used to build a randomness beacon for block challenges. 
@@ -35,7 +40,7 @@ The elapsed time guarantee is achieved by iterative evaluation of an inherently 
 ## Timekeeping
 
 For the task of running the time-chain, Subspace introduces a new role for nodes called Timekeepers. Timekeepers are responsible for evaluating the delay function and announcing the outputs to other nodes. Anyone can become a Timekeeper as long as they have a sufficiently powerful CPU to be able to evaluate the delay function within the target time slot duration of 1 second. A timekeeper can also be a farmer and participate in block production or an operator executing computation on a domain. 
-A single honest timekeeper is sufficient for the security of the protocol, but for robustness and decentralization we encourage the community to run multiple timekeepers in parallel. We invite interested parties to run timekeeper component on their nodes to ensure the security and decentralization of the protocol. Domain operators may be more suited for the task since they likely already have powerful hardware.
+A single honest timekeeper is sufficient for the security of the protocol, but for robustness and decentralization there should be multiple timekeepers running in parallel. We encourage interested participants to run the timekeeper component on their nodes to ensure the security and decentralization of the protocol. Domain operators may be more suited for the task since they likely already have powerful hardware.
 
 The timekeepers start the Proof-of-Time chain starts at the genesis time of the Subspace consensus chain. The input to the first slot is a random seed which will be publicly announced at launch to ensure equal opportunity. For each subsequent slot, the output of the previous slot serves as the input. By chaining the outputs, the timekeepers enforce sequentiality and prevent skipping ahead in time.
 
