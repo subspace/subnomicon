@@ -48,7 +48,7 @@ This layer stores the blockchain history data in the encoded form as an integral
 The Archival Storage layer serves as the "cold storage" and guarantees the history pieces are available when they couldn't be retrieved from L2. Retrieval from Archival storage, however, consumes a moderate amount of time and resources and is expected to be used only in the rare event of L2 cache miss. 
 In most cases, the L1 layers of farmers are populated with pieces received from L2.
 
-<!-- ![DSNLayers](../../../src/Images/DSN_Layers.png) -->
+![DSNLayers](../../src/Images/DSN_Layers-light.svg#gh-light-mode-only)![DSNLayers](../../src/Images/DSN_Layers-dark.svg#gh-dark-mode-only)
 
 ## Cache types by peer roles
 

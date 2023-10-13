@@ -38,7 +38,7 @@ The blockchain history data is eligible for archiving when it reaches the archiv
 Step 4 allows us to show that the erasure coding of data was performed correctly with the homomorphic property of Reed-Solomon erasure code and KZG. As a result, the extended commitments (the yellow ones on the diagram below) obtained by erasure-coding the source commitments are the same as if we were to commit to the extended rows.
 
 
-![ArchivedSegment](../../../src/Images/Archived_Segment.svg#gh-light-mode-only)![ArchivedSegment](../../../src/Images/Archived_Segment-dark.svg#gh-dark-mode-only)
+![ArchivedSegment](../../../src/Images/Archived_Segment-light.svg#gh-light-mode-only)![ArchivedSegment](../../../src/Images/Archived_Segment-dark.svg#gh-dark-mode-only)
 
 After step 4, the Archiver has produced 256 records and 256 commitments to those records. 
 
