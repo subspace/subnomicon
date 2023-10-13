@@ -13,16 +13,16 @@ Subspace is powered by *Dilithium* - a lightweight and secure consensus mechanis
 
 For those familiar with our initial consensus design, *Dilithium* fulfills all the fundamental ideas described in the original [whitepaper](https://subspace.network/news/subspace-network-whitepaper) but implements them better.
 
-In PoAS, farmers (not miners) store as many unique pieces of the blockchain history as their disk space allows. PoAS incentivizes the storage of the blockchain history, resolving the key mechanism design failure which has hindered scalability and led to centralization within Proof-of-Capacity blockchains like Filecoin and Chia. Since PoAS consensus is based on storage, rather than compute power or wealth, it is eco-friendly while remaining accessible to ordinary people with available disk space. This allows it to combine the high security of Bitcoin-style Proof-of-Work with the energy-efficiency of Ethereum-style Proof-of-Stake. It also turns out that PoAS provides the basis for a more generic solution to the problem of blockchain bloat. 
+In PoAS, farmers (not miners) store as many unique pieces of the blockchain history as their disk space allows. PoAS incentivizes the storage of the blockchain history, resolving the key mechanism design failure which has hindered scalability and led to centralization within Proof-of-Storage blockchains like Filecoin and Chia. Since PoAS consensus is based on storage, rather than compute power or wealth, it is eco-friendly while remaining accessible to ordinary people with available disk space. This allows it to combine the high security of Bitcoin-style Proof-of-Work with the energy-efficiency of Ethereum-style Proof-of-Stake. It also turns out that PoAS provides the basis for a more generic solution to the problem of blockchain bloat. 
 
 ## Technical Overview
 
-Similar to other proof-of-space projects, the resource that participants allocate to secure the Subspace network is
+Similar to other Proof-of-Storage projects, the resource that participants allocate to secure the Subspace network is
 disk space. As a resource, disk space is widely distributed and in general the notion of an ASIC does not apply to
 storage. As such, the Subspace protocol has the potential to be highly decentralized and more fair than
 other blockchain protocols.
 
-Unlike other proof-of-capacity projects where the data stored is some "cryptographic data", uniquely generated per
+Unlike other Proof-of-Storage projects where the data stored is some "cryptographic data", uniquely generated per
 participant, in Subspace the participants, called farmers, store the blockchain history. Not only that in Subspace we
 have found a way to store "useful data", but we also solve the so-called _farmer's dilemma_, where a rational farmer
 prefers to use her disk space to store more (non-useful) cryptographic data, consequentially not storing the current
