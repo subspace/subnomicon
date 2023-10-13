@@ -12,7 +12,7 @@ keywords:
  -->
 
 A complex system like the Subspace protocol has many potential attack vectors, some are more general, blockchain related, 
-while other are focused on proof of capacity and specifically proof of archival storage, as used in Subspace.  
+while other are focused on Proof-of-Space and specifically Proof-of-Archival-Storage, as used in Subspace.  
 
 This page gives an overview of how such attacks are mitigated in the Subspace protocol. There are many things 
 to cover, so the reader should be aware that at the current state this page is not exhaustive. Furthermore, the 
@@ -23,16 +23,16 @@ For detailed security analysis please refer to our paper [Dilithium: A Proof-of-
 
 ## Grinding on block challenges
 
-To prevent grinding on block challenges, we use the proof-of-time outputs to draw unique challenges.
+To prevent grinding on block challenges, we use the Proof-of-Time outputs to draw unique challenges.
 
 In proof-of-work-based blockchains the "challenge" for block creation comes from the full previous block.
-The Subspace protocol cannot follow this approach, as changing the block content does not affect the proof of space 
-validity. Instead, challenges are unique (and unpredictable), and are based on the network's proof of time component. 
-In more detail, the blockchain progress is based on "timeslots", where each timeslot is associated with a run of the 
-proof of time algorithm. We use the algorithm output to draw a block challenge for this timeslot. By design, grinding 
-on proof of time is extremely hard.
+The Subspace protocol cannot follow this approach, as changing the block content does not affect the proof-of-space 
+validity. Instead, challenges are unique (and unpredictable), and are based on the network's Proof-of-Time component. 
+In more detail, the blockchain progress is based on "time slots", where each slot is associated with a run of the 
+Proof-of-Time algorithm. We use the algorithm output to draw a block challenge for this slot. By design, grinding 
+on Proof-of-Time is extremely hard.
 
-For more information about the proof of time component see [this page](pot.md).
+For more information about the Proof-of-Time component see [this page](pot.md).
 
 ## Costless simulation
 
@@ -45,22 +45,22 @@ manoeuvre across these forks becomes more and more limited as 'c' gets larger.
 
 ### C-correlation predictability window
 
-Even though the challenges for 'c' blocks are deterministic, since we use proof of time to draw the challenges, they are 
+Even though the challenges for 'c' blocks are deterministic, since we use Proof-of-Time to draw the challenges, they are 
 not known in advanced, but only revealed when the timeslot arrives (by definition). This prevents potential issues, like 
 so-called "bribing attacks", that come with the correlation of block challenges and the predictability window associated 
 with c-correlation in general. 
 
 ## Long-range attacks
 
-To prevent long-range attacks, we use proof of time as a fundamental component in our consensus protocol.
+To prevent long-range attacks, we use Proof-of-Time as a fundamental component in our consensus protocol.
 
 Attackers that try to bootstrap a competing and longer (i.e. heavier) chain cannot do it without cost, since they must 
-show that sufficient time has passed for the lifespan of this fork. In other words, like in proof of work, they must 
+show that sufficient time has passed for the lifespan of this fork. In other words, like in Proof-of-Work, they must 
 spend a significant amount of sequential work in maintaining the attack.
 
-For more information about how proof of time is used see [this page](pot.md).
+For more information about how Proof-of-Time is used see [this page](pot.md).
 
-# Security against attacks on proof of capacity / storage
+# Security against attacks on Proof-of-Storage
 
 The masking function that we apply during farmer's plot creation has specific properties that help us in preventing the 
 following attacks on the protocol.

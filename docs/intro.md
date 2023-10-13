@@ -36,7 +36,7 @@ Subnomicon provides a comprehensive overview of the Subspace Protocol, covering 
 
 1. [Architecture Overview](/docs/overview) - *The Subspace modular architecture.*
 2. [Advancing Blockchain](/docs/advancements) - *How Subspace advances the state of blockchain technology.*
-3. [Consensus Mechanism](/docs/category/dilithium-consensus) - *How Subspace achieves consensus through its storage-based design.*
+3. [Consensus Mechanism](/docs/category/consensus) - *How Subspace achieves consensus through its storage-based design.*
 4. [Network Architecture](/docs/category/network-architecture) - *How Subspace is structured as a decentralized network.*
 5. [Decoupled Execution](/docs/category/decoupled-execution) - *How Subspace separates consensus and computation.*
 6. Scalability (Coming soon) - *How Subspace achieves unprecedented scale.*

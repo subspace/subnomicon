@@ -27,7 +27,7 @@ The result of executing transactions on a blockchain (like state of account bala
 
 ## Dilithium
 
-The Subspace Network Proof-of-Archival-Storage consensus mechanism which defines Archiving, Plotting, Farming, Proving and Verification, including Proof-of-Space and Proof-of-Time components.
+The Subspace Network Proof-of-Archival-Storage consensus mechanism which defines Archiving, Plotting, Farming, Proving and Verification.
 
 
 ## Consensus Chain
@@ -83,7 +83,7 @@ An integral part of Dilithium consensus, Plotting is a process of creating and m
 
 ## Farming
 
-An integral part of Dilithium consensus, Farming is a process of participation in the consensus by solving a puzzle based on the previously created plot (during Plotting). Farmers compete to farm blocks and earn rewards by being the first to solve the puzzle and submit valid proof.
+An integral part of Dilithium consensus, Farming is a process of participation in the consensus by solving a puzzle based on the previously created plot (during Plotting). Farmers compete to farm blocks and earn rewards by being the first to solve the puzzle and submit a valid proof.
 
 ## Segment
 

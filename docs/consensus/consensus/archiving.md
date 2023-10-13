@@ -28,17 +28,17 @@ The Archiving process produces *segments* of *pieces*.
 
 ## Workflow
 
-The blockchain history data is eligible for archiving when it reaches the confirmation depth to ensure no forks and reorganizations. We currently archive segments of raw blockchain history of size 128 MiB, and the archiving process is triggered as soon as there are enough blocks at the current confirmation depth of at least 100 blocks from the tip to fill a segment. The Archiver performs the following steps:
+The blockchain history data is eligible for archiving when it reaches the archiving depth to ensure no forks and reorganizations. We currently archive segments of raw blockchain history of size 128 MiB, and the archiving process is triggered as soon as there are enough blocks at the current archiving depth of at least 100 blocks from the tip to fill a segment. The Archiver performs the following steps:
 
 1. Slice the Recorded History Segment into 128 source records, stacked on top of one another into a matrix (each row is a record).
 2. Commit to chunks of each source record (each row) under the KZG vector commitment scheme.
 3. Erasure code each column by interpolating a polynomial over the source record chunks in that column and evaluating that polynomial on twice as many points. As a result, the matrix now has twice as many rows - 256 and consists of 128 source and 128 extended (parity) records.
 4. Erasure code the source record commitments similarly by interpolating a polynomial over the source record commitments in that column and evaluating that polynomial on twice as many points.
 
-Step 4 allows us to show that the erasure coding of data was performed correctly: the secret ingredient is the homomorphic property of KZG. As a result, the extended commitments (the yellow ones on the diagram below) obtained by erasure-coding the source commitments are the same as if we were to commit to the extended rows.
+Step 4 allows us to show that the erasure coding of data was performed correctly with the homomorphic property of Reed-Solomon erasure code and KZG. As a result, the extended commitments (the yellow ones on the diagram below) obtained by erasure-coding the source commitments are the same as if we were to commit to the extended rows.
 
 
-<!-- ![Segment](../../../src/Images/Archived_Segment.png) -->
+![ArchivedSegment](../../../src/Images/Archived_Segment.svg#gh-light-mode-only)![ArchivedSegment](../../../src/Images/Archived_Segment-dark.svg#gh-dark-mode-only)
 
 After step 4, the Archiver has produced 256 records and 256 commitments to those records. 
 

@@ -25,7 +25,7 @@ We currently use Schnorr/Ristretto x25519 (also known as sr25519) as the key der
 ## Erasure Code
 
 An erasure code extends the given data so that the original data can be recovered from a subset and protected against loss.
-In Subspace, erasure code is used to encode and decode blockchain history pieces and their KZG commitments in an archived segment. Erasure coding allows for distributed storage of pieces across farmers and helps protect the data against loss in the event of any failures and network partitions. Erasure code is also used in plotting to create unique, easily recoverable plot files.
+In Subspace, erasure code is used to encode and decode blockchain history pieces and their KZG commitments in an archived segment. Erasure coding allows for distributed storage of pieces across farmers and helps protect the data against loss in the event of any failures and network partitions. Erasure code is also used in plotting together with proofs-of-space to create unique, easily recoverable plot files for each farmer.
 
 We currently use a Discrete Fourier Transform-based systematic Reed-Solomon code with a rate of $1/2$ over the field $F_{r}$, where $r$ is the [size of subgroup of points](https://hackmd.io/@benjaminion/bls12-381#Curve-equation-and-parameters) on the BLS12-381 curve for the piece chunks and the same approach over the subgroup of elliptic curve points $G_1$ for piece commitments.
 
