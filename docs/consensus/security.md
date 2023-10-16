@@ -1,6 +1,6 @@
 ---
 title: Security
-sidebar_position: 5
+sidebar_position: 6
 description: Resistance to attacks
 keywords:
     - Consensus
@@ -8,11 +8,8 @@ keywords:
     - Attacks
 ---
 <!-- TODO
-- Deterring Compression
-- Preventing Grinding
-- Constraining Simulation
 - Handling Equivocation
-- Detecting Long-Range Attacks -->
+ -->
 
 A complex system like the Subspace protocol has many potential attack vectors, some are more general, blockchain related, 
 while other are focused on Proof-of-Space and specifically Proof-of-Archival-Storage, as used in Subspace.  
@@ -35,7 +32,7 @@ In more detail, the blockchain progress is based on "time slots", where each slo
 Proof-of-Time algorithm. We use the algorithm output to draw a block challenge for this slot. By design, grinding 
 on Proof-of-Time is extremely hard.
 
-For more information about the Proof-of-Time component see [this page](consensus/pot.md).
+For more information about the Proof-of-Time component see [this page](pot.md).
 
 ## Costless simulation
 
@@ -61,7 +58,7 @@ Attackers that try to bootstrap a competing and longer (i.e. heavier) chain cann
 show that sufficient time has passed for the lifespan of this fork. In other words, like in Proof-of-Work, they must 
 spend a significant amount of sequential work in maintaining the attack.
 
-For more information about how Proof-of-Time is used see [this page](consensus/pot.md).
+For more information about how Proof-of-Time is used see [this page](pot.md).
 
 # Security against attacks on Proof-of-Storage
 
