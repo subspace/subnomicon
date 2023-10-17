@@ -60,3 +60,13 @@ Recall that when plotting a sector, the farmer saves the history size at the tim
 <!-- ![Replotting](../../../src/Images/Replotting.png) -->
 
 In a plot spanning multiple gigabytes, the sectors will be updated randomly, one at a time, so replotting is amortized over a long period. There is never a moment when a farmer needs to erase and re-create their whole plot and miss out on challenges. The plot refreshing will be practically invisible to the farmer and allow their uninterrupted participation in consensus.
+
+The bigger the chain grows and the longer the farmer participates in the network, the less frequent the replotting on their disks will be.
+Assuming a 1 TB SSD plot, a farmer who joined at genesis will on average need to replot 3.5 TB of data by the time the chain history reaches 1TB in size, 6.5 TB of data by the time history reaches 10 TiB and 9.2 TB by the time history reaches 50 TiB. Given a common TBW (Total Bytes Written) for consumer grade 1 TB SSDs of 300-600 TB, Subspace farming requires below 3% of the SSD's total endurance to farm over several years (for comparison, Ethereum's full chain data size is ~16 TiB as of October 2023 via [Etherscan](https://etherscan.io/chartsync/chainarchive)).
+
+<div align="center">
+    <img src="/img/Replottingby10TiB-light.svg#gh-light-mode-only" alt="Replotting_by_10TiB" />
+    <img src="/img/Replottingby10TiB-dark.svg#gh-dark-mode-only" alt="Replotting_by_10TiB" />
+</div>
+
+The graphic shows the average TB replotted on a 1 TB SSD over the course of chain growth from genesis to 10 TiB (40 000 archived sectors). The growth of the amount of data replotted slows down as the chain grows.
