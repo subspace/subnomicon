@@ -31,7 +31,7 @@ In addition, the farmer must save the current history size, as it will determine
 
 Once the farmer has obtained all 1,000 pieces for this sector from the network, they can create an encoded replica. Only the piece’s historical data, the record part, is encoded. The KZG commitment and witness included in a piece are saved separately in the sector metadata, as they will be needed later for farming.
 
-For each record, the Plotting algorithm performs the following steps:
+For each record, the Plotting algorithm performs the following steps in memory:
 
 1. Erasure code (extend) the record data by interpolating a polynomial over chunks of the record. 
 2. Derive a unique pseudorandom and verifiable *seed*.
@@ -44,7 +44,7 @@ For each record, the Plotting algorithm performs the following steps:
 
 <!-- ![PieceEncoding](../../../src/Images/Piece_Encoding.png) -->
 
-After all records in the sector have been encoded as described, the farmer spreads them into s-buckets chunk-wise. Ultimately, each bucket will contain chunks from all records. The first bucket will have the first chunks of each record; the second bucket will have the second chunks, and so on. The s-buckets are then written to disk, and the plotting process is complete.
+After all records in the sector have been encoded as described, the farmer spreads them into s-buckets chunk-wise. Ultimately, each bucket will contain chunks from all records. The first bucket will have the first chunks of each record; the second bucket will have the second chunks, and so on. The s-buckets are then written to disk, and the plotting process of the sector is complete in a single write operation. 
 
 <!-- ![EncodedSector](../../../src/Images/Encoded_Sector.png) -->
 
@@ -55,7 +55,7 @@ As a result, a farmer has a unique encoded replica that is difficult to compress
 ## Plot Updates
 
 As the chain grows, we need a way to ensure that new data is replicated as much as older data in blockchain history. To keep the replication factor constant, the farmers must periodically update their plots by repopulating sectors with a new selection of pieces.
-Recall that when plotting a sector, the farmer saves the history size at the time, and it determines a point in the future when the sector will expire. When a sector reaches its expiry point, the block proposer challenge solutions coming from this sector will no longer be accepted by other peers, incentivizing the farmer to update their plot. The farmer erases the expired sector and repeats the Plotting process anew, replicating a fresh history sample.
+Recall that when plotting a sector, the farmer saves the history size at the time, and it determines a point in the future when the sector will expire. When a sector reaches its expiry point, the block proposer challenge solutions coming from this sector will no longer be accepted by other peers, incentivizing the farmer to update their plot. The farmer erases the expired sector and repeats the Plotting process anew, replicating a fresh history sample. Each replotting creates a new sector in memory and saves it to disk in a single write operation.
 
 <!-- ![Replotting](../../../src/Images/Replotting.png) -->
 
