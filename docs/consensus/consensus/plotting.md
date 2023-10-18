@@ -15,7 +15,7 @@ During this phase, the pieces are gathered and organized into a plot of several 
 
 The memory-bandwidth bound encoding construction comes from the paper **[Beyond Hellman's Time-Memory Trade-Offs with Applications to Proofs of Space](https://www.semanticscholar.org/paper/Beyond-Hellman's-Time-Memory-Trade-Offs-with-to-of-Abusalah-Alwen/39e70d67eeb5ce140171f6d0629daec3b54d74f3)** which is a part of the [Chia](https://www.chia.net/) protocol. We adopt a custom implementation of the Chia Proof-of-Space plotting function as a memory-bandwidth-bound function to encode, or “mask,” the pieces in the farmer plot.
 
-In short, the PoS plotter generates a table of permuted outputs from a set of random functions. The table size is determined by a memory bandwidth requirement parameter, *k*, and the random functions are determined by a *seed*. When challenged at an *index*, the table outputs a short *proof-of-space* that can be efficiently verified.
+In short, the PoS plotter generates a table of permuted outputs from a set of random functions. The table size is determined by a memory bandwidth requirement parameter, *k*, set to 20, and the random functions are determined by a *seed*. When challenged at an *index*, the table outputs a short *proof-of-space* that can be efficiently verified.
 We do not use the proof-of-space directly to verify that a farmer has pledged a certain amount of space, as Chia does. Instead, we use it to prove that a farmer utilized the required memory bandwidth for encoding the plot.
 
 <!-- ![PoSTable](../../../src/Images/PoS_Table.png) -->
@@ -55,7 +55,9 @@ As a result, a farmer has a unique encoded replica that is difficult to compress
 ## Plot Updates
 
 As the chain grows, we need a way to ensure that new data is replicated as much as older data in blockchain history. To keep the replication factor constant, the farmers must periodically update their plots by repopulating sectors with a new selection of pieces.
-Recall that when plotting a sector, the farmer saves the history size at the time, and it determines a point in the future when the sector will expire. When a sector reaches its expiry point, the block proposer challenge solutions coming from this sector will no longer be accepted by other peers, incentivizing the farmer to update their plot. The farmer erases the expired sector and repeats the Plotting process anew, replicating a fresh history sample. Each replotting creates a new sector in memory and saves it to disk in a single write operation.
+Recall that when plotting a sector, the farmer saves the history size at the time, and it determines a point in the future when the sector will expire. The expiry point is determined by the history size at the time the sector was plotted and is randomly assigned to happen sometime before the history size quadruples (i.e., if a farmer plotted this sector when the history size was 10 GiB, the expiry point will be before history reaches 40 GiB).
+
+When a sector reaches its expiry point, the block proposer challenge solutions coming from this sector will no longer be accepted by other peers, incentivizing the farmer to update their plot. The farmer erases the expired sector and repeats the Plotting process anew, replicating a fresh history sample. Each replotting creates a new sector in memory and saves it to disk in a single write operation.
 
 <!-- ![Replotting](../../../src/Images/Replotting.png) -->
 
@@ -69,4 +71,4 @@ Assuming a 1 TB SSD plot, a farmer who joined at genesis will on average need to
     <img src="/img/Replottingby10TiB-dark.svg#gh-dark-mode-only" alt="Replotting_by_10TiB" />
 </div>
 
-The graphic shows the average TB replotted on a 1 TB SSD over the course of chain growth from genesis to 10 TiB (40 000 archived sectors). The growth of the amount of data replotted slows down as the chain grows.
+The graphic shows the average TB replotted on a 1 TB SSD over the course of chain growth from genesis to 10 TiB (40 960 archived segments). The growth of the amount of data replotted slows down as the chain grows.
