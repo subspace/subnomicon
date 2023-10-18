@@ -1,5 +1,5 @@
 ---
-title: Node Types
+title: Node Types and Roles
 sidebar_position: 1
 description: Participants in the Subspace Network
 keywords:
