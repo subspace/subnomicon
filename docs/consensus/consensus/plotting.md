@@ -31,7 +31,7 @@ In addition, the farmer must save the current history size, as it will determine
 
 Once the farmer has obtained all 1,000 pieces for this sector from the network, they can create an encoded replica. Only the piece’s historical data, the record part, is encoded. The KZG commitment and witness included in a piece are saved separately in the sector metadata, as they will be needed later for farming.
 
-For each record, the Plotting algorithm performs the following steps:
+For each record, the Plotting algorithm performs the following steps in memory:
 
 1. Erasure code (extend) the record data by interpolating a polynomial over chunks of the record. 
 2. Derive a unique pseudorandom and verifiable *seed*.
@@ -44,7 +44,7 @@ For each record, the Plotting algorithm performs the following steps:
 
 <!-- ![PieceEncoding](../../../src/Images/Piece_Encoding.png) -->
 
-After all records in the sector have been encoded as described, the farmer spreads them into s-buckets chunk-wise. Ultimately, each bucket will contain chunks from all records. The first bucket will have the first chunks of each record; the second bucket will have the second chunks, and so on. The s-buckets are then written to disk, and the plotting process is complete.
+After all records in the sector have been encoded as described, the farmer spreads them into s-buckets chunk-wise. Ultimately, each bucket will contain chunks from all records. The first bucket will have the first chunks of each record; the second bucket will have the second chunks, and so on. The s-buckets are then written to disk, and the plotting process of the sector is complete in a single write operation. 
 
 <!-- ![EncodedSector](../../../src/Images/Encoded_Sector.png) -->
 
@@ -55,8 +55,18 @@ As a result, a farmer has a unique encoded replica that is difficult to compress
 ## Plot Updates
 
 As the chain grows, we need a way to ensure that new data is replicated as much as older data in blockchain history. To keep the replication factor constant, the farmers must periodically update their plots by repopulating sectors with a new selection of pieces.
-Recall that when plotting a sector, the farmer saves the history size at the time, and it determines a point in the future when the sector will expire. When a sector reaches its expiry point, the block proposer challenge solutions coming from this sector will no longer be accepted by other peers, incentivizing the farmer to update their plot. The farmer erases the expired sector and repeats the Plotting process anew, replicating a fresh history sample.
+Recall that when plotting a sector, the farmer saves the history size at the time, and it determines a point in the future when the sector will expire. When a sector reaches its expiry point, the block proposer challenge solutions coming from this sector will no longer be accepted by other peers, incentivizing the farmer to update their plot. The farmer erases the expired sector and repeats the Plotting process anew, replicating a fresh history sample. Each replotting creates a new sector in memory and saves it to disk in a single write operation.
 
 <!-- ![Replotting](../../../src/Images/Replotting.png) -->
 
 In a plot spanning multiple gigabytes, the sectors will be updated randomly, one at a time, so replotting is amortized over a long period. There is never a moment when a farmer needs to erase and re-create their whole plot and miss out on challenges. The plot refreshing will be practically invisible to the farmer and allow their uninterrupted participation in consensus.
+
+The bigger the chain grows and the longer the farmer participates in the network, the less frequent the replotting on their disks will be.
+Assuming a 1 TB SSD plot, a farmer who joined at genesis will on average need to replot 3.5 TB of data by the time the chain history reaches 1TB in size, 6.5 TB of data by the time history reaches 10 TiB and 9.2 TB by the time history reaches 50 TiB. Given a common TBW (Total Bytes Written) for consumer grade 1 TB SSDs of 300-600 TB, Subspace farming requires below 3% of the SSD's total endurance to farm over several years (for comparison, Ethereum's full chain data size is ~16 TiB as of October 2023 via [Etherscan](https://etherscan.io/chartsync/chainarchive)).
+
+<div align="center">
+    <img src="/img/Replottingby10TiB-light.svg#gh-light-mode-only" alt="Replotting_by_10TiB" />
+    <img src="/img/Replottingby10TiB-dark.svg#gh-dark-mode-only" alt="Replotting_by_10TiB" />
+</div>
+
+The graphic shows the average TB replotted on a 1 TB SSD over the course of chain growth from genesis to 10 TiB (40 000 archived sectors). The growth of the amount of data replotted slows down as the chain grows.
