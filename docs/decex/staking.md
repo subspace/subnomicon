@@ -10,7 +10,7 @@ keywords:
 The Subspace Network relies on staking from both domain operators and farmers to secure the network and provide resources. Subspace implements a Nominated Proof-of-Stake algorithm where farmers endorse operators who execute transactions and produce blocks.
 
 Our staking model consists of two tiers:
-- Operators stake to gain the right to execute transactions within a domain and produce blocks. They are responsible for validating and executing transactions, producing execution receipts, applying state transitions and earn rewards for their work. The operator's chances to be elected as a slot leader are weighted by stake. Operators can be nominated by farmers.
+- Operators stake to gain the right to execute transactions within a domain and produce blocks. They are responsible for validating and executing transactions, producing execution receipts, applying state transitions and earn rewards for their work. The operator's chances to be elected as a slot leader are weighted by stake. Operators can be nominated by farmers and currently each operator can have up to 256 nominators.
 - Farmers earn rewards proportional to their pledged storage. Farmers can nominate operators and back them with their stake, increasing their chance of being elected as slot leaders. 
 <!--We implement a mechanism for farmers to automatically stake their block rewards with nominated operators to maximize yield.-->
 
