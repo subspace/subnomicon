@@ -152,14 +152,14 @@ const config = {
             label: 'GitHub',
             position: 'right',
           },
-          {
-            type: 'localeDropdown',
-            position: 'right',
-          },
-          {
-            type: 'search',
-            position: 'right',
-          }
+          // {
+          //   type: 'localeDropdown',
+          //   position: 'right',
+          // },
+          // {
+          //   type: 'search',
+          //   position: 'right',
+          // }
         ],
       },
       footer: {
