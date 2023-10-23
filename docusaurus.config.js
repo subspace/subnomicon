@@ -155,6 +155,10 @@ const config = {
           {
             type: 'localeDropdown',
             position: 'right',
+          },
+          {
+            type: 'search',
+            position: 'right',
           }
         ],
       },
