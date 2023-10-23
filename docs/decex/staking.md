@@ -48,7 +48,7 @@ Operator $O$ has staked 100 SSC and registered as an operator with minimum nomin
 
 In the next epoch, the pool has earned 10 SSC of rewards, and the operator took 5% of the rewards as commission (0.5 SSC). The pool end-of-epoch $\text{shares\_per\_ssc}$ is now $200/(200 + 10 * (1-0.05)) = 0.954654$. If a new nominator $N_3$ stakes 30 SSC, the $\text{shares}$ they will get is $(30 * 0.954654) = 28$.
 
-Suppose after some time $\text{shares\_per\_ssc}$ value of this pool becomes 0.9. If $N_1$ wants to withdraw 20 SSC, the corresponding shares will be deducted from their stake and the pool's total stake based on $\text{shares\_per\_ssc} = 0.9$. After withdrawal, $N_1$'s remaining shares are $50-20*0.9=32$. Because of the time $N_1$ has staked, the price of their shares has increased, so they they only had to "sell" 18 shares to get 20 SSC back, instead of 20 shares.
+Suppose after some time $\text{shares\_per\_ssc}$ value of this pool becomes 0.9. If $N_1$ wants to withdraw 20 SSC, the corresponding shares will be deducted from their stake and the pool's total stake based on $\text{shares\_per\_ssc} = 0.9$. After withdrawal, $N_1$'s remaining shares are $50-20*0.9=32$. Because of the time $N_1$ has staked, the price of their shares has increased, so they they only had to "sell" 18 shares instead of 20 shares to get 20 SSC back.
 
 The example is intended for illustration, the actual calculation is performed with shannons ($1 \text{SSC} = 10^{18}\  \text{shannons}$).
 
