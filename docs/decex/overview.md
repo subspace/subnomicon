@@ -17,3 +17,9 @@ While conceptually similar to rollups on Ethereum, such as Optimism, DecEx diffe
 Instead, DecEx is enshrined within the semantics of the core protocol itself. Despite being implemented at the protocol level, DecEx can still provide rollup protocol designers with a flexible framework, which can support any state transition integrity framework for verifying the receipt chain, including optimistic fraud proofs and zero-knowledge validity proofs. DecEx can also currently support any smart contract execution environment that can be implemented within the Substrate framework, such as the Ethereum Virtual Machine (EVM) or WebAssembly (WASM). 
 
 <!-- ![DomainChains](../../src/Images/Domain_Chains.png) -->
+
+## Domains
+
+Domains are the logical extension of our basic decoupled execution framework, taking it from a single monolithic execution environment into a modular and interoperable network of namespaced execution environments. Subspace supports a programmable and configurable notion of namespaced execution environments called domains. Each domain is a programmable layer-two rollup, or application-specific blockchain (app-chain), that relies on the consensus chain for consensus, data availability, and settlement. 
+
+Domains allow builders to easily launch their own network without bootstrapping a new validator set while still receiving shared security and interoperability from the root chain. They aim to make deploying a rollup on Subspace as easy as deploying a smart contract on Ethereum. 

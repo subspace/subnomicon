@@ -1,6 +1,6 @@
 ---
 title: Taxonomy
-sidebar_position: 2
+sidebar_position: 3
 description: Domains Taxonomy
 keywords:
     - DecEx
