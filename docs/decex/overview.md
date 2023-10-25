@@ -15,3 +15,5 @@ In this model, users submit execution transactions directly to operators, who wi
 While conceptually similar to rollups on Ethereum, such as Optimism, DecEx differs heavily in its protocol implementation. Unlike Ethereum, Subspace does not have a global smart contract execution environment within the core protocol. 
 
 Instead, DecEx is enshrined within the semantics of the core protocol itself. Despite being implemented at the protocol level, DecEx can still provide rollup protocol designers with a flexible framework, which can support any state transition integrity framework for verifying the receipt chain, including optimistic fraud proofs and zero-knowledge validity proofs. DecEx can also currently support any smart contract execution environment that can be implemented within the Substrate framework, such as the Ethereum Virtual Machine (EVM) or WebAssembly (WASM). 
+
+<!-- ![DomainChains](../../src/Images/Domain_Chains.png) -->

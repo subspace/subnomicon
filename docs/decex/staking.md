@@ -42,6 +42,8 @@ When the nominator decides to withdraw their stake, they submit a withdraw extri
 
 Operators can also withdraw their stake at any time by submitting a withdraw extrinsic. If their withdrawal leaves their stake below the domain's minimum requirements, the operator will be removed from the domain and their stake and the stakes of all nominators will be returned to their wallets.
 
+<!-- ![NominationPools](../../src/Images/Nomination_Pool.png) -->
+
 ### Example
 
 Operator $O$ has staked 100 SSC and registered as an operator with minimum nominator stake of 10 SSC and nomination tax of 5%. Operator $O$ has 2 nominators $N_1$ and $N_2$ each staked 50 SSC. Initially $\text{shares\_per\_ssc} = 1$, so $O$ gets 100 shares, and $N_1$ and $N_2$ each get 50 shares and $\text{total\_shares}=100+50+50=200$. 
