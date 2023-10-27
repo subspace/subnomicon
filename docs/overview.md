@@ -15,7 +15,10 @@ Subspace Labs also maintains the Subspace Network software client open-source [r
 
 # The Subspace Network Stack
 
-<!-- ![ModularStack](../src/Images/Modular_Stack.png) -->
+<div align="center">
+    <img src="/img/Modular_Stack-light.svg#gh-light-mode-only" alt="Modular_Stack" />
+    <img src="/img/Modular_Stack-dark.svg#gh-dark-mode-only" alt="Modular_Stack" />
+</div>
 
 - Application layer allows to build any conceivable application fostering new opportunities in automated transactions and agreements, governance, gaming, and virtual economies. 
 

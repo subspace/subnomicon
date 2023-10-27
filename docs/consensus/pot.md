@@ -17,7 +17,10 @@ The permissionless Proof-of-Work (PoW) used by Bitcoin remains the most robust c
 Unlike in Proof-of-Work, the process of block production in Proof-of-Stake and Proof-of-Space-based
 blockchains is not physically constrained. This makes such protocols vulnerable to a _long-range attack_, where an attacker can produce, very quickly, an alternative chain all the way to the current time, and this chain can potentially be heavier than the current "canonical" chain.
 
-<!-- ![LongRangeAttack](../../../src/Images/Long-Range_Attack.png) -->
+<div align="center">
+    <img src="/img/Long_Range_Attack-light.svg#gh-light-mode-only" alt="Long_Range_Attack" />
+    <img src="/img/Long_Range_Attack-dark.svg#gh-dark-mode-only" alt="Long_Range_Attack" />
+</div>
 
 To perfrm a long-range attack, an adversary needs to control enough resources at some point of chain life to rewrite a significant portion of the chain history. In PoW protocols like Bitcoin, this requires controlling over 50% of the total network hashrate for a sustained period of time which is infeasible in practice. However, long-range attacks remain a serious threat in alternative consensus protocols that do not rely on Proof-of-Work.
 

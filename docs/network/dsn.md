@@ -49,8 +49,8 @@ The Archival Storage layer serves as the "cold storage" and guarantees the histo
 In most cases, the L1 layers of farmers are populated with pieces received from L2.
 
 <div align="center">
-    <img src="/img/DSN_Layers-light.svg#gh-light-mode-only" alt="ConsensusPhases" />
-    <img src="/img/DSN_Layers-dark.svg#gh-dark-mode-only" alt="ConsensusPhases" />
+    <img src="/img/DSN_Layers-light.svg#gh-light-mode-only" alt="DSN_Layers" />
+    <img src="/img/DSN_Layers-dark.svg#gh-dark-mode-only" alt="DSN_Layers" />
 </div>
 
 ## Cache types by peer roles

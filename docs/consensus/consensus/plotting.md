@@ -42,11 +42,18 @@ For each record, the Plotting algorithm performs the following steps in memory:
 
 5. Encode each extended record chunk by XOR-masking it with the corresponding proof-of-space value.
 
-<!-- ![PieceEncoding](../../../src/Images/Piece_Encoding.png) -->
+<div align="center">
+    <img src="/img/Piece_Encoding-light.svg#gh-light-mode-only" alt="Piece_Encoding" />
+    <img src="/img/Piece_Encoding-dark.svg#gh-dark-mode-only" alt="Piece_Encoding" />
+</div>
 
 After all records in the sector have been encoded as described, the farmer spreads them into s-buckets chunk-wise. Ultimately, each bucket will contain chunks from all records. The first bucket will have the first chunks of each record; the second bucket will have the second chunks, and so on. The s-buckets are then written to disk, and the plotting process of the sector is complete in a single write operation. 
 
-<!-- ![EncodedSector](../../../src/Images/Encoded_Sector.png) -->
+<div align="center">
+    <img src="/img/Encoded_Sector-light.svg#gh-light-mode-only" alt="Encoded_Sector" />
+    <img src="/img/Encoded_Sector-dark.svg#gh-dark-mode-only" alt="Encoded_Sector" />
+</div>
+
 
 Each bucket represents a potential winning ticket in the block proposer lottery. For each challenge, a farmer will scan one s-bucket containing one chunk of each record they store in a sector and see whether any of them are eligible to win a block.
 

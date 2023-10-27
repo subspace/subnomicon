@@ -21,7 +21,10 @@ towards consensus. Rational farmers will always choose the latter,
 at best becoming light clients, while at worst encouraging pooled
 farming under a few trusted operators. 
 
-<!-- ![FarmersDilemma](../../src/Images/Farmers_Dilemma.png) -->
+<div align="center">
+    <img src="/img/Farmers_Dilemma-light.svg#gh-light-mode-only" alt="Farmers_Dilemma" />
+    <img src="/img/Farmers_Dilemma-dark.svg#gh-dark-mode-only" alt="Farmers_Dilemma" />
+</div>
 
 To resolve this dilemma, Subspace farmers
 maintain only minimal state and history while retaining the
@@ -37,7 +40,10 @@ reduces the storage and compute overhead needed to operate a
 farmer, even in an Ethereum-style execution model, allowing for
 high levels of participation.
 
-<!-- ![FarmersDilemmaSolution](../../src/Images/Farmers_Dilemma_Solution.png) -->
+<div align="center">
+    <img src="/img/Farmers_Dilemma_Solution-light.svg#gh-light-mode-only" alt="Farmers_Dilemma_Solution" />
+    <img src="/img/Farmers_Dilemma_Solution-dark.svg#gh-dark-mode-only" alt="Farmers_Dilemma_Solution" />
+</div>
 
 ## Eliminating Blockchain Bloat
 

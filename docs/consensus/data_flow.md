@@ -18,7 +18,10 @@ From the moment a transaction is submitted to the Subspace blockchain to the poi
 5. Pieces are encoded into farmer plots on disk for permanent storage, following the [Plotting](./consensus/plotting.md) protocol.
 6. When a client requests, the original data is reconstructed from archived pieces on the fly.
 
-<!-- ![DataFlow](../../src/Images/DataFlow.png) -->
+<div align="center">
+    <img src="/img/Data_Flow-light.svg#gh-light-mode-only" alt="Data_Flow" />
+    <img src="/img/Data_Flow-dark.svg#gh-dark-mode-only" alt="Data_Flow" />
+</div>
 
 ## Block Structure
 

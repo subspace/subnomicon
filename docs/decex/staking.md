@@ -17,7 +17,10 @@ Generally speaking, any SSC token holder can stake their tokens by nominating a 
 
 NPoS allows for virtually all SSC holders to participate, thus maintaining high levels of security by putting more value at stake and allowing more people to earn a yield based on their holdings.
 
-<!-- ![Nomination](../../src/Images/Nomination.png) -->
+<div align="center">
+    <img src="/img/Nomination-light.svg#gh-light-mode-only" alt="Nomination" />
+    <img src="/img/Nomination-dark.svg#gh-dark-mode-only" alt="Nomination" />
+</div>
 
 ## Nomination Pools
 
@@ -42,7 +45,10 @@ When the nominator decides to withdraw their stake, they submit a withdraw extri
 
 Operators can also withdraw their stake at any time by submitting a withdraw extrinsic. If their withdrawal leaves their stake below the domain's minimum requirements, the operator will be removed from the domain and their stake and the stakes of all nominators will be returned to their wallets.
 
-<!-- ![NominationPools](../../src/Images/Nomination_Pool.png) -->
+<div align="center">
+    <img src="/img/Nomination_Pool-light.svg#gh-light-mode-only" alt="Nomination_Pool" />
+    <img src="/img/Nomination_Pool-dark.svg#gh-dark-mode-only" alt="Nomination_Pool" />
+</div>
 
 ### Example
 
