@@ -74,6 +74,9 @@ Following an extensive study of existing VDF constructions, we chose AES for the
 
 To achieve asymmetric verification time for the AES-based delay function timekeepers publish a set of intermediate checkpoints alongside the output, currently 8, spaced uniformly. Farmers can validate each checkpoint independently and in parallel to reduce overall verification time. Including checkpoints allows other nodes to validate the output ~7 times faster and use ~4x less power than evaluation by leveraging instruction-level parallelism. 
 
-<!-- ![ProofOfTime](../../../src/Images/ProofofTime.png) -->
+<div align="center">
+    <img src="/img/Proof_of_Time-light.svg#gh-light-mode-only" alt="Proof_of_Time" />
+    <img src="/img/Proof_of_Time-dark.svg#gh-dark-mode-only" alt="Proof_of_Time" />
+</div>
 
 The target number of iterations is currently set to ~183 million to achieve approximately 1 second per time slot on high-end CPUs. We will continuosly monitor hardware capabilities and will be adjusting the target to maintain approximately 1 second slots as needed. It is crucial to benchmark the delay function on best available hardware to ensure no one can gain an advantage by evaluating the delay function faster than others to predict future randomness outputs.

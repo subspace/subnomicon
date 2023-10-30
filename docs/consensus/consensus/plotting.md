@@ -18,7 +18,10 @@ The memory-bandwidth bound encoding construction comes from the paper **[Beyond 
 In short, the PoS plotter generates a table of permuted outputs from a set of random functions. The table size is determined by a memory bandwidth requirement parameter, *k*, set to 20, and the random functions are determined by a *seed*. When challenged at an *index*, the table outputs a short *proof-of-space* that can be efficiently verified.
 We do not use the proof-of-space directly to verify that a farmer has pledged a certain amount of space, as Chia does. Instead, we use it to prove that a farmer utilized the required memory bandwidth for encoding the plot.
 
-<!-- ![PoSTable](../../../src/Images/PoS_Table.png) -->
+<div align="center">
+    <img src="/img/PoS_Table-light.svg#gh-light-mode-only" alt="PoS_Table" />
+    <img src="/img/PoS_Table-dark.svg#gh-dark-mode-only" alt="PoS_Table" />
+</div>
 
 ## Workflow
 
@@ -26,7 +29,10 @@ A plot can cover the entire disk or span across multiple disks, and there is no 
 
 In addition, the farmer must save the current history size, as it will determine the point in the future when the sector will need to be updated with newer pieces. 
 
-<!-- ![RawSector](../../../src/Images/Raw_Sector.png) -->
+<div align="center">
+    <img src="/img/Raw_Sector-light.svg#gh-light-mode-only" alt="Raw_Sector" />
+    <img src="/img/Raw_Sector-dark.svg#gh-dark-mode-only" alt="Raw_Sector" />
+</div>
 
 
 Once the farmer has obtained all 1,000 pieces for this sector from the network, they can create an encoded replica. Only the piece’s historical data, the record part, is encoded. The KZG commitment and witness included in a piece are saved separately in the sector metadata, as they will be needed later for farming.
@@ -38,7 +44,10 @@ For each record, the Plotting algorithm performs the following steps in memory:
 3. Based on this *seed*, generate a proof-of-space table using memory bandwidth resources set by the global protocol memory requirement parameter *k*. This memory-intensive computation prevents malicious farmers from creating replicas after the new block challenge is announced, making it more rational for them to store the replica rather than try to compute it on the fly every time.
 4. Query the generated table for enough ($2^{15}$) proof-of-space values to mask every chunk of the record.
 
-<!-- ![PoSLookup](../../../src/Images/PoS_Lookup.png) -->
+<div align="center">
+    <img src="/img/PoS_Lookup-light.svg#gh-light-mode-only" alt="PoS_Lookup" />
+    <img src="/img/PoS_Lookup-dark.svg#gh-dark-mode-only" alt="PoS_Lookup" />
+</div>
 
 5. Encode each extended record chunk by XOR-masking it with the corresponding proof-of-space value.
 
@@ -66,7 +75,10 @@ Recall that when plotting a sector, the farmer saves the history size at the tim
 
 When a sector reaches its expiry point, the block proposer challenge solutions coming from this sector will no longer be accepted by other peers, incentivizing the farmer to update their plot. The farmer erases the expired sector and repeats the Plotting process anew, replicating a fresh history sample. Each replotting creates a new sector in memory and saves it to disk in a single write operation.
 
-<!-- ![Replotting](../../../src/Images/Replotting.png) -->
+<div align="center">
+    <img src="/img/Replotting-light.svg#gh-light-mode-only" alt="Replotting" />
+    <img src="/img/Replotting-dark.svg#gh-dark-mode-only" alt="Replotting" />
+</div>
 
 In a plot spanning multiple gigabytes, the sectors will be updated randomly, one at a time, so replotting is amortized over a long period. There is never a moment when a farmer needs to erase and re-create their whole plot and miss out on challenges. The plot refreshing will be practically invisible to the farmer and allow their uninterrupted participation in consensus.
 
