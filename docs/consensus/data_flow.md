@@ -60,4 +60,7 @@ Each domain bundle can be seen as "a block inside a block," with its bundle head
 Each domain is an application-specific blockchain (app-chain) that relies on the consensus chain for data availability and settlement. 
 Domain chains consist of domain blocks, each containing solely the bundles relevant to this domain and disregarding any transactions concerning other domains. Domain chains have separate namespaced execution environments while receiving shared security and interoperability from the consensus chain.
 
-<!-- ![SlotToExecution](../../../src/Images/Slot_To_Execution.png) -->
+<div align="center">
+    <img src="/img/Slot_To_Execution-light.svg#gh-light-mode-only" alt="Slot_To_Execution" />
+    <img src="/img/Slot_To_Execution-dark.svg#gh-dark-mode-only" alt="Slot_To_Execution" />
+</div>

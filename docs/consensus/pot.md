@@ -62,7 +62,10 @@ The Proof-of-Time chain starts at the genesis time of the Subspace consensus cha
 The fact that we have a sequence of random values coming from the Proof-of-Time evaluation allows us to use it
 as a source of randomness for block challenges. This is an additional advantage of our Proof-of-Time design, as other non-PoW protocols without Proof-of-Time suffer from predictability of the block challenge. Since we target a block challenge every second, we can set the delay function evaluation to output a proof every second. Then for every time slot, timekeepers will evaluate the delay function for a set number of iterations to generate fresh global randomness. They then announce the output to the network, which is used by farmers to determine the next block proposer.
 
-<!-- ![ProofOfTimeChallenges](../../../src/Images/PoTChallenges.png) -->
+<div align="center">
+    <img src="/img/PoT_Challenges-light.svg#gh-light-mode-only" alt="Proof_of_Time_Challenges" />
+    <img src="/img/PoT_Challenges-dark.svg#gh-dark-mode-only" alt="Proof_of_Time_Challenges" />
+</div>
 
 Farmers receive fresh randomness from timekeepers, verify it and scan their plots to see if they contain any chunks of history close enough to the challenge threshold to claim the block. Farmers with the correct chunks provide a proof-of-space for those, propose a block and earn rewards. The randomness is revealed a few slots in advance to ensure every farmer on the network has had enough time to receive it, scan their plots and submit the proof-of-space if they win. The farmers include PoT outputs in the block header, and the PoT chain is persisted in the consensus chain in this way.
 
