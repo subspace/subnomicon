@@ -58,7 +58,19 @@ In the next epoch, the pool has earned 10 SSC of rewards, and the operator took 
 
 Suppose after some time $\text{shares\_per\_ssc}$ value of this pool becomes 0.9. If $N_1$ wants to withdraw 20 SSC, the corresponding shares will be deducted from their stake and the pool's total stake based on $\text{shares\_per\_ssc} = 0.9$. After withdrawal, $N_1$'s remaining shares are $50-20*0.9=32$. Because of the time $N_1$ has staked, the price of their shares has increased, so they they only had to "sell" 18 shares instead of 20 shares to get 20 SSC back.
 
-The example is intended for illustration, the actual calculation is performed with shannons ($1 \text{SSC} = 10^{18}\  \text{shannons}$).
+The example is intended for illustration, the actual calculation is performed with shannons ($1\ \text{SSC} = 10^{18}\  \text{shannons}$).
+
+## Staking Epochs
+
+Staking epoch is a period of time during which staking distribution remains the same. This period is currently set to 100 blocks, or roughly 10 minutes. The end of each epoch triggers a series of events to transition to the next epoch. These events include:
+
+- allocation of rewards earned during the epoch,
+- deposits and withdrawals of stake,
+- operator registrations and deregistrations,
+- recalculation of stake distribution for the slot leader election.
+
+Because of this, new operators must wait for the end of the current epoch to register as an operator, new nominators must wait for the end of the current epoch to nominate, and new stake deposits and withdrawals must wait for the end of the current epoch to be processed.
+As soon as the end of the epoch transition is finalized, the next epoch begins.
 
 ## Power Balance 
 
