@@ -49,9 +49,11 @@ The elapsed time guarantee is achieved by iterative evaluation of an inherently 
 
 ## Timekeeping
 
-For the task of running the time-chain, Subspace introduces a new role for nodes called Timekeepers. Timekeepers are responsible for evaluating the delay function and announcing the outputs to other nodes. Anyone can become a Timekeeper as long as they have a sufficiently powerful CPU to be able to evaluate the delay function within the target time slot duration of 1 second. A timekeeper can also be a farmer and participate in block production or an operator executing computation on a domain. 
+For the task of running the time-chain, Subspace introduces a new role for nodes called Timekeepers. Timekeepers are responsible for evaluating the delay function and announcing the outputs to other nodes. Anyone can become a Timekeeper as long as they have a powerful CPU of last generation that is able to evaluate the delay function within the target time slot duration of 1 second. 
 
-A single honest timekeeper is sufficient for the security of the protocol, but for robustness and decentralization there should be multiple timekeepers running in parallel. We encourage interested participants to run the timekeeper component on their nodes to ensure the security and decentralization of the protocol. Domain operators may be more suited for the task since they likely already have powerful hardware.
+A single honest timekeeper is sufficient for the security of the protocol, but for robustness and decentralization there should be multiple timekeepers running concurrently. We encourage interested participants to run the timekeeper component on their nodes to ensure the security and decentralization of the protocol.
+
+While a timekeeper can also be a farmer and participate in block production or an operator executing computation on a domain, operators are likely more suited for the task since they already have powerful hardware. Timekeeping will fully consume a dedicated CPU core. Ideally, it should be run on a separate last generation machine with no other processes interfering with the timekeeping. This setup will allow best performance and security of the protocol against malicious timekeepers.
 
 The Proof-of-Time chain starts at the genesis time of the Subspace consensus chain. The input to the first slot is a random seed which will be publicly announced at launch to ensure equal opportunity. For each subsequent slot, the output of the previous slot serves as the input. By chaining the outputs, the timekeepers enforce sequentiality and prevent skipping ahead in time.
 
