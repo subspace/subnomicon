@@ -9,7 +9,7 @@ keywords:
 
 # The Subspace Protocol
 Subspace is the first layer-one blockchain that can fully resolve the blockchain trilemma. 
-![Trilemma](../src/Images/Trilemma.png)
+![Trilemma](../static/img/Trilemma.png)
 
 We have built Subspace from the first principles to simultaneously achieve scalability, security and decentralization. At its core, Subspace introduces a novel storage-based consensus protocol that separates consensus from execution. This proposer-builder separation allows Subspace to independently scale transaction throughput and storage requirements while maintaining a fully decentralized blockchain.
 
