@@ -41,9 +41,9 @@ Any SSC token holder who has more than the minimum nominator stake may choose to
     3. The $\text{deposit\_amount}$ is added to $\text{pool\_total\_stake}$ of the operator pool and domain’s total stake.
     4. The $\text{shares}$ of this nominator are added to $\text{total\_shares}$ of the pool.
 
-When the nominator decides to withdraw their stake, they submit a withdraw extrinsic. The withdraw extrinsic is processed at the end of the epoch and the stake is removed from the operator's pool and the domain's total stake. The nominator is then entitled to the rewards based on the stake shares and the amount of time they have staked.
+When the nominator decides to withdraw their stake or rewards, they submit a withdraw extrinsic. The withdraw extrinsic is processed at the end of the epoch and the stake is removed from the operator's pool and the domain's total stake. The nominator is then entitled to the rewards based on the stake shares and the amount of time they have staked.
 
-Operators can also withdraw their stake at any time by submitting a withdraw extrinsic. If their withdrawal leaves their stake below the domain's minimum requirements, the operator will be removed from the domain and their stake and the stakes of all nominators will be returned to their wallets.
+Operators can also withdraw their stake and rewards at any time by submitting a withdraw extrinsic. If their withdrawal leaves their stake below the domain's minimum requirements, the operator will be removed from the domain and their stake and the stakes of all nominators will be returned to their wallets.
 
 <div align="center">
     <img src="/img/Nomination_Pool-light.svg#gh-light-mode-only" alt="Nomination_Pool" />
@@ -57,6 +57,8 @@ Operator $O$ has staked 100 SSC and registered as an operator with minimum nomin
 In the next epoch, the pool has earned 10 SSC of rewards, and the operator took 5% of the rewards as commission (0.5 SSC). The pool end-of-epoch $\text{shares\_per\_ssc}$ is now $200/(200 + 10 * (1-0.05)) = 0.954654$. If a new nominator $N_3$ stakes 30 SSC, the $\text{shares}$ they will get is $(30 * 0.954654) = 28$.
 
 Suppose after some time $\text{shares\_per\_ssc}$ value of this pool becomes 0.9. If $N_1$ wants to withdraw 20 SSC, the corresponding shares will be deducted from their stake and the pool's total stake based on $\text{shares\_per\_ssc} = 0.9$. After withdrawal, $N_1$'s remaining shares are $50-20*0.9=32$. Because of the time $N_1$ has staked, the price of their shares has increased, so they they only had to "sell" 18 shares instead of 20 shares to get 20 SSC back.
+
+If $N_1$ wanted to withdraw all their stake and rewards, that is sell all their 50 shares, they would get $50/\text{shares\_per\_ssc} = 50/0.9=55.5$ SSC, earning 5.5 SSC in rewards.
 
 The example is intended for illustration, the actual calculation is performed with shannons ($1\ \text{SSC} = 10^{18}\  \text{shannons}$).
 
