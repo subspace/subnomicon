@@ -67,3 +67,8 @@ When a domain block is out of the challenge period it is considered confirmed an
 - Operator will get a cut of all rewards issued to their pool as per nomination tax specified in operator’s config at the next epoch transition.
 - Operator’s cut will be automatically re-staked to the operator’s stake at next epoch transition. Operator’s shares, total pool shares and total stake will be updated with the corresponding deposit. For an exmaple on shares calculation, see the [Staking](/docs/decex/staking.md#example) page.
 - At the next epoch transition the domain applies all changes corresponding to rewards, deposits and withdrawals to the total stakes of all registered operators. Note that this only changes the total pool balance, but does not affect shares for any individual nominators.
+
+<div align="center">
+    <img src="/img/Domain_Tx_To_Reward-light.svg#gh-light-mode-only" alt="Domain_Tx_To_Reward" />
+    <img src="/img/Domain_Tx_To_Reward-dark.svg#gh-dark-mode-only" alt="Domain_Tx_To_Reward" />
+</div>
