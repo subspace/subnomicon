@@ -18,7 +18,7 @@ The sudo user then instantiates the first domain on the previously registered do
 ## Operator Staking
     
 After a domain is instantiated, anyone may deposit SSC and stake as an operator of this domain, allowing them to participate in the leader election to produce bundles and execute domain blocks. 
-They do this by submitting a registration extrinsic with a staking deposit, targeting the first domain instance. They will be listed in Operator Registry and eligible to participate in the leader election on the next stake epoch. 
+They do this by submitting a registration extrinsic with a staking deposit, targeting the first domain instance. They will be listed in the Operator Registry and eligible to participate in the leader election on the next stake epoch. 
     
 ## Domain Transactions
     
@@ -61,7 +61,7 @@ Any node who observes an Execution Receipt within any bundle for any consensus c
 
 ## Domain Block Rewards
 
-When a domain block is out of challenge period it is considered confirmed and can no longer be disputed. After a domain block is confirmed, the rewards for this block are applied as follows:
+When a domain block is out of the challenge period it is considered confirmed and can no longer be disputed. After a domain block is confirmed, the rewards for this block are applied as follows:
 
 - The total rewards of the confirmed block are added to the current epoch rewards for this domain. The total rewards of the block include all fees and tips of all of the transactions included in this block. The rewards are split equally among the operators pools who have previously submitted the Execution Receipt for this block and noted in the Operator Registry. The rewards do not affect the stake distribution yet. All the rewards will be auto-staked to the pools' stakes at the end of the current epoch. For more details on staking epochs, see the [Staking](/docs/decex/staking.md#staking-epochs) page.
 - Operator will get a cut of all rewards issued to their pool as per nomination tax specified in operator’s config at the next epoch transition.

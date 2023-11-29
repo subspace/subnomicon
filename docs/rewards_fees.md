@@ -25,7 +25,7 @@ Currently, farmer rewards include:
 
 ## Operators 
 
-Currently, operators are solely rewarded with the fees for domain transactions they execute. Since domain transactions (e.g., EVM contract calls) are usually much more computationally heavy, than those performed on the consensus chain (e.g., balance transfers), they are substantially expensive to compensate operators fairly for their work. The operators receive the reward for the executed transactions only after the corresponding domain block has cleared the challenge period. For more details, see [Domain Block Rewards](/docs/decex/domains/workflow.md#domain-block-rewards).
+Currently, operators are solely rewarded with the fees for domain transactions they execute. Since domain transactions (e.g. EVM contract calls) are usually much more computationally heavy, than those performed on the consensus chain (e.g. balance transfers), they are substantially expensive to compensate operators fairly for their work. The operators receive the reward for the executed transactions only after the corresponding domain block has cleared the challenge period. For more details, see [Domain Block Rewards](/docs/decex/domains/workflow.md#domain-block-rewards).
 
 ## Nominators
 
