@@ -41,6 +41,8 @@ Any SSC token holder who has more than the minimum nominator stake may choose to
     3. The $\text{deposit\_amount}$ is added to $\text{pool\_total\_stake}$ of the operator pool and domain’s total stake.
     4. The $\text{shares}$ of this nominator are added to $\text{total\_shares}$ of the pool.
 
+The nomination pools in Subspace are "lazy": any rewards earned by the operator are assigned to the pool and are not deposited to the nominators wallet unless they ask for a withdrawal. Unless withdrawn, the rewards are "auto-staked" - they count towards the total stake of the pool, increasing its chance of being elected to produce bundles.
+
 When the nominator decides to withdraw their stake or rewards, they submit a withdraw extrinsic. The withdraw extrinsic is processed at the end of the epoch and the stake is removed from the operator's pool and the domain's total stake. The nominator is then entitled to the rewards based on the stake shares and the amount of time they have staked.
 
 Operators can also withdraw their stake and rewards at any time by submitting a withdraw extrinsic. If their withdrawal leaves their stake below the domain's minimum requirements, the operator will be removed from the domain and their stake and the stakes of all nominators will be returned to their wallets.
