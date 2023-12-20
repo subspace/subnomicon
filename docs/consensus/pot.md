@@ -85,3 +85,25 @@ To achieve asymmetric verification time for the AES-based delay function timekee
 </div>
 
 The target number of iterations is currently set to ~183 million to achieve approximately 1 second per time slot on high-end CPUs. We will continuosly monitor hardware capabilities and will be adjusting the target to maintain approximately 1 second slots as needed. It is crucial to benchmark the delay function on best available hardware to ensure no one can gain an advantage by evaluating the delay function faster than others to predict future randomness outputs.
+
+## Security Considerations
+
+There are several security considerations to take into account when designing a randomness beacon in a decentralized protocol. The security claim for Subspace PoT is the following: 
+
+As long as there is at least one honest timekeeper online at all times, and network delay is bounded, all honest nodes can determine the correct PoT output, and hence the correct slot challenge.
+
+It is achieved by carefully taking care of the following aspects:
+
+1. **Sequentiality**: Subspace PoT beacon achieves sequentiality by chaining the slot outputs. Each output is used as an input to the delay function for the next slot.
+
+2. **Network delay**: When a farmer receives a PoT output for the challenge, they immediately start auditing the plot and proving if they have a winning solution. However, they are only allowed to submit the solution after $r$ slots. This lag parameter is currently set to 4 slots, and can be tuned so that there is enough time to propagate, verify the PoT output and prove a solution on common farmer hardware. Increasing $r$ allows an honest node more time to solve for a challenge, but also gives a malicious node more time to attempt to plot on-the-fly.
+
+3. **Faster timekeeper**: An attacker who has access to a timekeeper hardware that is able to run PoT faster then any other timekeeper on the network presents several security risks and Subspace addresses them via a few mechanisms. First, the speed gains are not cumulative over time: because of entropy injection every 50 blocks (~5 min) the attackers advantage is reset. Second, if a faster timekeeper gossips their PoT to the network, other timekeepers will continuously sync up and catch up to them. If a faster timekeeper withholds PoT and only uses it to produce blocks on their own, they do have some prediction window (depending how much faster they are), but nevertheless they either need significant percentage of network's disk storage or attempt on-the-fly plotting, which is also hard, as described on the [Security](/docs/consensus/security.md#on-the-fly-plot-creation) page. A faster PoT also makes a long-range attack more feasible, but the attacker still requires as much storage as the average honest storage to pull it off as described above. 
+
+    The network will continuosly monitor the rate of PoT progression in comparison to real wall-clock time to detect the possibility of a faster timekeeper existence.
+
+4. **Difficulty adjustment**: The iteration count for the PoT delay function is benchmarked to be as close to the real wall-clock time as possible. With improvements in hardware, faster honest timekeepers can be deployed onto the network and iteration count increased to match the real wall-clock time.
+
+5. **Predictability**: Slot challenges can only be predicted in advance if the attacker has a faster timekeeper and even then it only lasts until the next injection.
+
+6. **Biasing randomness**: Subspace PoT does not allows the attacker to control the slot challenges of the next time interval by releasing/withholding their blocks from the current interval via the injection mechanism. See, [Ouroboros Praos](https://eprint.iacr.org/2017/573.pdf) for a security proof.
