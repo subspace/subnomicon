@@ -10,26 +10,25 @@ keywords:
 
 All the participants of the Subspace Network are compensated for the work they do to keep the network live and secure. In this context, we define the following terms:
 - **Fees**: The payments for transactions on the Subspace Network.
-- **Rewards**: The compensation for the work done by the participants of the Subspace Network.
-- **Issuance**: The issuance of the newly minted SSC by the protocol.
+- **Rewards**: The compensation for the work done by the participants of the Subspace Network via the issuance of the newly minted SSC by the protocol.
 
 Different participants receive their compensation through a combination of the above based on their role.
 
 ## Farmers
 
-Currently, farmer rewards include: 
-- fees for the transactions they include in consensus chain blocks,
+Currently, farmers receive: 
+- fees for the transactions and bundles they include in consensus chain blocks,
 - block rewards for the blocks they proposed, issued by the protocol,
 - vote rewards issued by the protocol,
 - Designated Storage Fund (DSF) subsidy.
 
 ## Operators 
 
-Currently, operators are solely rewarded with the fees for domain transactions they execute. Since domain transactions (e.g. EVM contract calls) are usually much more computationally heavy, than those performed on the consensus chain (e.g. balance transfers), they are substantially expensive to compensate operators fairly for their work. The operators receive the reward for the executed transactions only after the corresponding domain block has cleared the challenge period. For more details, see [Domain Block Rewards](/docs/decex/domains/workflow.md#domain-block-rewards).
+Currently, operators are solely earning the fees for domain transactions they execute. Since domain transactions (e.g. EVM contract calls) are usually much more computationally heavy, than those performed on the consensus chain (e.g. balance transfers), they are sufficiently expensive to compensate operators fairly for their work. The operators receive the reward for the executed transactions only after the corresponding domain block has cleared the challenge period. For more details, see [Domain Block Fees](/docs/decex/domains/workflow.md#domain-block-fees).
 
 ## Nominators
 
-Currently, nominators receive a portion of the rewards of the operator they nominated, based on their shares in the pool. For more details on how the pool shares and rewards are calculated, see [Nomination Pools](/docs/decex/staking.md#nomination-pools).
+Currently, nominators receive a portion of the fees of the operator they nominated, based on their shares in the pool. For more details on how the pool shares and fees are calculated, see [Nomination Pools](/docs/decex/staking.md#nomination-pools).
 
 ## Designated Storage Fund
 

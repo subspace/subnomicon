@@ -24,7 +24,7 @@ NPoS allows for virtually all SSC holders to participate, thus maintaining high 
 
 ## Nomination Pools
 
-Operators must stake an amount higher than this domain's minimum stake for a right to participate in the execution and earn execution rewards. An operator's chances to become a slot leader are directly proportional to the percentage of their stake against the total amount staked by all operators of this domain. As such, operators are incentivized to recruit nominators to increase their stake. This means that each domain operator stake acts essentially as a pool for nominators. When registering as an operator, each operator specifies their minimum nominator stake and nomination tax of their pool. The nomination tax is a percentage that the operator collects on all fees earned by executing blocks, before they are shared with nominators, a commission for the operator's work. The tax amount is automatically restaked as part of the operator's stake.
+Operators must stake an amount higher than this domain's minimum stake for a right to participate in the execution and earn execution fees. An operator's chances to become a slot leader are directly proportional to the percentage of their stake against the total amount staked by all operators of this domain. As such, operators are incentivized to recruit nominators to increase their stake. This means that each domain operator stake acts essentially as a pool for nominators. When registering as an operator, each operator specifies their minimum nominator stake and nomination tax of their pool. The nomination tax is a percentage that the operator collects on all fees earned by executing blocks, before they are shared with nominators, a commission for the operator's work. The tax amount is automatically restaked as part of the operator's stake.
 
 Any SSC token holder who has more than the minimum nominator stake (currently 1 SSC) may choose to join this operator’s pool by submitting the nomination extrinsic with the deposit amount of SSC they wish to stake. 
 
@@ -72,7 +72,7 @@ The example is intended for illustration, the actual calculation is performed wi
 
 Staking epoch is a period of time during which staking distribution remains the same. This period is currently set to 100 blocks, or roughly 10 minutes. The end of each epoch triggers a series of events to transition to the next epoch. These events include:
 
-- allocation of rewards earned during the epoch,
+- allocation of fees earned during the epoch,
 - deposits and withdrawals of stake,
 - operator registrations and deregistrations,
 - recalculation of stake distribution for the slot leader election.
@@ -82,7 +82,7 @@ As soon as the end of the epoch transition is finalized, the next epoch begins.
 
 ## Power Balance 
 
-Farmers who have earned storage rewards nominate operators to execute transactions. This nomination system balances the power between farmers and operators, and both parties share the rewards and the potential penalties (slashing). Farmer-nominated operators get a higher chance to produce blocks proportional to the amount of stake backing them, thus, higher revenues. Farmers have the power to nominate operators they trust to execute transactions properly. On the other hand, operators compete to be nominated by providing good service, maintaining a good reputation within the community, and having reasonable commission. 
+Farmers who have earned storage rewards nominate operators to execute transactions. This nomination system balances the power between farmers and operators, and both parties share the fees and the potential penalties (slashing). Farmer-nominated operators get a higher chance to produce blocks proportional to the amount of stake backing them, thus, higher revenues. Farmers have the power to nominate operators they trust to execute transactions properly. On the other hand, operators compete to be nominated by providing good service, maintaining a good reputation within the community, and having reasonable commission. 
 Farmers also retain the power to withdraw their nominations at any time, ensuring operators remain accountable.
 
 This two-tiered structure provides robust security guarantees. By enabling the consolidation of vast quantities of stake — far exceeding the SSC holdings of any individual party — it creates significant barriers for malicious actors trying to elect dishonest operators. Gaining the necessary backing requires building a considerable reputation, making it challenging for adversaries. Additionally, attacking the system would be prohibitively expensive, leading to large amounts of stake slashed. We anticipate that a substantial portion of the SSC supply will be staked in the NPoS system at any time.

@@ -59,14 +59,14 @@ The domain block will then be carefully executed, one extrinsic at a time, allow
     
 Any node who observes an Execution Receipt within any bundle for any consensus chain block that differs from what they produced locally has detected fraud. They will produce an extrinsic with a fraud proof to handle the fraud. If the fraud proof is valid, it will be included in the consensus chain, which will prune the Execution Receipt in question and all children from the block tree and slash all related operators. Currently, the challenge period is 256 domain blocks (~26 minutes).
 
-## Domain Block Rewards
+## Domain Block Fees
 
-When a domain block is out of the challenge period it is considered confirmed and can no longer be disputed. After a domain block is confirmed, the rewards for this block are applied as follows:
+When a domain block is out of the challenge period it is considered confirmed and can no longer be disputed. The total fees of the block include all execution and storage fees and tips of all of the transactions included in this block. After a domain block is confirmed, the total fees for this block are applied as follows:
 
-- The total rewards of the confirmed block are added to the current epoch rewards for this domain. The total rewards of the block include all fees and tips of all of the transactions included in this block. The rewards are split equally among the pools of operators who have previously submitted the Execution Receipt for this block. The current epoch rewards are noted in the Operator Registry until the epoch transition and do not affect the stake distribution yet. All the rewards will be auto-staked to the pools' stakes at the end of the current epoch. For more details on staking epochs, see the [Staking](/docs/decex/staking.md#staking-epochs) page.
-- Operator will get a cut of all rewards issued to their pool as per nomination tax specified in operator’s config at the next epoch transition.
+- The total execution fees of the confirmed block are added to the current epoch fees for this domain.  The fees are split equally among the pools of operators who have previously submitted the Execution Receipt for this block. The current epoch fees are noted in the Operator Registry until the epoch transition and do not affect the stake distribution yet. All the fees will be auto-staked to the pools' stakes at the end of the current epoch. For more details on staking epochs, see the [Staking](/docs/decex/staking.md#staking-epochs) page.
+- Operator will get a cut of all fees earned by their pool as per nomination tax specified in operator’s config at the next epoch transition.
 - Operator’s cut will be automatically re-staked to the operator’s stake at next epoch transition. Operator’s shares, total pool shares and total stake will be updated with the corresponding deposit. For an exmaple on shares calculation, see the [Staking](/docs/decex/staking.md#example) page.
-- At the next epoch transition the domain applies all changes corresponding to rewards, deposits and withdrawals to the total stakes of all registered operators. Note that this only changes the total pool balance, but does not affect shares for any individual nominators.
+- At the next epoch transition the domain applies all changes corresponding to fees, deposits and withdrawals to the total stakes of all registered operators. Note that this only changes the total pool balance, but does not affect shares for any individual nominators.
 
 <div align="center">
     <img src="/img/Domain_Tx_To_Reward-light.svg#gh-light-mode-only" alt="Domain_Tx_To_Reward" />
