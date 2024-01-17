@@ -36,6 +36,7 @@ To produce a new bundle, the operator has to include:
 - a proof of election showing that they are a leader for this time slot, 
 - an Execution Receipt that either extends or confirms the previous domain block tracked on the consensus chain, 
 - all bundle extrinsics that fall within the operator's portion of the extrinsic pool. 
+- storage fees for the bundle extrinsics.
 
 The bundle is then broadcast on the consensus chain gossip network. 
     
@@ -63,6 +64,7 @@ Any node who observes an Execution Receipt within any bundle for any consensus c
 
 When a domain block is out of the challenge period it is considered confirmed and can no longer be disputed. The total fees of the block include all execution and storage fees and tips of all of the transactions included in this block. After a domain block is confirmed, the total fees for this block are applied as follows:
 
+- The total storage fees of the confirmed block are refunded to the operators who authored bundles in this block according to the respective storage sizes of their bundles.
 - The total execution fees of the confirmed block are added to the current epoch fees for this domain.  The fees are split equally among the pools of operators who have previously submitted the Execution Receipt for this block. The current epoch fees are noted in the Operator Registry until the epoch transition and do not affect the stake distribution yet. All the fees will be auto-staked to the pools' stakes at the end of the current epoch. For more details on staking epochs, see the [Staking](/docs/decex/staking.md#staking-epochs) page.
 - Operator will get a cut of all fees earned by their pool as per nomination tax specified in operator’s config at the next epoch transition.
 - Operator’s cut will be automatically re-staked to the operator’s stake at next epoch transition. Operator’s shares, total pool shares and total stake will be updated with the corresponding deposit. For an exmaple on shares calculation, see the [Staking](/docs/decex/staking.md#example) page.
