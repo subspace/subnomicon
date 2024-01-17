@@ -58,7 +58,7 @@ The domain block will then be carefully executed, one extrinsic at a time, allow
     
 ## Challenging Operators
     
-Any node who observes an Execution Receipt within any bundle for any consensus chain block that differs from what they produced locally has detected fraud. They will produce an extrinsic with a fraud proof to handle the fraud. If the fraud proof is valid, it will be included in the consensus chain, which will prune the Execution Receipt in question and all children from the block tree and slash all related operators. Currently, the challenge period is 256 domain blocks (~26 minutes).
+Any node who observes an Execution Receipt within any bundle for any consensus chain block that differs from what they produced locally has detected fraud. They will produce an extrinsic with a fraud proof to handle the fraud. If the fraud proof is valid, it will be included in the consensus chain, which will prune the Execution Receipt in question and all children from the block tree and slash all related operators. Currently, the challenge period is 14400 domain blocks (~1 day).
 
 ## Domain Block Fees
 
