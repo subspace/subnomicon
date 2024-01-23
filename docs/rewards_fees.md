@@ -10,7 +10,7 @@ keywords:
 
 All the participants of the Subspace Network are compensated for the work they do to keep the network live and secure. In this context, we define the following terms:
 - **Fees**: The payments for transactions on the Subspace Network.
-- **Rewards**: The compensation for the work done by the participants of the Subspace Network via the issuance of the newly minted SSC by the protocol.
+- **Rewards**: The compensation for the work performed by the participants of the Subspace Network via the issuance of the newly minted SSC by the protocol.
 
 Different participants receive their compensation through a combination of the above based on their role.
 

@@ -30,7 +30,7 @@ Any SSC token holder who has more than the minimum nominator stake (currently 1 
 
 1. The amount of deposited SSC is added to the list of pending deposits within the operator's pool. 
 2. At the end of an epoch (currently 100 blocks, ~ 10 minutes), the nominator's deposit is processed.
-3. A part of the deposit is taken as a reserve towards a storage fee fund. This reserve is calculated as a percentage of the deposit (currently, 20%), and is used to pay for the storage fees of bundles created by the operator of the pool and does not affect the stake distribution. The reserved amount is transferred to the operators storage fee fund, while the rest of the deposit remains locked in the nominator's account. This amount is partially refunded with each withdrawal. 
+3. A part of the deposit is taken as a reserve towards a storage fee fund. This reserve is calculated as a percentage of the deposit (currently, 20%), and is used to pay for the storage fees of bundles created by the operator of the pool and does not affect the stake distribution. The reserved amount is transferred to the operator's storage fee fund, while the rest of the deposit remains locked in the nominator's account. This amount is partially refunded with each withdrawal. 
 4. The nominator is awarded their shares in the pool. The stake shares are the percentage of the total stake that is allocated to each nominator. The stake shares are used to calculate the share of the operator's fees that the nominator is entitled to based on the amount they have staked and for how long. The stake shares are calculated as follows:
     1. Compute the operator’s pool end-of-epoch $\text{shares\_per\_ssc}$ as the total number of shares divided by the sum of all stake in the pool and fees collected during the previous epoch 
 
@@ -56,17 +56,17 @@ Operators can also withdraw their stake and fees at any time by submitting a `wi
 
 ### Unlocking Funds
 
-Withdrawals have a lock period of 2 days (currently 28 800 blocks, ~ 48 hours). After the locking period, the withdrawn amount can be unlocked in the users account with the `unlock_funds` extrinsic. All withdrawals requested in the same stake epoch are aggregated together and the total amount is unlocked at once. This locking period is necessary to ensure that the domain block executing the withdrawal is confirmed and not challenged by a fraud proof and to increase the economic stability of domains. 
+Withdrawals have a lock period of 2 days (currently 28 800 blocks, ~ 48 hours). After the locking period, the withdrawn amount can be unlocked in the user's account with the `unlock_funds` extrinsic. All withdrawals requested in the same stake epoch are aggregated together and the total amount is unlocked at once. This locking period is necessary to ensure that the domain block executing the withdrawal is confirmed and not challenged by a fraud proof in order to increase the economic stability of domains. 
 
 ### Example
 
 Operator $O$ has staked 100 SSC and registered as an operator with minimum nominator stake of 10 SSC and nomination tax of 5%. The required storage fee reserve deposit is 20%. Operator $O$ has 2 nominators $N_1$ and $N_2$ each staked 50 SSC and reserved 20% = 10 SSC each for storage fees. Initially $\text{shares\_per\_ssc} = 1$, so $O$ gets 80 shares, and $N_1$ and $N_2$ each get 40 shares and $\text{total\_shares}=80+40+40=160$ in the stake and the same shares in the storage fee reserve. 
 
 In the next epoch, the pool has earned 20 SSC of compute fees and refunded an extra 4 SSC of storage fees, and the operator took 5% of compute fees as a commission (1 SSC). The pool stake is now 160+20=180 SSC and storage reserve is now 40+4=44 SSC.
-The pool end-of-epoch $\text{shares\_per\_ssc}$ is now $160/(160 + 20 * (1-0.05)) = 0.893855$. Notice that 4 SSC of storage fees do not count into $\text{shares\_per\_ssc}$ calculation, which allows us to sustain stable stake distribution despite fluctuating size of storage fee reserve. 
+The pool end-of-epoch $\text{shares\_per\_ssc}$ is now $160/(160 + 20 * (1-0.05)) = 0.893855$. Notice that 4 SSC of storage fees do not count into $\text{shares\_per\_ssc}$ calculation, which allows us to sustain stable stake distribution despite the fluctuating size of the storage fee reserve. 
 If a new nominator $N_3$ stakes 33.6 SSC, 6.72 SSC will be reserved for storage fee fund, and the $\text{shares}$ they will get is $((33.6-6.72) * 0.893855) = 24$. The pool total stake becomes $180+26.88=206.88$ SSC, total shares $160+24+1=185$ and storage fee reserve 50.72 SSC.
 
-Suppose after some time $\text{shares\_per\_ssc}$ value of this pool becomes 0.8 and the storage fee fund balance is 52 SSC. Suppose $N_1$ wants to "sell" $\text{withdraw\_shares}=20$ shares. At the end of epoch, the 20 shares will be unstaked, and the corresponding amount of $20/0.8=25$ SSC will be deducted from the pool's total stake. The total amount of credits $N_1$ will get is $\text{withdraw\_shares}/\text{shares\_per\_ssc}+\text{storage\_fund\_balance}*\text{withdraw\_shares}/\text{total\_shares}=25 + 52*20/185=30.62$ SSC.
+Suppose after some time $\text{shares\_per\_ssc}$ value of this pool becomes 0.8 and the storage fee fund balance is 52 SSC. Suppose $N_1$ wants to "sell" $\text{withdraw\_shares}=20$ shares. At the end of the epoch, the 20 shares will be unstaked, and the corresponding amount of $20/0.8=25$ SSC will be deducted from the pool's total stake. The total amount of credits $N_1$ will get is $\text{withdraw\_shares}/\text{shares\_per\_ssc}+\text{storage\_fund\_balance}*\text{withdraw\_shares}/\text{total\_shares}=25 + 52*20/185=30.62$ SSC.
 
 If $N_1$ wanted to withdraw all their stake and fees, that is sell all their $\text{withdraw\_shares}=50$ shares, they would get $50/0.8+52*50/185=76.55$ SSC, earning 26.55 SSC in fees. After waiting the locking period, the withdrawn amount can be unlocked in their account.
 
