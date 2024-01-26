@@ -60,15 +60,39 @@ Withdrawals have a lock period of 2 days (currently 28 800 blocks, ~ 48 hours). 
 
 ### Example
 
-Operator $O$ has staked 100 SSC and registered as an operator with minimum nominator stake of 10 SSC and nomination tax of 5%. The required storage fee reserve deposit is 20%. Operator $O$ has 2 nominators $N_1$ and $N_2$ each staked 50 SSC and reserved 20% = 10 SSC each for storage fees. Initially $\text{shares\_per\_ssc} = 1$, so $O$ gets 80 shares, and $N_1$ and $N_2$ each get 40 shares and $\text{total\_shares}=80+40+40=160$ in the stake and the same shares in the storage fee reserve. 
+Operator $O$ has staked $100$ SSC and registered as an operator with minimum nominator stake of $10$ SSC and nomination tax of $5\%$. The required storage fee reserve deposit is $20\%$. Operator $O$ has 2 nominators $N_1$ and $N_2$ each staked $50$ SSC. Initially $\text{shares\_per\_ssc} = 1$, so $O$ gets 80 shares, and $N_1$ and $N_2$ each get 40 shares and $\text{total\_shares}=80+40+40=160$ in the stake.  
+Each deposit transfers $20%$ towards a storage fee fund: $O$ reserves $20$ SSC, $N_1$ and $N_2$ reserve 10 each, with total of $40$ SSC reserved.
 
-In the next epoch, the pool has earned 20 SSC of compute fees and refunded an extra 4 SSC of storage fees, and the operator took 5% of compute fees as a commission (1 SSC). The pool stake is now 160+20=180 SSC and storage reserve is now 40+4=44 SSC.
-The pool end-of-epoch $\text{shares\_per\_ssc}$ is now $160/(160 + 20 * (1-0.05)) = 0.893855$. Notice that 4 SSC of storage fees do not count into $\text{shares\_per\_ssc}$ calculation, which allows us to sustain stable stake distribution despite the fluctuating size of the storage fee reserve. 
-If a new nominator $N_3$ stakes 33.6 SSC, 6.72 SSC will be reserved for storage fee fund, and the $\text{shares}$ they will get is $((33.6-6.72) * 0.893855) = 24$. The pool total stake becomes $180+26.88=206.88$ SSC, total shares $160+24+1=185$ and storage fee reserve 50.72 SSC.
+The staking summary will look like this:
 
-Suppose after some time $\text{shares\_per\_ssc}$ value of this pool becomes 0.8 and the storage fee fund balance is 52 SSC. Suppose $N_1$ wants to "sell" $\text{withdraw\_shares}=20$ shares. At the end of the epoch, the 20 shares will be unstaked, and the corresponding amount of $20/0.8=25$ SSC will be deducted from the pool's total stake. The total amount of credits $N_1$ will get is $\text{withdraw\_shares}/\text{shares\_per\_ssc}+\text{storage\_fund\_balance}*\text{withdraw\_shares}/\text{total\_shares}=25 + 52*20/185=30.62$ SSC.
+| Nominator             | $O$ | $N_1$ | $N_2$ |
+| -----------           | --- | ---   | ---   |
+| Shares                | 80  | 40    | 40    |
+| Storage fee deposit   | 20  | 10    | 10    |
 
-If $N_1$ wanted to withdraw all their stake and fees, that is sell all their $\text{withdraw\_shares}=50$ shares, they would get $50/0.8+52*50/185=76.55$ SSC, earning 26.55 SSC in fees. After waiting the locking period, the withdrawn amount can be unlocked in their account.
+| Total stake | Total shares | Total storage fee deposits  | Storage fee fund |
+| ---         | ---          | ---                         | ---    |
+| 160 SSC     | 160          | 40 SSC                      | 40 SSC |
+
+In the next epoch, the pool has earned $20$ SSC of compute fees and refunded an extra $4$ SSC of storage fees. The operator took $5\%$ of compute fees as a commission ($1$ SSC) automatically restaked for 1 share and $0.05$ SSC deposited to storage fee fund. The pool stake is now $160+20 +1 =181$ SSC and storage reserve is now $40+4=44$ SSC.
+The pool end-of-epoch $\text{shares\_per\_ssc}$ is now $160/(160 + 20 * (1-0.05)) = 0.893855$. Notice that $4$ SSC of storage fees refunded do not count into $\text{shares\_per\_ssc}$ calculation, which allows us to sustain stable stake distribution despite the fluctuating size of the storage fee fund. 
+
+If a new nominator $N_3$ stakes 33.6 SSC, 6.72 SSC will be transferred to the storage fee fund, and the $\text{shares}$ $N_3$  will get is $((33.6-6.72) * 0.893855) = 24$. The pool total stake becomes $181+26.88=207.88$ SSC, total shares $160+24+1=185$ and storage fee reserve $50.72$ SSC.
+
+At the end of the epoch, the updated staking summary for the next epoch will look like this:
+
+| Nominator             | $O$    | $N_1$ | $N_2$ | $N_3$ |
+| -----------           | ---    | ---   | ---   | ---   |
+| Shares                | 81     | 40    | 40    | 24    |
+| Storage fee deposit   | 20.05  | 10    | 10    | 6.72  |
+
+| Total stake | Total shares | Total storage fee deposits  | Storage fee fund |
+| ---         | ---          | ---                         | ---    |
+| 207.88 SSC  | 185          | 46.72 SSC                   | 50.72 SSC |
+
+Suppose after some time $\text{shares\_per\_ssc}$ value of this pool becomes $0.8$ and the storage fee fund balance is $52$ SSC. Suppose $N_1$ wants to "sell" $\text{withdraw\_shares}=20$ shares. At the end of the epoch, the 20 shares will be unstaked, and the corresponding amount of $20/0.8=25$ SSC will be deducted from the pool's total stake. The total amount of credits $N_1$ will get is $\frac{\text{withdraw\_shares}}{\text{shares\_per\_ssc}}+\text{storage\_fee\_fund\_balance}*\frac{\text{storage\_fee\_deposit}}{\text{total\_storage\_fee\_deposits}}*\frac{\text{withdraw\_shares}}{\text{shares}}=25 + 52*\frac{10}{46.72}*\frac{20}{40}=30.57$ SSC.
+
+If $N_1$ wanted to withdraw all their stake and fees, that is sell all their $\text{withdraw\_shares}=40$ shares, they would get $\frac{40}{0.8}+52*\frac{10}{46.72}*\frac{40}{40}=61.13$ SSC, earning $11.13$ SSC in fees. After waiting the locking period, the withdrawn amount can be unlocked in their account.
 
 The example is intended for illustration, the actual calculation is performed with shannons ($1\ \text{SSC} = 10^{18}\  \text{shannons}$).
 
@@ -86,7 +110,7 @@ As soon as the end of the epoch transition is finalized, the next epoch begins.
 
 ## Power Balance 
 
-Farmers who have earned storage rewards nominate operators to execute transactions. This nomination system balances the power between farmers and operators, and both parties share the fees and the potential penalties (slashing). Farmer-nominated operators get a higher chance to produce blocks proportional to the amount of stake backing them, thus, higher revenues. Farmers have the power to nominate operators they trust to execute transactions properly. On the other hand, operators compete to be nominated by providing good service, maintaining a good reputation within the community, and having reasonable commission. 
-Farmers also retain the power to withdraw their nominations at any time, ensuring operators remain accountable.
+Token holders and farmers who have earned storage rewards can nominate operators to execute transactions. This system balances the power between nominating farmers (or holders) and operators, and both parties share the fees and the potential penalties (slashing). Nominated operators get a higher chance to produce blocks proportional to the amount of stake backing them, thus, higher revenues. Farmers and holders have the power to nominate operators they trust to execute transactions properly. On the other hand, operators compete to be nominated by providing good service, maintaining a good reputation within the community, and having reasonable commission. 
+Nominators also retain the power to withdraw their nominations at any time, ensuring operators remain accountable.
 
 This two-tiered structure provides robust security guarantees. By enabling the consolidation of vast quantities of stake — far exceeding the SSC holdings of any individual party — it creates significant barriers for malicious actors trying to elect dishonest operators. Gaining the necessary backing requires building a considerable reputation, making it challenging for adversaries. Additionally, attacking the system would be prohibitively expensive, leading to large amounts of stake slashed. We anticipate that a substantial portion of the SSC supply will be staked in the NPoS system at any time.
