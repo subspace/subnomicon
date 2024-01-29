@@ -61,7 +61,7 @@ Withdrawals have a lock period of 2 days (currently 28 800 blocks, ~ 48 hours). 
 ### Example
 
 Operator $O$ has staked $100$ SSC and registered as an operator with minimum nominator stake of $10$ SSC and nomination tax of $5\%$. The required storage fee reserve deposit is $20\%$. Operator $O$ has 2 nominators $N_1$ and $N_2$ each staked $50$ SSC. Initially $\text{shares\_per\_ssc} = 1$, so $O$ gets 80 shares, and $N_1$ and $N_2$ each get 40 shares and $\text{total\_shares}=80+40+40=160$ in the stake.  
-Each deposit transfers $20%$ towards a storage fee fund: $O$ reserves $20$ SSC, $N_1$ and $N_2$ reserve 10 each, with total of $40$ SSC reserved.
+Each deposit transfers $20\%$ towards a storage fee fund: $O$ reserves $20$ SSC, $N_1$ and $N_2$ reserve 10 each, with total of $40$ SSC reserved.
 
 The staking summary will look like this:
 
