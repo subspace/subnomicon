@@ -56,7 +56,7 @@ A participant in the P2P network. A node connects to other nodes on the P2P netw
 
 ## Farmer
 
-A role on the Subspace Network responsible for maintaining consensus (safety of the Consensus Chain). A Farmer plots pieces of Archival History to disk, farms the created plot for block rewards, and joins the DSN as a node for data retrieval (for syncing nodes, other farmers and returning data to various Clients).
+A role on the Subspace Network responsible for maintaining consensus (safety of the Consensus Chain). A Farmer plots pieces of Archival History to disk, farms the created plot for block and vote rewards, and joins the DSN as a node for data retrieval (for syncing nodes, other farmers and returning data to various Clients).
 
 ## Domain Operator
 

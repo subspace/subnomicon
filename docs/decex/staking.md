@@ -24,43 +24,75 @@ NPoS allows for virtually all SSC holders to participate, thus maintaining high 
 
 ## Nomination Pools
 
-Operators must stake an amount higher than this domain's minimum stake for a right to participate in the execution and earn execution rewards. An operator's chances to become a slot leader are directly proportional to the percentage of their stake against the total amount staked by all operators of this domain. As such, operators are incentivized to recruit nominators to increase their stake. This means that each domain operator stake acts essentially as a pool for nominators. When registering as an operator, each operator specifies their minimum nominator stake and nomination tax of their pool. The nomination tax is a percentage of the rewards that the operator collects on all rewards paid to nominators, a commission for the operator's work. It is automatically restaked as part of the operator's stake.
+Operators must stake an amount higher than this domain's minimum stake for a right to participate in the execution and earn execution fees. An operator's chances to become a slot leader are directly proportional to the percentage of their stake against the total amount staked by all operators of this domain. As such, operators are incentivized to recruit nominators to increase their stake. This means that each domain operator stake acts essentially as a pool for nominators. When registering as an operator, each operator specifies their minimum nominator stake and nomination tax of their pool. The nomination tax is a percentage that the operator collects on all fees earned by executing blocks, before they are shared with nominators, a commission for the operator's work. The tax amount is automatically restaked as part of the operator's stake.
 
-Any SSC token holder who has more than the minimum nominator stake may choose to join this operator’s pool by submitting the nomination extrinsic with the deposit amount of SSC they wish to stake. 
+Any SSC token holder who has more than the minimum nominator stake (currently 1 SSC) may choose to join this operator’s pool by submitting the nomination extrinsic with the deposit amount of SSC they wish to stake. 
 
-1. The amount of deposited SSC is added to the list of pending transfers within the operator's pool. 
-2. At the end of an epoch (currently 100 blocks), the nominator is awarded their shares in the pool. The stake shares are the percentage of the total stake that is allocated to each nominator. The stake shares are used to calculate the share of the operator's rewards that the nominator is entitled to based on the amount they have staked and for how long. The stake shares are calculated as follows:
-    1. Compute the operator’s pool end-of-epoch $\text{shares\_per\_ssc}$ as the total number of shares divided by the sum of all stake in the pool and rewards gained during the previous epoch 
+1. The amount of deposited SSC is added to the list of pending deposits within the operator's pool. 
+2. At the end of an epoch (currently 100 blocks, ~ 10 minutes), the nominator's deposit is processed.
+3. A part of the deposit is taken as a reserve towards a storage fee fund. This reserve is calculated as a percentage of the deposit (currently, 20%), and is used to pay for the storage fees of bundles created by the operator of the pool and does not affect the stake distribution. The reserved amount is transferred to the operator's storage fee fund, while the rest of the deposit remains locked in the nominator's account. This amount is partially refunded with each withdrawal. 
+4. The nominator is awarded their shares in the pool. The stake shares are the percentage of the total stake that is allocated to each nominator. The stake shares are used to calculate the share of the operator's fees that the nominator is entitled to based on the amount they have staked and for how long. The stake shares are calculated as follows:
+    1. Compute the operator’s pool end-of-epoch $\text{shares\_per\_ssc}$ as the total number of shares divided by the sum of all stake in the pool and fees collected during the previous epoch 
 
-    $\text{shares\_per\_ssc} = \text{total\_shares} / (\text{pool\_total\_stake} + \text{rewards}*(1-\text{nomination\_tax}))$.
+    $\text{shares\_per\_ssc} = \text{total\_shares} / (\text{pool\_total\_stake} + \text{fees}*(1-\text{nomination\_tax}))$.
 
     2. Assign the $\text{shares}$ to this nominator based on the $\text{shares\_per\_ssc}$ of the pool 
     
     $\text{shares} = \text{deposit\_amount} * \text{shares\_per\_ssc}$.
 
-    3. The $\text{deposit\_amount}$ is added to $\text{pool\_total\_stake}$ of the operator pool and domain’s total stake.
-    4. The $\text{shares}$ of this nominator are added to $\text{total\_shares}$ of the pool.
+    3. The $\text{deposit\_amount}$ is added to $\text{pool\_total\_stake}$ of the operator's pool and domain’s total stake.
+    4. The $\text{shares}$ of this nominator are added to $\text{total\_shares}$ of the operator's pool.
 
-The nomination pools in Subspace are "lazy": any rewards earned by the operator are assigned to the pool and are not deposited to the nominators wallet unless they ask for a withdrawal. Unless withdrawn, the rewards are "auto-staked" - they count towards the total stake of the pool, increasing its chance of being elected to produce bundles.
+The nomination pools in Subspace are "lazy": any fees earned by the operator are assigned to the pool and are not deposited to the nominators wallet unless they ask for a withdrawal. Unless withdrawn, the fees are "auto-staked" - they count towards the total stake of the pool, increasing its chance of being elected to produce bundles.
 
-When the nominator decides to withdraw their stake or rewards, they submit a withdraw extrinsic. The withdraw extrinsic is processed at the end of the epoch and the stake is removed from the operator's pool and the domain's total stake. The nominator is then entitled to the rewards based on the stake shares and the amount of time they have staked.
+When the nominator decides to withdraw their stake or fees, they submit a withdraw extrinsic. The withdraw extrinsic is processed at the end of the epoch and the stake is removed from the operator's pool and the domain's total stake. The nominator is then entitled to the fees percentage based on the stake shares and the amount of time they have staked.
 
-Operators can also withdraw their stake and rewards at any time by submitting a withdraw extrinsic. If their withdrawal leaves their stake below the domain's minimum requirements, the operator will be removed from the domain and their stake and the stakes of all nominators will be returned to their wallets.
+Operators can also withdraw their stake and fees at any time by submitting a `withdraw_stake` extrinsic. Operators who wish to withdraw all of their stake and earned fees have to submit a deregistration extrinsic, as it is forbidden to withdraw below the domain's minimum stake requirements. The deregistered operator will be removed from the domain and their stake and the stakes of all nominators will be returned to their accounts.
 
 <div align="center">
     <img src="/img/Nomination_Pool-light.svg#gh-light-mode-only" alt="Nomination_Pool" />
     <img src="/img/Nomination_Pool-dark.svg#gh-dark-mode-only" alt="Nomination_Pool" />
 </div>
 
+### Unlocking Funds
+
+Withdrawals have a lock period of 2 days (currently 28 800 blocks, ~ 48 hours). After the locking period, the withdrawn amount can be unlocked in the user's account with the `unlock_funds` extrinsic. All withdrawals requested in the same stake epoch are aggregated together and the total amount is unlocked at once. This locking period is necessary to ensure that the domain block executing the withdrawal is confirmed and not challenged by a fraud proof in order to increase the economic stability of domains. 
+
 ### Example
 
-Operator $O$ has staked 100 SSC and registered as an operator with minimum nominator stake of 10 SSC and nomination tax of 5%. Operator $O$ has 2 nominators $N_1$ and $N_2$ each staked 50 SSC. Initially $\text{shares\_per\_ssc} = 1$, so $O$ gets 100 shares, and $N_1$ and $N_2$ each get 50 shares and $\text{total\_shares}=100+50+50=200$. 
+Operator $O$ has staked $100$ SSC and registered as an operator with minimum nominator stake of $10$ SSC and nomination tax of $5\%$. The required storage fee reserve deposit is $20\%$. Operator $O$ has 2 nominators $N_1$ and $N_2$ each staked $50$ SSC. Initially $\text{shares\_per\_ssc} = 1$, so $O$ gets 80 shares, and $N_1$ and $N_2$ each get 40 shares and $\text{total\_shares}=80+40+40=160$ in the stake.  
+Each deposit transfers $20\%$ towards a storage fee fund: $O$ reserves $20$ SSC, $N_1$ and $N_2$ reserve 10 each, with total of $40$ SSC reserved.
 
-In the next epoch, the pool has earned 10 SSC of rewards, and the operator took 5% of the rewards as commission (0.5 SSC). The pool end-of-epoch $\text{shares\_per\_ssc}$ is now $200/(200 + 10 * (1-0.05)) = 0.954654$. If a new nominator $N_3$ stakes 30 SSC, the $\text{shares}$ they will get is $(30 * 0.954654) = 28$.
+The staking summary will look like this:
 
-Suppose after some time $\text{shares\_per\_ssc}$ value of this pool becomes 0.9. If $N_1$ wants to withdraw 20 SSC, the corresponding shares will be deducted from their stake and the pool's total stake based on $\text{shares\_per\_ssc} = 0.9$. After withdrawal, $N_1$'s remaining shares are $50-20*0.9=32$. Because of the time $N_1$ has staked, the price of their shares has increased, so they they only had to "sell" 18 shares instead of 20 shares to get 20 SSC back.
+| Nominator             | $O$ | $N_1$ | $N_2$ |
+| -----------           | --- | ---   | ---   |
+| Shares                | 80  | 40    | 40    |
+| Storage fee deposit   | 20  | 10    | 10    |
 
-If $N_1$ wanted to withdraw all their stake and rewards, that is sell all their 50 shares, they would get $50/\text{shares\_per\_ssc} = 50/0.9=55.5$ SSC, earning 5.5 SSC in rewards.
+| Total stake | Total shares | Total storage fee deposits  | Storage fee fund |
+| ---         | ---          | ---                         | ---    |
+| 160 SSC     | 160          | 40 SSC                      | 40 SSC |
+
+In the next epoch, the pool has earned $20$ SSC of compute fees and refunded an extra $4$ SSC of storage fees. The operator took $5\%$ of compute fees as a commission ($1$ SSC) automatically restaked for 1 share and $0.05$ SSC deposited to storage fee fund. The pool stake is now $160+20 +1 =181$ SSC and storage reserve is now $40+4=44$ SSC.
+The pool end-of-epoch $\text{shares\_per\_ssc}$ is now $160/(160 + 20 * (1-0.05)) = 0.893855$. Notice that $4$ SSC of storage fees refunded do not count into $\text{shares\_per\_ssc}$ calculation, which allows us to sustain stable stake distribution despite the fluctuating size of the storage fee fund. 
+
+If a new nominator $N_3$ stakes 33.6 SSC, 6.72 SSC will be transferred to the storage fee fund, and the $\text{shares}$ $N_3$  will get is $((33.6-6.72) * 0.893855) = 24$. The pool total stake becomes $181+26.88=207.88$ SSC, total shares $160+24+1=185$ and storage fee reserve $50.72$ SSC.
+
+At the end of the epoch, the updated staking summary for the next epoch will look like this:
+
+| Nominator             | $O$    | $N_1$ | $N_2$ | $N_3$ |
+| -----------           | ---    | ---   | ---   | ---   |
+| Shares                | 81     | 40    | 40    | 24    |
+| Storage fee deposit   | 20.05  | 10    | 10    | 6.72  |
+
+| Total stake | Total shares | Total storage fee deposits  | Storage fee fund |
+| ---         | ---          | ---                         | ---    |
+| 207.88 SSC  | 185          | 46.72 SSC                   | 50.72 SSC |
+
+Suppose after some time $\text{shares\_per\_ssc}$ value of this pool becomes $0.8$ and the storage fee fund balance is $52$ SSC. Suppose $N_1$ wants to "sell" $\text{withdraw\_shares}=20$ shares. At the end of the epoch, the 20 shares will be unstaked, and the corresponding amount of $20/0.8=25$ SSC will be deducted from the pool's total stake. The total amount of credits $N_1$ will get is $\frac{\text{withdraw\_shares}}{\text{shares\_per\_ssc}}+\text{storage\_fee\_fund\_balance}*\frac{\text{storage\_fee\_deposit}}{\text{total\_storage\_fee\_deposits}}*\frac{\text{withdraw\_shares}}{\text{shares}}=25 + 52*\frac{10}{46.72}*\frac{20}{40}=30.57$ SSC.
+
+If $N_1$ wanted to withdraw all their stake and fees, that is sell all their $\text{withdraw\_shares}=40$ shares, they would get $\frac{40}{0.8}+52*\frac{10}{46.72}*\frac{40}{40}=61.13$ SSC, earning $11.13$ SSC in fees. After waiting the locking period, the withdrawn amount can be unlocked in their account.
 
 The example is intended for illustration, the actual calculation is performed with shannons ($1\ \text{SSC} = 10^{18}\  \text{shannons}$).
 
@@ -68,7 +100,7 @@ The example is intended for illustration, the actual calculation is performed wi
 
 Staking epoch is a period of time during which staking distribution remains the same. This period is currently set to 100 blocks, or roughly 10 minutes. The end of each epoch triggers a series of events to transition to the next epoch. These events include:
 
-- allocation of rewards earned during the epoch,
+- allocation of fees earned during the epoch,
 - deposits and withdrawals of stake,
 - operator registrations and deregistrations,
 - recalculation of stake distribution for the slot leader election.
@@ -78,7 +110,7 @@ As soon as the end of the epoch transition is finalized, the next epoch begins.
 
 ## Power Balance 
 
-Farmers who have earned storage rewards nominate operators to execute transactions. This nomination system balances the power between farmers and operators, and both parties share the rewards and the potential penalties (slashing). Farmer-nominated operators get a higher chance to produce blocks proportional to the amount of stake backing them, thus, higher revenues. Farmers have the power to nominate operators they trust to execute transactions properly. On the other hand, operators compete to be nominated by providing good service, maintaining a good reputation within the community, and having reasonable commission. 
-Farmers also retain the power to withdraw their nominations at any time, ensuring operators remain accountable.
+Token holders and farmers who have earned storage rewards can nominate operators to execute transactions. This system balances the power between nominating farmers (or holders) and operators, and both parties share the fees and the potential penalties (slashing). Nominated operators get a higher chance to produce blocks proportional to the amount of stake backing them, thus, higher revenues. Farmers and holders have the power to nominate operators they trust to execute transactions properly. On the other hand, operators compete to be nominated by providing good service, maintaining a good reputation within the community, and having reasonable commission. 
+Nominators also retain the power to withdraw their nominations at any time, ensuring operators remain accountable.
 
 This two-tiered structure provides robust security guarantees. By enabling the consolidation of vast quantities of stake — far exceeding the SSC holdings of any individual party — it creates significant barriers for malicious actors trying to elect dishonest operators. Gaining the necessary backing requires building a considerable reputation, making it challenging for adversaries. Additionally, attacking the system would be prohibitively expensive, leading to large amounts of stake slashed. We anticipate that a substantial portion of the SSC supply will be staked in the NPoS system at any time.

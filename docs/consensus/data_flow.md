@@ -23,9 +23,11 @@ From the moment a transaction is submitted to the Subspace blockchain to the poi
     <img src="/img/Data_Flow-dark.svg#gh-dark-mode-only" alt="Data_Flow" />
 </div>
 
-## Block Structure
+## Block Structure and Limits
 
 A Subspace consensus chain block follows the general structure of a standard block: it consists of a body and a header and points to a parent block. The consensus chain block header contains metadata about the block, allowing verification of the validity of the consensus chain. The body contains transactions and domain bundles. Transactions include transfers, votes and fraud proofs. Domain bundles are sets of transactions from a particular domain (e.g., EVM contract calls). 
+
+Each block has a certain length and weight. Length is the amount of storage this block consumes on the network, equal to the size in bytes of the encoded transactions and bundles in the block body. Weight is the estimated time it would take to execute this block, equal to the sum of the compute weights of all the transactions in the body. Currently, consensus chain blocks are limited to 3.75 MiB of length and 1.5 seconds of compute weight for normal user transactions with up to 1.25 MiB and 0.5 seconds extra for system extrinsics like votes or updates to the chain.
 
 ## Consensus Chain Block Header
 
