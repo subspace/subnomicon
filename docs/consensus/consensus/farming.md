@@ -37,4 +37,4 @@ Finally, the farmer can propose a block with the attached solution and proof of 
 
 ## Difficulty Adjustment
 
-Similarly to Bitcoin, Dilithium uses an automatic difficulty adjustment mechanism to address fluctuations in network storage and keep block times relatively stable. Subspace targets a block time of approximately 6 seconds. The difficulty is adjusted every 2016 blocks based on the actual time it took to farm the previous 2016 blocks.
+The difficulty of farming is defined by the solution range: the narrower the solution range, the fewer possible chunks exist within that range, the smaller the probability for any given farmer to be storing such chunks on their disks. Similarly to Bitcoin, Dilithium uses an automatic difficulty adjustment mechanism to address fluctuations in network storage and keep block times relatively stable. Subspace targets a block time of approximately 6 seconds. The difficulty is adjusted every 2016 blocks based on the actual time it took to farm the previous 2016 blocks.
