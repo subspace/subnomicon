@@ -71,7 +71,7 @@ As a result, a farmer has a unique encoded replica that is difficult to compress
 ## Plot Updates
 
 As the chain grows, we need a way to ensure that new data is replicated as much as older data in blockchain history. To keep the replication factor constant, the farmers must periodically update their plots by repopulating sectors with a new selection of pieces.
-Recall that when plotting a sector, the farmer saves the history size at the time, and it determines a point in the future when the sector will expire. The expiry point is determined by the history size at the time the sector was plotted and is randomly assigned to happen sometime before the history size quadruples (i.e., if a farmer plotted this sector when the history size was 10 GiB, the expiry point will be before history reaches 40 GiB).
+Recall that when plotting a sector, the farmer saves the history size at the time, and it determines a point in the future when the sector will expire. The expiry point is determined by the history size at the time the sector was plotted and is randomly assigned to happen sometime before the history size quadruples (i.e., if a farmer plotted this sector when the history size was 50 GiB, the expiry point will be before history reaches 200 GiB).
 
 When a sector reaches its expiry point, the block proposer challenge solutions coming from this sector will no longer be accepted by other peers, incentivizing the farmer to update their plot. The farmer erases the expired sector and repeats the Plotting process anew, replicating a fresh history sample. Each replotting creates a new sector in memory and saves it to disk in a single write operation.
 
@@ -82,8 +82,8 @@ When a sector reaches its expiry point, the block proposer challenge solutions c
 
 In a plot spanning multiple gigabytes, the sectors will be updated randomly, one at a time, so replotting is amortized over a long period. There is never a moment when a farmer needs to erase and re-create their whole plot and miss out on challenges. The plot refreshing will be practically invisible to the farmer and allow their uninterrupted participation in consensus.
 
-The bigger the chain grows and the longer the farmer participates in the network, the less frequent the replotting on their disks will be.
-Assuming a 1 TB SSD plot, a farmer who joined at genesis will on average need to replot 7.7 TB of data by the time the chain history reaches 1TB in size, 10.5 TB of data by the time history reaches 10 TiB and 12.3 TB by the time history reaches 50 TiB. Given a common TBW (Total Bytes Written) for consumer grade 1 TB SSDs of 300-600 TB, Subspace farming requires below 3% of the SSD's total endurance to farm over several years (for comparison, Ethereum's full chain data size is ~16 TiB as of October 2023 via [Etherscan](https://etherscan.io/chartsync/chainarchive)).
+The bigger the chain grows and the longer the farmer participates in the network, the less frequent the replotting on their disks will be. After genesis Subspace will seed the network with 20 GiB of history, which means that farmers who join after the seeding will start plotting with initial history size of 160 segments.
+Assuming a 1 TB SSD plot, a farmer will on average need to replot 3.5 TB of data by the time the chain history reaches 1TB in size, 6.2 TB of data by the time history reaches 10 TiB and 8 TB by the time history reaches 50 TiB. Given a common TBW (Total Bytes Written) for consumer grade 1 TB SSDs of 300-600 TB, Subspace farming requires below 3% of the SSD's total endurance to farm over several years (for comparison, Ethereum's full chain data size is ~17 TiB as of January 2024 via [Etherscan](https://etherscan.io/chartsync/chainarchive)).
 
 <div align="center">
     <img src="/img/Replottingby10TiB-light.svg#gh-light-mode-only" alt="Replotting_by_10TiB" />
