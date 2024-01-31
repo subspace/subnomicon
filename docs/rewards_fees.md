@@ -35,8 +35,10 @@ Each transaction on the Subspace Network has a length and a weight. Length of a 
 Subspace Network separates the fees to be paid for a transaction into storage and compute fees. Storage fees are paid by the participants of the Subspace Network for the storage space they consume for including the transaction in a block and eventually archiving it. Compute fees are paid for the computational resources they consume while executing the transaction.
 
 Storage fee depends on the length of the transaction and the amount of available storage on the network. The formula for the storage fee is:
-$$ \text{storage fee per byte}  = \frac{\text{total credit supply}}{\text{total space pledged}/\text{min replication factor}-\text{history size}} \frac{shannons}{byte} $$ 
-$$ \text{storage fee} \left(\text{tx}\right) = \text{storage fee per byte}*\text{length(tx)}\ shannons $$
+
+$$\text{storage fee per byte}  = \frac{\text{total credit supply}}{\text{total space pledged}/\text{min replication factor}-\text{history size}} \frac{shannons}{byte}$$ 
+
+$$\text{storage fee} \left(\text{tx}\right) = \text{storage fee per byte}*\text{length(tx)}\ shannons$$
 
 For the purposes of storage fee calculation, the total credit supply consists of all SSC in existence including staked or otherwise locked. The total space pledged to the network is divided by the protocol's minimum replication factor of 50, which ensures that the network is able to reliably store all the transactions that are included in the consensus chain. The history size is the total size of all the blocks in the consensus chain that are archived.
 
