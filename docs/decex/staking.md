@@ -100,7 +100,7 @@ The example is intended for illustration, the actual calculation is performed wi
 
 Staking epoch is a period of time during which staking distribution remains the same. This period is currently set to 100 blocks, or roughly 10 minutes. The end of each epoch triggers a series of events to transition to the next epoch. These events include:
 
-- allocation of fees earned during the epoch,
+- allocation of fees earned for the blocks confirmed during the epoch,
 - deposits and withdrawals of stake,
 - operator registrations and deregistrations,
 - recalculation of stake distribution for the slot leader election.
