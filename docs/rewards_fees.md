@@ -46,3 +46,7 @@ For the purposes of storage fee calculation, the total credit supply consists of
 
 Compute fee depends on the weight of the transaction and the demand on the network. Compute fees for the execution of extrinsics on the consensus chain (e.g., balance transfers) are collected by the block proposer. 
 Compute fees for executing transaction bundles on domains are paid to the domain operators who submit the Execution Receipt (ER) containing this bundle (split equally between all operators who submit this ER) after the ER has cleared the challenge period. Subspace implements Polkadot’s [slow adjusting fee](https://research.web3.foundation/Polkadot/overview/token-economics#2-slow-adjusting-mechanism) mechanism. The fee is slightly adjusted every block based on utilization of available block weight by normal extrinsics.
+
+The formula for the compute fee is:
+
+$$\text{compute fee} \left(\text{tx}\right) = \text{adjustment multiplier}*\text{compute fee per weight}*\text{weight(tx)}\ shannons$$
