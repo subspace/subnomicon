@@ -22,9 +22,9 @@ to cover, so the reader should be aware that at the current state this page is n
 presentation mostly highlights the techniques and methods, without the full technical details.
 For detailed security analysis please refer to our paper [Dilithium: A Proof-of-Archival-Storage Consensus Protocol for Subspace](https://github.com/subspace/consensus-v2-research-paper).
 
-# Security against general blockchain attacks
+## Security against general blockchain attacks
 
-## Grinding on block challenges
+### Grinding on block challenges
 
 To prevent grinding on block challenges, we use the Proof-of-Time outputs to draw unique challenges.
 
@@ -37,7 +37,7 @@ on Proof-of-Time is extremely hard.
 
 For more information about the Proof-of-Time component see [this page](pot.md).
 
-## Costless simulation
+### Costless simulation
 
 To mitigate against the costless simulation attack that can lead the attacker to create blocks in a greater proportion 
 than the proportion of disk space they pledge to the network, we use correlated randomness in block challenges.
@@ -53,7 +53,7 @@ not known in advanced, but only revealed when the timeslot arrives (by definitio
 so-called "bribing attacks", that come with the correlation of block challenges and the predictability window associated 
 with c-correlation in general. 
 
-## Long-range attacks
+### Long-range attacks
 
 To prevent long-range attacks, we use Proof-of-Time as a fundamental component in our consensus protocol.
 
@@ -63,18 +63,18 @@ spend a significant amount of sequential work in maintaining the attack.
 
 For more information about how Proof-of-Time is used see [this page](pot.md).
 
-# Security against attacks on Proof-of-Storage
+## Security against attacks on Proof-of-Storage
 
 The masking function that we apply during farmer's plot creation has specific properties that help us in preventing the 
 following attacks on the protocol.
 
-## Time-Memory algorithms (plot compression)
+### Time-Memory algorithms (plot compression)
 
 We adopt the function described in the work ["Beyond Hellman's Time-Memory Trade-Offs with Applications to Proofs of Space"](https://eprint.iacr.org/2017/893) 
 as our masking function. This function is designed such that the gain in trading computation (time) over storage (memory) 
 is very small.
 
-## On-the-fly plot creation
+### On-the-fly plot creation
 
 Preventing farmers from creating plots on the fly, after seeing the challenge, has two flavors.
 First, the masking function is memory hard, which means that creating a plot is constrained by the amount of memory the 

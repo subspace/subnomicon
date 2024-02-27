@@ -16,7 +16,7 @@ We often use the term "Subspace" interchangeably to refer to the entire system, 
 
 Subspace Labs also maintains the Subspace Network software client open-source [reference implementation](https://github.com/subspace/subspace). It is written in Rust based on Substrate and provides a full-featured CLI for farmers and operators to participate in the network.
 
-# The Subspace Network Stack
+## The Subspace Network Stack
 
 <div align="center">
     <img src="/img/Modular_Stack-light.svg#gh-light-mode-only" alt="Modular_Stack" />

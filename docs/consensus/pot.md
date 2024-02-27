@@ -15,8 +15,8 @@ In addition to the Proof-of-Space component described in the previous section, D
 
 The permissionless Proof-of-Work (PoW) used by Bitcoin remains the most robust consensus method in decentralized systems. However, mining requires massive energy expenditure to brute-force hash solutions, which has led to the introduction of various alternative consensus mechanisms. When transitioning to energy-efficient proof systems, like Proof-of-Stake and Proof-of-Space, however, several issues arise. 
 
-# Design challenges
-## Long-range attack
+## Design challenges
+### Long-range attack
 
 Unlike in Proof-of-Work, the process of block production in Proof-of-Stake and Proof-of-Space-based
 blockchains is not physically constrained. This makes such protocols vulnerable to a _long-range attack_, where an attacker can produce, very quickly, an alternative chain all the way to the current time, and this chain can potentially be heavier than the current "canonical" chain.
@@ -33,7 +33,7 @@ Suppose in the first year of the blockchain's operation, all farmers were honest
 
 On the other hand, in PoW this attack is prevented as it takes a long time to mine an alternative chain from the past. Thus, PoW enforces an arrow of time, where it is not practical to “go back in time” (unless the attacker has more than 50% of the current hashrate). This property is key to tolerating a fully dynamic honest and adversarial participation.
 
-## Availability and Unpredictability 
+### Availability and Unpredictability 
 
 Alternative proof systems, including Proof-of-Stake and Proof-of-Space, strive for certain important features of PoW, like dynamic availability and unpredictability.
 
@@ -41,7 +41,7 @@ Dynamic availability in blockchains refers to the capacity of the system to main
 
 In this setting, unpredictability refers to the inability to predict who will get to propose the next block. Unpredictability of block proposers is important for the security and liveness of the network. However, protocols using generic verifiable random functions to elect block proposers usually do not achieve this property at the same level as in PoW, and may suffer from a long predictability window of block challenges.
 
-# Subspace Approach
+## Subspace Approach
 
 Subspace uses Proof-of-Time to a form a separate Proof-of-Time chain. The Proof-of-Space and Proof-of-Time chains are inter-connected, preventing long-range attacks. Additionally, challenges for block farming are based on the PoT outputs, which guarantee that the challenges, hence the block proposers, are not predictable.
 

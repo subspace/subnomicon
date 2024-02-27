@@ -12,7 +12,6 @@ last_update:
   author: Dariia Porechna
 ---
 
-## Node Configurations
 A Subspace Node can run in several modes depending on configuration:
 
 ### Full Node
