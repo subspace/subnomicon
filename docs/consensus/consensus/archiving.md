@@ -5,7 +5,11 @@ description: Archiving Phase
 keywords:
     - Consensus
     - Archiving
+last_update:
+  date: 10/27/2023
+  author: Dariia Porechna
 ---
+
 **Archiving** is one of the three core processes in the Subspace consensus. It transforms the chain blocks at a configured depth (currently 100 blocks) from the tip of the chain into a canonical history ready to be distributed to farmers for storage.
 
 The Archiving construction is primarily based on the paper **[Information Dispersal with Provable Retrievability for Rollups](https://eprint.iacr.org/2021/1544)**. The key idea we inherit from this paper is to view the data to be archived as a matrix and a “1.5D approach” with column-wise erasure coding and row-wise KZG commitment.

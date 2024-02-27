@@ -6,7 +6,11 @@ keywords:
     - DecEx
     - Domains
     - Staking
+last_update:
+  date: 02/22/2024
+  author: Dariia Porechna
 ---
+
 The Subspace Network relies on staking from both domain operators and farmers to secure the network and provide resources. Subspace implements a Nominated Proof-of-Stake algorithm where farmers endorse operators who execute transactions and produce blocks. 
 
 Our staking model consists of two tiers:

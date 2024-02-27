@@ -7,7 +7,11 @@ keywords:
     - Network
     - Storage
     - DSN
+last_update:
+  date: 10/27/2023
+  author: Dariia Porechna
 ---
+
 To ensure every piece of the blockchain history is recoverable, no matter how large it grows, Subspace organizes farmers into a Distributed Storage Network (DSN), which ensures both the ephemeral and permanent availability of all chain data.
 
 The DSN ensures the blockchain history is distributed across the farmer network in a way that is:

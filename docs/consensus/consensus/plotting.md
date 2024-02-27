@@ -5,7 +5,11 @@ description: Plotting Phase
 keywords:
     - Consensus
     - Plotting
+last_update:
+  date: 02/06/2024
+  author: Dariia Porechna
 ---
+
 Plotting is the process of creating and maintaining plots on a disk.
 The Plotting protocol used in *Dilithium* is based on two core ideas: erasure coding and memory-bandwidth-bound encoding. Erasure coding helps protect the data against loss in the event of failures and network partitions. Memory-bandwidth-bound encoding is a more ecological and economical alternative to proofs-of-work while providing provable time/memory trade-offs and security guarantees. Combining these two ideas allows us to create unique and provable replicas for each farmer that are difficult to fake with computation or to compress. This scheme also makes scanning and verifying the plots easier, ensuring the history data is recoverable.
 

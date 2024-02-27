@@ -5,6 +5,9 @@ description: Dilithium Consensus Overview
 keywords:
     - Consensus
     - Dilithium
+last_update:
+  date: 02/06/2024
+  author: Dariia Porechna
 ---
 
 Subspace is powered by *Dilithium* - a lightweight and secure consensus mechanism that is environmentally friendly, permissionless, and fair. *Dilithium* is a Proof-of-Archival-Storage (PoAS), Nakamoto-style consensus protocol based on proofs of storing the blockchain history. 

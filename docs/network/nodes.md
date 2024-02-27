@@ -7,6 +7,9 @@ keywords:
     - Network
     - Node
     - Peer
+last_update:
+  date: 10/18/2023
+  author: Dariia Porechna
 ---
 
 ## Node Configurations

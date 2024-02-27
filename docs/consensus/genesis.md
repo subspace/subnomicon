@@ -6,6 +6,9 @@ description: Genesis configuration
 keywords:
     - Genesis
     - Config
+last_update:
+  date: 10/13/2023
+  author: Dariia Porechna
 ---
 
 The genesis process of Subspace Network involves the initialization and configuration of the blockchain's starting state. It includes the following steps:

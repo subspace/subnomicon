@@ -7,6 +7,9 @@ keywords:
     - Data
     - Storage
     - Transactions
+last_update:
+  date: 02/06/2024
+  author: Dariia Porechna
 ---
 
 From the moment a transaction is submitted to the Subspace blockchain to the point it is permanently archived, data goes through several stages:

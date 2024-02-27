@@ -6,8 +6,12 @@ keywords:
     - DecEx
     - Domains
     - Staking
+last_update:
+  date: 01/29/2024
+  author: Dariia Porechna
 ---
- The following is an overview of domain sub-protocols. The existence of domains assumes a live consensus chain with at least one farmer and block production. On its own, the consensus chain will only issue rewards to farmers and allow for balance transfers of SSC. 
+
+The following is an overview of domain sub-protocols. The existence of domains assumes a live consensus chain with at least one farmer and block production. On its own, the consensus chain will only issue rewards to farmers and allow for balance transfers of SSC. 
     
 ## Domain Creation
     

@@ -5,6 +5,9 @@ description: Intro to the Subspace Network Protocol
 keywords:
     - Introduction
     - Welcome
+last_update:
+  date: 02/22/2024
+  author: Dariia Porechna
 ---
 
 # The Subspace Protocol
