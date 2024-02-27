@@ -5,6 +5,9 @@ description: Farming Phase
 keywords:
     - Consensus
     - Farming
+last_update:
+  date: 01/30/2024
+  author: Dariia Porechna
 ---
 
 Farming is participating in the consensus by solving a puzzle based on a previously created plot.

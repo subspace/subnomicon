@@ -6,6 +6,9 @@ keywords:
     - DecEx
     - Domains
     - EVM
+last_update:
+  date: 10/25/2023
+  author: Dariia Porechna
 ---
 
 Nova EVM is the foundational domain that supports EVM execution. It allows Ethereum smart contracts to run natively on Subspace with higher throughput and lower fees.

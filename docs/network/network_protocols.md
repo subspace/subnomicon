@@ -7,6 +7,9 @@ keywords:
     - Network
     - Node
     - Peer
+last_update:
+  date: 10/13/2023
+  author: Dariia Porechna
 ---
 
 Subspace networking stack is based on libp2p and implements Subspace-specific protocols like piece and archived segment header retrieval. The networking layers handle a variety of essential tasks:

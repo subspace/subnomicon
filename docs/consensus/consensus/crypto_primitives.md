@@ -6,7 +6,11 @@ description: Cryptographic Primitives used in Subspace protocol
 keywords:
     - Cryptography
     - Consensus
+last_update:
+  date: 10/13/2023
+  author: Dariia Porechna
 ---
+
 The Subspace protocol uses the following cryptographic primitives:
 
 ## Hash

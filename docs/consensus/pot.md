@@ -6,6 +6,10 @@ keywords:
     - Consensus
     - randomness
     - challenge
+    - timekeeper
+last_update:
+  date: 02/06/2024
+  author: Dariia Porechna
 ---
 In addition to the Proof-of-Space component described in the previous section, Dilithium is secured by a Proof-of-Time (PoT) component. The chosen PoT algorithm is sequential AES, tuned for 1 second per proof. PoT is a measure against long-range attacks, and addresses unpredictability and dynamic availability issues.
 

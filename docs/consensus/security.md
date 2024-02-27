@@ -6,6 +6,9 @@ keywords:
     - Consensus
     - Security
     - Attacks
+last_update:
+  date: 02/06/2024
+  author: Dariia Porechna
 ---
 <!-- TODO
 - Handling Equivocation

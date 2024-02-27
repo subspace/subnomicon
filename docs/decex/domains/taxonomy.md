@@ -5,7 +5,11 @@ description: Domains Taxonomy
 keywords:
     - DecEx
     - Domains
+last_update:
+  date: 10/25/2023
+  author: Dariia Porechna
 ---
+
 Domains are best understood along a spectrum of possible rollup architectures compared to other ecosystems.
 
 ## Enshrined Rollups 

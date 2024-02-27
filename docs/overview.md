@@ -5,6 +5,9 @@ description: Overview of the Subspace Network
 keywords:
     - Architecture
     - Overview
+last_update:
+  date: 10/27/2023
+  author: Dariia Porechna
 ---
 
 Subspace is a modular blockchain network divided into a base-layer consensus chain, known as the core protocol, and a nearly unlimited number of secondary execution chains, known as domains. The core protocol manages consensus, data availability, and settlement for transaction bundles, which operators execute on their respective domains. Domains are essentially enshrined rollups that can support any conceivable state transition framework and smart contract execution environment.

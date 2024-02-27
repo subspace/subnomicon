@@ -6,7 +6,11 @@ keywords:
   - Introduction
   - Motivation
   - Goals
+last_update:
+  date: 10/27/2023
+  author: Dariia Porechna
 ---
+
 Designed from first principles, the Subspace Protocol resolves several critical challenges within the industry.
 
 ## Resolving Farmer's Dilemma
