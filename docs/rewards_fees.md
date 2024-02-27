@@ -14,22 +14,24 @@ All the participants of the Subspace Network are compensated for the work they d
 
 Different participants receive their compensation through a combination of the above based on their role.
 
-## Farmers
+### Farmers
 
 Currently, farmers receive: 
 - fees for the transactions and bundles they include in consensus chain blocks,
 - block rewards for the blocks they proposed, issued by the protocol,
 - vote rewards issued by the protocol.
 
-## Operators 
+### Operators 
 
 Currently, operators are solely earning the fees for domain transactions they execute. Since domain transactions (e.g. EVM contract calls) are usually much more computationally heavy than those performed on the consensus chain (e.g. balance transfers), they are sufficiently expensive to compensate operators fairly for their work. The operators receive the reward for the executed transactions only after the corresponding domain block has cleared the challenge period. For more details, see [Domain Block Fees](/docs/decex/domains/workflow.md#domain-block-fees).
 
-## Nominators
+### Nominators
 
-Currently, nominators receive a portion of the fees of the operator they nominated, based on their shares in the pool. For more details on how the pool shares and fees are calculated, see [Nomination Pools](/docs/decex/staking.md#nomination-pools).
+Currently, nominators receive a portion of the fees of the operator they nominated, based on their shares in the operator pool. For more details on how the pool shares and fees are calculated, see [Nomination Pools](/docs/decex/staking.md#nomination-pools).
 
-# Transaction Fees
+
+
+## Transaction Fees
 
 Each transaction on the Subspace Network has a length and a weight. Length of a transaction is the number of bytes it consumes on the network. Weight of a transaction is the number of picoseconds it takes to execute it by a node with reference hardware.
 Subspace Network separates the fees to be paid for a transaction into storage and compute fees. Storage fees are paid by the participants of the Subspace Network for the storage space they consume for including the transaction in a block and eventually archiving it. Compute fees are paid for the computational resources they consume while executing the transaction.
