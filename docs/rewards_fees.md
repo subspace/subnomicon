@@ -29,7 +29,36 @@ Currently, operators are solely earning the fees for domain transactions they ex
 
 Currently, nominators receive a portion of the fees of the operator they nominated, based on their shares in the operator pool. For more details on how the pool shares and fees are calculated, see [Nomination Pools](/docs/decex/staking.md#nomination-pools).
 
+## Dynamic Issuance
 
+The issuance of the newly minted SSC by the protocol is dynamic and depends on the block height and recent demand for the blockspace.
+
+Initially, farmers receive exactly 0.1 tSSC for the block rewards for the blocks they propose and 0.1 tSSC for votes they submit. Subspace implements a decay function, that will gradually reduce these rewards every block as the chain progresses. Over the long-term, the decrease follows the exponential decay:
+
+$$\text{reference\_subsidy}=\text{initial\_subsidy}*e^{-\text{initial\_subsidy}*(n-\text{decay\_block\_start})/\text{max\_issuance\_tokens}}$$
+
+where $\text{initial\_subsidy}=0.1$ tSSC per block, $n$ is current block height, $\text{decay\_block\_start}=TBA$ is the block when the decay function was activated, and $\text{max\_issuance\_tokens}=100 000 000$ tSSC is the total number of credits to be ever issued by the Gemini-3h testnet protocol for this reward. Both block proposer rewards and vote rewards are computed using the same formula.
+
+This smooth reduction allows for higher rewards for early adopters, gradual increase of the circulating supply in a more controlled manner and an extended lifetime of issuance for the long-term viability of the chain.
+
+On Gemini-3h, the reference subsidy issuance is expected to decay following the curve below. It starts at 0.1 tSSC per block and decreases as follows for the first 1 296 000 blocks (~90 days) since decay starts:
+
+<div align="center">
+    <img src="/img/Gemini3h_Issuance_Decay-light.svg#gh-light-mode-only" alt="Gemini3h_Issuance_Decay" />
+    <img src="/img/Gemini3h_Issuance_Decay-dark.svg#gh-dark-mode-only" alt="Gemini3h_Issuance_Decay" />
+</div>
+
+Apart from the reference subsidy issuance decay, the rewards for the block proposer are also dynamic based on the demand for blockspace. The reference subsidy presented above is issued if the utilization and transaction fees are low. If the chain is seeing high utilization, block proposers are earning enough through transaction fees to cover the farming costs, and the protocol will lower the reward issued to the proposer. This allows the protocol to conserve tokens for later issuance in periods of lower demand. 
+
+The demand for blockspace is measured as exponential moving average of the percentage of the maximum blockspace that is used by the normal transactions over the last 100 blocks, excluding operational transactions like votes and fraud proofs. 
+
+$$\text{blockspace\_utilization} = \frac{\sum encoded\ transaction\ size}{1.5 \text{MiB}}$$
+
+The final formula for the block proposer reward is:
+
+$$\text{proposer reward}=\text{reference\_subsidy}-b*(tanh(1)-tanh(1-\text{blockspace\_utilization}))$$
+
+where $b=\frac{min(\text{reference\_subsidy},\text{max\_block\_fees})}{tanh(1)}$ is the sensitivity parameter, that helps the protocol decide whether the current cost of storage is enough to cover the proposer's costs of farming that block.
 
 ## Transaction Fees
 
