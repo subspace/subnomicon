@@ -28,15 +28,6 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  plugins: [
-    [
-      '@docusaurus/plugin-google-gtag',
-      {
-        trackingID: 'G-25NWNJB9MR',
-        anonymizeIP: false, 
-      }
-    ]
-  ],
 
   presets: [
     [
