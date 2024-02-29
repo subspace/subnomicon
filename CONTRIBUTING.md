@@ -13,9 +13,8 @@ Following these guidelines shows that you respect the time of the developers who
 
 We are a fully Open Source project, meaning we are open to all kinds of contributions from our community. Here are a few example of contributions that we are open to in this repo:
 
-- **Added Content:** Writing a nice guide? Submit it (Where?) so we can add it to our Docs. 
-- **Bug Reports & Fixes:** Find a bug or error? Let us know where its hiding. (Where?)
-- **Feature Requests & Implementations:** Looking for a new feature? Share your ideas so we can improve.
+- **Bug Reports & Fixes:** Find a typo, UI bug or content error? Let us know where its hiding. (Where?)
+- **Feature Requests:** Looking for details on a specific part of the protocol or have ideas how to improve the website UI? Share your ideas so we can improve.
 
 *If you have something that is not listed, try to be as descriptive as possible and feel free to submit the PR.*
 
@@ -30,7 +29,7 @@ Please refer to our [Code of Conduct](CODE_OF_CONDUCT.md)
 Please follow this pathway for *minor* contributions such as Spelling errors, Typos, Rewording, etc. 
 > If you are adding entirely new pages, features, etc, then please refer to the `Advanced` portion of this section
 
-1. Go to [Subspace Documentation](https://subspace.github.io/subspace-docs), and find the page that you would like to change.
+1. Go to [Subnomicon](https://subnomicon.subspace.network), and find the page that you would like to change.
 2. Scroll to the bottom and click `Edit this page`.
 3. This will open up GitHub, and direct you to the raw page on GitHub.
 4. In the top right click the `pencil` emoji to edit the page.

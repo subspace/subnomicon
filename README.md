@@ -1,44 +1,16 @@
 <img src="./static/img/subspace-network.svg" align="center" />
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+The [Subnomicon](https://subnomicon.subspace.network) is a knowledge base about the Subspace Protocol. Subnomicon provides a comprehensive overview of the current state of protocol, covering the following:
 
-### Installation
+1. [Architecture Overview](/docs/overview) - *The Subspace modular architecture.*
+2. [Advancing Blockchain](/docs/advancements) - *How Subspace advances the state of blockchain technology.*
+3. [Consensus Mechanism](/docs/category/consensus) - *How Subspace achieves consensus through its storage-based design.*
+4. [Network Architecture](/docs/category/network-architecture) - *How Subspace is structured as a decentralized network.*
+5. [Decoupled Execution](/docs/category/decoupled-execution) - *How Subspace separates consensus and computation.*
 
-```
-$ yarn
-```
+The information in the Subnomicon is kept up-to-date with the live state of the Subspace Protocol which may not represent the final desired state. Subnomicon's purpose is to serve as living documentation that grows and evolves with the protocol.
 
-### Local Development
-
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+If you have any additions or corrections, please submit a pull request.
 
 ### Contributing
 
@@ -47,5 +19,3 @@ If you would like to contribute check out the following materials, and feel free
 - [Code of Conduct](CODE_OF_CONDUCT.md)
 - [Contributing Guide](CONTRIBUTING.md)
 - [Development Guide](DEVELOPMENT.md)
-
-Thank you to all our [Contributors](https://github.com/subspace/subspace-docs/graphs/contributors)!
