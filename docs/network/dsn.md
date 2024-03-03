@@ -32,7 +32,7 @@ The DSN consists of multiple distinctive layers. While all layers serve as piece
 
 ### Pieces cache layer(L2)
 
-The pieces cache layer serves to get pieces for data reconstruction and farming efficiently. The primary purpose of this layer is to reduce the latency of piece retrieval. Retrieval of pieces from Archival Storage requires farmers to read and decode their plotted sectors, which is a computationally intensive operation that currently takes ~1 second. In contrast, retrieval of pieces from L2 is almost instant as they are kept in memory. For this reason, the default way to acquire pieces is getting them from L2.
+The pieces cache layer serves to get pieces for data reconstruction and farming efficiently. The primary purpose of this layer is to reduce the latency of piece retrieval. Retrieval of pieces from Archival Storage requires farmers to read and decode their plotted sectors, which is a computationally intensive operation that currently takes ~1 second. In contrast, retrieval of pieces from L2 is almost instant as they are kept in disk cache in unencoded form. For this reason, the default way to acquire pieces is getting them from L2.
 
 The L2 cache stores pieces in the DHT by the proximity of the piece index hash to the peer ID. While any peer can store pieces in the L2 cache, we mostly rely on farmers as the most suitable candidates for pieces L2. Farmers dedicate a tiny part of their pledged storage space to store L2 pieces. Several farmers closest to each other as peers by peer ID may store the same piece, determined by the overall storage network replication factor.
 
