@@ -41,24 +41,30 @@ where $\text{initial\_subsidy}=0.1$ tSSC per block, $n$ is current block height,
 
 This smooth reduction allows for higher rewards for early adopters, gradual increase of the circulating supply in a more controlled manner and an extended lifetime of issuance for the long-term viability of the chain.
 
-On Gemini-3h, the reference subsidy issuance is expected to decay following the curve below. It starts at 0.1 tSSC per block and decreases as follows for the first 1 296 000 blocks (~90 days) since decay starts:
+On Gemini-3h, the reference subsidy issuance is expected to decay following the curve below. For example, for the first 1 296 000 blocks (~90 days) it starts at 0.1 tSSC per block and decreases as follows:
 
 <div align="center">
     <img src="/img/Gemini3h_Issuance_Decay-light.svg#gh-light-mode-only" alt="Gemini3h_Issuance_Decay" />
     <img src="/img/Gemini3h_Issuance_Decay-dark.svg#gh-dark-mode-only" alt="Gemini3h_Issuance_Decay" />
 </div>
 
-Apart from the reference subsidy issuance decay, the rewards for the block proposer are also dynamic based on the demand for blockspace. The reference subsidy presented above is issued if the utilization and transaction fees are low. If the chain is seeing high utilization, block proposers are earning enough through transaction fees to cover the farming costs, and the protocol will lower the reward issued to the proposer. This allows the protocol to conserve tokens for later issuance in periods of lower demand. 
+Apart from the reference subsidy issuance decay, the rewards for the block proposer are also dynamic based on the demand for blockspace. The subsidy presented above is a reference for the amount issued for an empty block. However, if the chain is seeing blockspace utilization, block proposers are also earning through transaction fees to cover the farming costs, and the protocol will lower the reward issued to the proposer. This allows the protocol to conserve tokens for later issuance in periods of lower demand. 
 
 The demand for blockspace is measured as exponential moving average of the percentage of the maximum blockspace that is used by the normal transactions over the last 100 blocks, excluding operational transactions like votes and fraud proofs. 
 
-$$\text{blockspace\_utilization} = \frac{\sum encoded\ transaction\ size}{1.5 \text{MiB}}$$
+$$\text{blockspace\_utilization} = \frac{\sum encoded\ transaction\ size}{3.75 \text{MiB}}$$
 
 The final formula for the block proposer reward is:
 
-$$\text{proposer reward}=\text{reference\_subsidy}-b*(tanh(1)-tanh(1-\text{blockspace\_utilization}))$$
+$$\text{proposer reward}=\text{reference\_subsidy}-\min(\text{reference\_subsidy},\text{max\_block\_fees})*\text{blockspace\_utilization}$$
 
-where $b=\frac{min(\text{reference\_subsidy},\text{max\_block\_fees})}{tanh(1)}$ is the sensitivity parameter, that helps the protocol decide whether the current cost of storage is enough to cover the proposer's costs of farming that block.
+For each block, the protocol decides whether the current cost of storage and demand are high enough to cover the proposer's costs of farming that block. It will lower the issued reference subsidy slightly if fees are not sufficient, and lower significantly if fees are high.
+
+The vote rewards are currently not affected by utilization and earn 90% of the reference subsidy:
+
+$$\text{voter reward}=0.9*\text{reference\_subsidy}$$
+
+The remaining 10% of each vote reward is given to the proposer of the block that includes the vote to incentivize the proposer to include votes.
 
 ## Transaction Fees
 
