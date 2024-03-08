@@ -24,6 +24,12 @@ Having completed the steps above, we can deem the genesis phase finished. The fo
 
 4. **Archiving of the First Segment**: The data attached to the genesis block triggers the Archiving of the first segment of the canonical history of the chain. It produces the first 256 pieces and announces them to the DSN.
 
-5. **Initial Plotting**: Farmers create their plots from the newly archived pieces. As soon as plotting is done, they can start farming block rewards.
+5. **History Seeding**: The Subspace team will upload to the network an initial archive of useful data, such the whitepaper, archived data of the previous test networks, etc.
 
-6. **Block Production**: With the initial plotting complete, the block production begins. Full nodes start syncing the chain and participating in consensus.
+6. **Initial Plotting**: Farmers create their plots from the newly archived pieces. As soon as plotting is done, they can start farming blocks.
+
+7. **Block Production**: With the initial plotting complete, the block production begins, however the rewards are not issued. Full nodes start syncing the chain and participating in consensus.
+
+8. **Space Race**: The Space Race is a collaborative effort between the farmers to bootstrap the security of the network. We set a goal of certain amount of space pledged to the network such that it is difficult for a single party to control the majority of it (for example, 8PiB for Gemini-3h). As soon as the goal is reached, the Space Race ends and the block and vote rewards are automatically enabled.
+
+9. **Block Rewards**: The block and vote rewards are issued to the farmers who successfully audit their plots for a block or vote-eligible solution. Both block and vote rewards start at 0.1 tSSC and will decrease over time according to the dynamic issuance schedule.
