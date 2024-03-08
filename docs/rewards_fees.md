@@ -58,7 +58,7 @@ The final formula for the block proposer reward is:
 
 $$\text{proposer reward}=\text{reference\_subsidy}-\min(\text{reference\_subsidy},\text{max\_block\_fees})*\text{blockspace\_utilization}$$
 
-For each block, the protocol decides whether the current cost of storage and demand are high enough to cover the proposer's costs of farming that block. It will lower the issued reference subsidy slightly if fees are not sufficient, and lower significantly if fees are high.
+For each block, the protocol decides whether the current cost of storage and demand are high enough to cover the proposer's costs of farming that block. It will slightly lower the issued reference subsidy if fees are not sufficient. If fees are high, the subsidy will be significantly lower.
 
 The vote rewards are currently not affected by utilization and earn 90% of the reference subsidy:
 
