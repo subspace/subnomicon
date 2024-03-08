@@ -31,7 +31,7 @@ Currently, nominators receive a portion of the fees of the operator they nominat
 
 ## Dynamic Issuance
 
-The issuance of the newly minted SSC by the protocol is dynamic and depends on the block height and recent demand for the blockspace.
+The issuance of the newly minted SSC by the protocol is dynamic and depends on the block height and the recent demand for blockspace.
 
 Initially, farmers receive exactly 0.1 tSSC for the block rewards for the blocks they propose and 0.1 tSSC for votes they submit. Subspace implements a decay function, that will gradually reduce these rewards every block as the chain progresses. Over the long-term, the decrease follows the exponential decay:
 
@@ -48,9 +48,9 @@ On Gemini-3h, the reference subsidy issuance is expected to decay following the 
     <img src="/img/Gemini3h_Issuance_Decay-dark.svg#gh-dark-mode-only" alt="Gemini3h_Issuance_Decay" />
 </div>
 
-Apart from the reference subsidy issuance decay, the rewards for the block proposer are also dynamic based on the demand for blockspace. The subsidy presented above is a reference for the amount issued for an empty block. However, if the chain is seeing blockspace utilization, block proposers are also earning through transaction fees to cover the farming costs, and the protocol will lower the reward issued to the proposer. This allows the protocol to conserve tokens for later issuance in periods of lower demand. 
+Apart from the reference subsidy issuance decay, the rewards for the block proposer are also dynamic based on the demand for blockspace. The subsidy presented above is a reference for the amount issued for an empty block. However, if the chain is seeing blockspace utilization, block proposers are also earning through transaction fees to cover their farming costs, and the protocol will lower the reward issued to the proposer. This allows the protocol to conserve tokens for later issuance in periods of lower demand. 
 
-The demand for blockspace is measured as exponential moving average of the percentage of the maximum blockspace that is used by the normal transactions over the last 100 blocks, excluding operational transactions like votes and fraud proofs. 
+The demand for blockspace is measured as an exponential moving average of the percentage of the maximum blockspace that is used by the normal transactions over the last 100 blocks, excluding operational transactions like votes and fraud proofs. 
 
 $$\text{blockspace\_utilization} = \frac{\sum encoded\ transaction\ size}{3.75 \text{MiB}}$$
 
