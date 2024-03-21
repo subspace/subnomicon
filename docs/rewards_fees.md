@@ -7,7 +7,7 @@ keywords:
     - Fees
     - Tokenomics
 last_update:
-  date: 02/27/2024
+  date: 03/21/2024
   author: Dariia Porechna
 ---
 
