@@ -40,7 +40,7 @@ Initially, farmers receive exactly 0.1 tSSC for the block rewards for the blocks
 
 $$\text{reference\_subsidy}=\text{initial\_subsidy}*e^{-\text{initial\_subsidy}*(n-\text{decay\_block\_start})/\text{max\_issuance\_tokens}}$$
 
-where $\text{initial\_subsidy}=0.1$ tSSC per block, $n$ is current block height, $\text{decay\_block\_start}=TBA$ is the block when the decay function was activated, and $\text{max\_issuance\_tokens}=100 000 000$ tSSC is the total number of credits to be ever issued by the Gemini-3h testnet protocol for this reward. Both block proposer rewards and vote rewards are computed using the same formula.
+where $\text{initial\_subsidy}=0.1$ tSSC per block, $n$ is current block height, $\text{decay\_block\_start}=718 959$ is the block when the decay function was activated, and $\text{max\_issuance\_tokens}=100 000 000$ tSSC is the total number of credits to be ever issued by the Gemini-3h testnet protocol for this reward. Both block proposer rewards and vote rewards are computed using the same formula.
 
 This smooth reduction allows for higher rewards for early adopters, gradual increase of the circulating supply in a more controlled manner and an extended lifetime of issuance for the long-term viability of the chain.
 
