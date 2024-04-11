@@ -23,3 +23,17 @@ While regular rollups on Ethereum are validated through smart contracts, domains
 ## Sovereign Rollups 
 
 Like sovereign rollups on Celestia, domains leverage the base layer protocol for consensus and data availability but extend this model to include a shared settlement layer as the default pattern. This is made possible by allowing operators to re-stake, as initially proposed by Free2Shard and later implemented within the EigenLayer protocol on Ethereum. Unlike Eigenlayer, which is implemented through smart contracts, Subspace enshrines the re-staking model within the semantics of the core protocol. 
+
+## Permissionlessness
+
+There are several key stages of bringing a domain to existence and operating on it described in the [Workflow](workflow.md) and each of this stages assumes a different level of permissionlessness:
+
+- **Staking**, operating on most domains and nomination are completely permissionless as long as the prospective operator has enough funds for the minimum stake at their disposal. Operators are also free to unstake and exit at any time or choose to stake on another domain. Some domains may choose to restrict who can operate on them via an allow list, but this is not the defaul.
+    
+- **Instantiation** (copy) of an existing domain is permissioned on the current Gemini-3h network, but the plan is to make this process permissionless in the future.
+    
+- **Open a channel between domains** for cross-domain messaging has to be allowed by owners of both domains, but doesn’t require consensus governance approval. 
+    
+- **Open a channel consensus to domain** can currently only transfer funds and has to be allowed by consensus governance.
+    
+- **Register a new runtime** to create non-EVM or Substrate domains is permissioned and requires consensus governance approval.
