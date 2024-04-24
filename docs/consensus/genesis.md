@@ -2,7 +2,7 @@
 id: genesis
 title: Genesis
 sidebar_position: 2
-description: Genesis configuration
+description: Konfigurasi Genesis
 keywords:
     - Genesis
     - Config
@@ -11,25 +11,25 @@ last_update:
   author: Dariia Porechna
 ---
 
-The genesis process of Subspace Network involves the initialization and configuration of the blockchain's starting state. It includes the following steps:
+Proses genesis Subspace Network melibatkan inisialisasi dan konfigurasi keadaan awal blockchain. Proses ini mencakup langkah-langkah berikut:
 
-1. **Genesis Configuration**: The genesis process begins with creating a genesis configuration. It defines the initial parameters for the blockchain, such as the consensus parameters, initial balances, boot nodes, network protocol settings, and other configurations.
+1. **Konfigurasi Genesis**: Proses genesis dimulai dengan membuat konfigurasi genesis. Konfigurasi ini mendefinisikan parameter awal untuk blockchain, seperti parameter konsensus, saldo awal, boot node, pengaturan protokol jaringan, dan konfigurasi lainnya.
 
-2. **Creation of the Genesis Block**: The genesis block is created after the configuration is complete and the initial state is defined. Randomly generated data of the size of one segment (128MiB) is attached to the serialized encoding of the genesis block to bootstrap the Archiving phase.
+2. **Pembuatan Blok Genesis**: Blok genesis dibuat setelah konfigurasi selesai dan status awal ditentukan. Data yang dibuat secara acak dengan ukuran satu segmen (128MiB) dilampirkan ke pengkodean serial dari blok genesis untuk memulai fase Pengarsipan.
 
-3. **Proof-of-Time Initialization**: The Timekeepers initialize the Proof-of-Time chain and the randomness beacon. The Proof-of-Time chain serves as a global "clock" for the network: the current "time" is the height of the PoT chain. 
-It also provides the source of randomness for block production.
+3. **Proof-of-Time Initialization**: Pencatat Waktu menginisialisasi rantai Proof-of-Time dan suar keacakan. Rantai Proof-of-Time berfungsi sebagai "jam" global untuk jaringan: "waktu" saat ini adalah ketinggian rantai PoT. 
+Rantai ini juga menyediakan sumber keacakan untuk produksi blok.
 
-Having completed the steps above, we can deem the genesis phase finished. The following steps are necessary to start a functional consensus chain:
+Setelah menyelesaikan langkah-langkah di atas, kita dapat menganggap fase genesis telah selesai. Langkah-langkah berikut ini diperlukan untuk memulai rantai konsensus fungsional:
 
-4. **Archiving of the First Segment**: The data attached to the genesis block triggers the Archiving of the first segment of the canonical history of the chain. It produces the first 256 pieces and announces them to the DSN.
+4. **Archiving of the First Segment**: Data yang dilampirkan pada blok genesis memicu Pengarsipan segmen pertama dari sejarah kanonik rantai. Ini menghasilkan 256 keping pertama dan mengumumkannya ke DSN.
 
-5. **History Seeding**: The Subspace team will upload to the network an initial archive of useful data, such the whitepaper, archived data of the previous test networks, etc.
+5. **History Seeding**: Tim Subspace akan mengunggah ke jaringan arsip awal data yang berguna, seperti whitepaper, arsip data dari jaringan uji coba sebelumnya, dll.
 
-6. **Initial Plotting**: Farmers create their plots from the newly archived pieces. As soon as plotting is done, they can start farming blocks.
+6. **Initial Plotting**: Para petani membuat petak-petak mereka dari potongan-potongan yang baru diarsipkan. Segera setelah pembuatan plot selesai, mereka dapat memulai blok-blok pertanian.
 
-7. **Block Production**: With the initial plotting complete, the block production begins, however the rewards are not issued. Full nodes start syncing the chain and participating in consensus.
+7. **Block Production**: Dengan perencanaan awal selesai, produksi blok dimulai, namun reward tidak dikeluarkan. Node penuh mulai menyinkronkan rantai dan berpartisipasi dalam konsensus.
 
-8. **Space Race**: The Space Race is a collaborative effort between the farmers to bootstrap the security of the network. We set a goal of certain amount of space pledged to the network such that it is difficult for a single party to control the majority of it (for example, 8PiB for Gemini-3h). As soon as the goal is reached, the Space Race ends and the block and vote rewards are automatically enabled.
+8. **Space Race**: Space Race adalah upaya kolaboratif antara para petani untuk meningkatkan keamanan jaringan. Kami menetapkan target sejumlah ruang yang dijanjikan ke jaringan sehingga sulit bagi satu pihak untuk mengontrol mayoritas ruang tersebut (misalnya, 8PiB untuk Gemini-3h). Segera setelah tujuan tercapai, Space Race berakhir dan hadiah blok dan suara diaktifkan secara otomatis.
 
-9. **Block Rewards**: The block and vote rewards are issued to the farmers who successfully audit their plots for a block or vote-eligible solution. Both block and vote rewards start at 0.1 tSSC and will decrease over time according to the dynamic issuance schedule.
+9. **Block Rewards**: Imbalan blok dan suara diberikan kepada petani yang berhasil mengaudit plot mereka untuk mendapatkan solusi yang memenuhi syarat blok atau suara. Hadiah blok dan suara dimulai dari 0,1 tSSC dan akan berkurang seiring waktu sesuai dengan jadwal penerbitan yang dinamis.
