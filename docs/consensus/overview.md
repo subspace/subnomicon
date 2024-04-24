@@ -1,7 +1,7 @@
 ---
-title: Overview
+title: Ikhtisar
 sidebar_position: 1
-description: Dilithium Consensus Overview
+description: Ikhtisar Konsensus Dilithium
 keywords:
     - Consensus
     - Dilithium
@@ -10,72 +10,72 @@ last_update:
   author: Dariia Porechna
 ---
 
-Subspace is powered by *Dilithium* - a lightweight and secure consensus mechanism that is environmentally friendly, permissionless, and fair. *Dilithium* is a Proof-of-Archival-Storage (PoAS), Nakamoto-style consensus protocol based on proofs of storing the blockchain history. 
+Subspace didukung oleh *Dilithium* - sebuah mekanisme konsensus yang ringan dan aman yang ramah lingkungan, tanpa izin, dan adil. *Dilithium* adalah Proof-of-Archival-Storage (PoAS), protokol konsensus gaya Nakamoto yang didasarkan pada bukti penyimpanan riwayat blockchain. 
 
-*Dilithium* is a second-generation PoAS consensus algorithm that uses erasure coding and KZG commitments for distributed archiving while combining polynomial encoding with an ASIC-resistant Proof-of-Space for plotting and drawing block challenges from AES-based Proof-of-Time. The protocol represents a significant step forward in security and user experience for Subspace Network participants. *Dilithium* is also designed to be SSD-friendly, further enhancing energy efficiency and decentralization. 
+*Dilithium* adalah algoritma konsensus PoAS generasi kedua yang menggunakan pengkodean penghapusan dan komitmen KZG untuk pengarsipan terdistribusi sambil menggabungkan pengkodean polinomial dengan Proof-of-Space yang tahan terhadap ASIC untuk merencanakan dan menarik tantangan blok dari Proof-of-Time berbasis AES. Protokol ini merupakan langkah maju yang signifikan dalam hal keamanan dan pengalaman pengguna bagi para peserta Subspace Network. *Dilithium* juga dirancang agar ramah terhadap SSD, sehingga meningkatkan efisiensi energi dan desentralisasi. 
 
-For those familiar with our initial consensus design, *Dilithium* fulfills all the fundamental ideas described in the original [whitepaper](https://subspace.network/news/subspace-network-whitepaper) but applies them better.
+Bagi mereka yang sudah familiar dengan desain konsensus awal kami, *Dilithium* memenuhi semua ide dasar yang dijelaskan dalam [whitepaper](https://subspace.network/news/subspace-network-whitepaper) tetapi menerapkannya dengan lebih baik.
 
-In PoAS, farmers (not miners) store as many unique pieces of the blockchain history as their disk space allows. PoAS incentivizes the storage of the blockchain history, resolving the key mechanism design failure which has hindered scalability and led to centralization within Proof-of-Storage blockchains like Filecoin and Chia. Since PoAS consensus is based on storage, rather than compute power or wealth, it is eco-friendly while remaining accessible to ordinary people with available disk space. This allows it to combine the high security of Bitcoin-style Proof-of-Work with the energy-efficiency of Ethereum-style Proof-of-Stake. It also turns out that PoAS provides the basis for a more generic solution to the problem of blockchain bloat. 
+Dalam PoAS, petani (bukan penambang) menyimpan sebanyak mungkin bagian unik dari riwayat blockchain sesuai dengan ruang penyimpanan mereka. PoAS memberikan insentif kepada penyimpanan riwayat blockchain, menyelesaikan kegagalan desain mekanisme utama yang menghambat skalabilitas dan menyebabkan sentralisasi dalam blockchain Proof-of-Storage seperti Filecoin dan Chia. Karena konsensus PoAS didasarkan pada penyimpanan, bukan pada daya komputasi atau kekayaan, PoAS ramah lingkungan dan tetap dapat diakses oleh orang biasa dengan ruang disk yang tersedia. Hal ini memungkinkannya untuk menggabungkan keamanan yang tinggi dari Proof-of-Work ala Bitcoin dengan efisiensi energi dari Proof-of-Stake ala Ethereum. PoAS juga menyediakan dasar untuk solusi yang lebih umum untuk masalah blockchain bloat. 
 
-## Technical Overview
+## Tinjauan Teknis
 
-Similar to other Proof-of-Storage projects, the resource that participants allocate to secure the Subspace network is
-disk space. As a resource, disk space is widely distributed and in general the notion of an ASIC does not apply to
-storage. As such, the Subspace protocol has the potential to be highly decentralized and more fair than
-other blockchain protocols.
+Serupa dengan proyek-proyek Proof-of-Storage lainnya, sumber daya yang dialokasikan oleh para peserta untuk mengamankan jaringan Subspace adalah
+ruang disk. Sebagai sumber daya, ruang disk didistribusikan secara luas dan secara umum pengertian ASIC tidak berlaku untuk
+penyimpanan. Dengan demikian, protokol Subspace memiliki potensi untuk menjadi sangat terdesentralisasi dan lebih adil daripada
+protokol blockchain lainnya.
 
-Unlike other Proof-of-Storage projects where the data stored is some "cryptographic data", uniquely generated per
-participant, in Subspace the participants, called farmers, store the blockchain history. Not only that in Subspace we
-have found a way to store "useful data", but we also solve the so-called _farmer's dilemma_, where a rational farmer
-prefers to use her disk space to store more (non-useful) cryptographic data, consequentially not storing the current
-state or the blockchain history -- a strategy that if followed by all farmers, will lead to a unfunctional network.
+Tidak seperti proyek Proof-of-Storage lainnya di mana data yang disimpan adalah "data kriptografi", yang secara unik dihasilkan per
+peserta, di Subspace para peserta, yang disebut petani, menyimpan riwayat blockchain. Tidak hanya itu di Subspace kami
+kami telah menemukan cara untuk menyimpan "data yang berguna", tetapi kami juga memecahkan apa yang disebut _dilema petani_, di mana petani yang rasional
+lebih suka menggunakan ruang disknya untuk menyimpan lebih banyak data kriptografi (yang tidak berguna), akibatnya tidak menyimpan
+state saat ini atau riwayat blockchain - sebuah strategi yang jika diikuti oleh semua petani, akan menyebabkan jaringan tidak berfungsi.
 
-Formally, PoAS is a three phase protocol, consisting of:
-- a recurring deterministic **Archiving** phase done by all nodes
-- a unique setup or **Plotting** phase done individually by each farmer
-- a probabilistic audit phase, known as **Farming**, based on a recurring slot challenge from a secure randomness beacon, with a frequency of one challenge per second.
+Secara formal, PoAS adalah protokol tiga fase, yang terdiri dari:
+- fase **Pengarsipan** deterministik berulang yang dilakukan oleh semua node
+- pengaturan unik atau fase **Plotting** yang dilakukan secara individual oleh setiap petani
+- fase audit probabilistik, yang dikenal sebagai **Farming**, berdasarkan tantangan slot berulang dari suar keacakan yang aman, dengan frekuensi satu tantangan per detik.
 
 <div align="center">
     <img src="/img/Consensus_Phases-light.svg#gh-light-mode-only" alt="ConsensusPhases" />
     <img src="/img/Consensus_Phases-dark.svg#gh-dark-mode-only" alt="ConsensusPhases" />
 </div>
 
-Since the blockchain history is not unique, farmers cannot simply store the raw blockchain history, otherwise dishonest
-farmers could share a single copy of the blockchain history to emulate unlimited amount of disk space. Thus, one
-challenge is how to make the _plot_ each farmer stores unique. This is done as part of the plotting phase explained
-below.
+Karena riwayat blockchain tidak unik, petani tidak bisa begitu saja menyimpan riwayat blockchain mentah, jika tidak jujur
+petani yang tidak jujur dapat membagikan satu salinan riwayat blockchain untuk meniru jumlah ruang disk yang tidak terbatas. Dengan demikian, satu
+tantangannya adalah bagaimana membuat _plot_ yang disimpan oleh setiap petani menjadi unik. Hal ini dilakukan sebagai bagian dari fase perencanaan yang dijelaskan
+di bawah ini.
 
-Before the plotting phase, farmers need to "prepare" the raw blockchain history for compatibility with the Subspace
-plotting protocol. This is done in the archiving phase. Archiving is a deterministic process performed by all nonde. It is done
-ongoingly, as the blockchain progresses and more blocks are produced. When archiving, farmers apply a technique called
-error-correction coding, specifically the Reed--Solomon code. This is used to guarantee that even if some piece of data
-(a collection of blocks) is not stored by any of the farmers (hence not stored on the entire network), it could be
-recovered by other pieces. The replication factor used is 1/2, which means that half of the storage on the network is
-used is dedicated specifically for this error-correction technique. However, for recovery purposes, it is much better
-than using this space to store each block twice. Besides of applying the Reed-Solomon code, the archiving phase also
-involves a cryptographic primitive called commitment scheme (in Subspace we use a specific type called polynomial
-commitments) in order to make the farming phase, where a farmer proves that she stored some piece of history, easier
-both for the proving farmer and for the verifiers. More technical details can be found in the [**Archiving** page](consensus/archiving.md).
+Sebelum fase plotting, petani perlu "mempersiapkan" riwayat blockchain mentah untuk kompatibilitas dengan Subspace
+protokol plotting Subspace. Ini dilakukan dalam fase pengarsipan. Pengarsipan adalah proses deterministik yang dilakukan oleh semua nonde. Ini dilakukan
+terus menerus, seiring dengan perkembangan blockchain dan semakin banyak blok yang diproduksi. Ketika melakukan pengarsipan, para petani menerapkan sebuah teknik yang disebut
+pengkodean koreksi kesalahan, khususnya kode Reed - Solomon. Ini digunakan untuk menjamin bahwa meskipun beberapa bagian data
+(kumpulan blok) tidak disimpan oleh salah satu petani (oleh karena itu tidak disimpan di seluruh jaringan), data tersebut dapat
+dapat dipulihkan oleh bagian lain. Faktor replikasi yang digunakan adalah 1/2, yang berarti bahwa setengah dari penyimpanan pada jaringan
+yang digunakan didedikasikan khusus untuk teknik koreksi kesalahan ini. Namun, untuk tujuan pemulihan, ini jauh lebih baik
+daripada menggunakan ruang ini untuk menyimpan setiap blok dua kali. Selain menerapkan kode Reed-Solomon, fase pengarsipan juga
+melibatkan primitif kriptografi yang disebut skema komitmen (di Subspace kami menggunakan tipe khusus yang disebut polinomial
+komitmen) untuk membuat fase farming, di mana seorang petani membuktikan bahwa dia menyimpan beberapa bagian dari sejarah, lebih mudah
+baik bagi petani yang membuktikan maupun bagi para pemeriksa. Detail lebih lanjut mengenai hal ini dapat ditemukan di bagian [**Archiving** page](consensus/archiving.md).
 
-Next is the plotting phase, where the farmer creates her own unique plot. Plotting is divided into two steps. First, the farmer picks pieces of the blockchain history that she
-will store on her disk. This is done by a deterministic algorithm, involving the farmer ID and the current blockchain height
-among others, such that pieces are allocated uniformly at random, and therefore guarantees with high probability that no
-piece of history will be missing.
+Berikutnya adalah tahap plotting, di mana petani membuat plot uniknya sendiri. Pembuatan plot dibagi menjadi dua langkah. Pertama, petani mengambil potongan-potongan riwayat blockchain yang akan dia
+yang akan dia simpan di disknya. Ini dilakukan dengan algoritma deterministik, yang melibatkan ID petani dan tinggi blockchain saat ini
+blockchain saat ini, sehingga potongan-potongan tersebut dialokasikan secara acak, dan oleh karena itu menjamin dengan probabilitas yang tinggi bahwa tidak ada
+bagian dari sejarah yang akan hilang.
 
-In the second part, the farmer "masks" her assigned pieces by a unique and verifiable "masking data". This is done in
-order to guarantee that each plot contains unique pieces of information, and so dishonest farmers cannot share the same
-raw history when participating in the protocol. The masking algorithm is deterministic as well, and involves the farmer
-ID and piece of history, such that different farmers will obtain different masking data for the same piece. When winning a block (that is, when a farmer
-claims to have a proof-of-space that gives them the eligibility to produce a block), the farmer has to show both the raw
-piece of history and the masking data for that piece. Since the masking data is verifiable, anyone can check that
-indeed this was the masking data for that specific piece of history and farmer ID.
+Pada bagian kedua, petani "menutupi" bagian yang ditugaskan dengan "data penyamaran" yang unik dan dapat diverifikasi. Hal ini dilakukan untuk
+untuk menjamin bahwa setiap petak berisi informasi yang unik, sehingga petani yang tidak jujur tidak dapat berbagi
+yang sama ketika berpartisipasi dalam protokol. Algoritme penyamaran juga bersifat deterministik, dan melibatkan petani
+ID dan potongan riwayat, sehingga petani yang berbeda akan mendapatkan data penyamaran yang berbeda untuk potongan yang sama. Ketika memenangkan sebuah blok (yaitu, ketika seorang petani
+yang memberikan mereka hak untuk memproduksi sebuah blok), petani harus menunjukkan potongan riwayat mentah dan data masking.
+mentah dan data penyamaran untuk bagian tersebut. Karena data penyamaran dapat diverifikasi, siapa pun dapat memeriksa bahwa
+bahwa ini memang data penyamaran untuk bagian tertentu dari riwayat dan ID petani tersebut.
 
-In practice, masking in Subspace is done by producing a string of bits that are XOR-ed with the bit representation of
-the selected piece of history. It is crucial that the masking bits are produced in a process that takes a long time and
-is expensive, otherwise dishonest farmers can attempt to produce the masking data on the fly and re-use their raw data
-for several plots. In Subspace, we chose to adopt the cryptographic data that is used in the [Chia protocol](https://www.chia.net/),
-which demands both time and electricity for generation.
+Dalam praktiknya, masking di Subspace dilakukan dengan menghasilkan serangkaian bit yang di-XOR-kan dengan representasi bit
+bagian sejarah yang dipilih. Sangat penting bahwa bit-bit masking diproduksi dalam proses yang memakan waktu lama dan
+mahal, jika tidak, petani yang tidak jujur dapat mencoba menghasilkan data masking dengan cepat dan menggunakan kembali data mentah mereka
+untuk beberapa plot. Di Subspace, kami memilih untuk mengadopsi data kriptografi yang digunakan di [Chia protocol](https://www.chia.net/),
+yang menuntut waktu dan listrik untuk pembangkitan.
 
 Once a farmer created her plot, she can start farming it. This phase is similar to other blockchains where some
 challenge is drawn and the farmer checks if her resource -- the stored blockchain history in her plot -- gives her
