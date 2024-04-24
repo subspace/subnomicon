@@ -1,7 +1,7 @@
 ---
-title: Data Flow
+title: Flow Data
 sidebar_position: 3
-description: Lifecycle of Data on Subspace Blockchain
+description: Siklus Hidup Data di Subspace Blockchain
 keywords:
     - Consensus
     - Data
@@ -12,58 +12,58 @@ last_update:
   author: Dariia Porechna
 ---
 
-From the moment a transaction is submitted to the Subspace blockchain to the point it is permanently archived, data goes through several stages:
+Dari saat transaksi dikirimkan ke blockchain Subspace hingga diarsipkan secara permanen, data melewati beberapa tahap:
 
-1. The transaction is validated and included in a consensus chain block directly or through inclusions of domain bundles.
-2. Transactions and bundles in the block are executed, activating a global and domain state change.
-3. After that block reaches a certain depth (currently 100 blocks), it is archived following the [Archiving](./consensus/archiving.md) protocol alongside other blocks. At this point, it becomes a part of the Archival History of the chain.
-4. Newly archived pieces are added to farmer caches through the [Distributed Storage Network](../network/dsn.md) and replicated multiple times throughout the network.
-5. Pieces are encoded into farmer plots on disk for permanent storage, following the [Plotting](./consensus/plotting.md) protocol.
-6. When a client requests, the original data is reconstructed from archived pieces on the fly.
+1. Transaksi divalidasi dan dimasukkan ke dalam blok rantai konsensus secara langsung atau melalui penyertaan kumpulan domain.
+2. Transaksi dan bundel dalam blok dieksekusi, mengaktifkan perubahan status global dan domain.
+3. Setelah blok tersebut mencapai kedalaman tertentu (saat ini 100 blok), blok tersebut diarsipkan mengikuti protokol [Pengarsipan](./consensus/archiving.md) bersama dengan blok lainnya. Pada titik ini, ia menjadi bagian dari Riwayat Pengarsipan rantai.
+4. Bagian yang baru diarsipkan ditambahkan ke cache petani melalui [Jaringan Penyimpanan Terdistribusi](../network/dsn.md) dan direplikasi beberapa kali di seluruh jaringan.
+5. Potongan-potongan dikodekan ke dalam plot petani pada disk untuk penyimpanan permanen, mengikuti protokol [Plotting](./consensus/plotting.md).
+6. Ketika klien meminta, data asli direkonstruksi dari potongan-potongan yang diarsipkan dengan cepat.
 
 <div align="center">
     <img src="/img/Data_Flow-light.svg#gh-light-mode-only" alt="Data_Flow" />
     <img src="/img/Data_Flow-dark.svg#gh-dark-mode-only" alt="Data_Flow" />
 </div>
 
-## Block Structure and Limits
+## Struktur dan Batas Blok
 
-A Subspace consensus chain block follows the general structure of a standard block: it consists of a body and a header and points to a parent block. The consensus chain block header contains metadata about the block, allowing verification of the validity of the consensus chain. The body contains transactions and domain bundles. Transactions include transfers, votes and fraud proofs. Domain bundles are sets of transactions from a particular domain (e.g., EVM contract calls). 
+Blok rantai konsensus Subspace mengikuti struktur umum blok standar: terdiri dari badan dan header dan menunjuk ke blok induk. Header blok rantai konsensus berisi metadata tentang blok tersebut, yang memungkinkan verifikasi validitas rantai konsensus. Badan blok berisi transaksi dan kumpulan domain. Transaksi termasuk transfer, suara, dan bukti penipuan. Bundel domain adalah kumpulan transaksi dari domain tertentu (misalnya, panggilan kontrak EVM). 
 
-Each block has a certain length and weight. Length is the amount of storage this block consumes on the network, equal to the size in bytes of the encoded transactions and bundles in the block body. Weight is the estimated time it would take to execute this block, equal to the sum of the compute weights of all the transactions in the body. Currently, consensus chain blocks are limited to 3.75 MiB of length and 1.5 seconds of compute weight for normal user transactions with up to 1.25 MiB and 0.5 seconds extra for system extrinsics like votes or updates to the chain.
+Setiap blok memiliki panjang dan berat tertentu. Panjang adalah jumlah penyimpanan yang digunakan oleh blok ini di jaringan, sama dengan ukuran dalam byte dari transaksi yang dikodekan dan bundel dalam badan blok. Berat adalah perkiraan waktu yang dibutuhkan untuk mengeksekusi blok ini, sama dengan jumlah bobot komputasi dari semua transaksi dalam badan blok. Saat ini, blok rantai konsensus dibatasi hingga 3,75 MiB dan 1,5 detik bobot komputasi untuk transaksi pengguna normal dengan hingga 1,25 MiB dan 0,5 detik ekstra untuk ekstrinsik sistem seperti voting atau pembaruan rantai.
 
-## Consensus Chain Block Header
+## Header Blok Rantai Konsensus
 
-In Subspace, the consensus block header contains:
-- The block number in the chain of blocks
-- The hash of the parent block
-- The Merkle root of the trie of extrinsics included in this block
-- The Merkle root of the state trie after processing this block
-- The time slot number claimed by the block producer
-- The global randomness at the claimed time slot derived from the proof-of-time chain
-- The solution to the slot challenge for the claimed time slot. The solution includes a winning chunk of history, a proof-of-space for the farmer's plot and KZG witness that the winning chunk is indeed a part of the archival history at the claimed height
-- The solution range used to find the winning chunk of history
-- The signature of the farmer over the header
+Di Subruang, header blok konsensus berisi:
+- Nomor blok dalam rantai blok
+- Hash dari blok induk
+- Akar Merkle dari trie ekstrinsik yang disertakan dalam blok ini
+- Akar Merkle dari trie negara bagian setelah memproses blok ini
+- Nomor slot waktu yang diklaim oleh produsen blok
+- Keacakan global pada slot waktu yang diklaim yang berasal dari rantai bukti waktu
+- Solusi untuk tantangan slot untuk slot waktu yang diklaim. Solusi ini mencakup potongan sejarah yang menang, bukti ruang untuk plot petani dan saksi KZG bahwa potongan yang menang memang merupakan bagian dari sejarah arsip pada ketinggian yang diklaim
+- Rentang solusi yang digunakan untuk menemukan potongan sejarah yang menang
+- Tanda tangan petani di atas tajuk
 
-## Domain Bundle
+## Paket Domain
 
-A bundle contains multiple transactions from a particular domain (e.g., EVM contract calls) deterministically ordered for efficient execution, propagation and inclusion in blocks. In Subspace, a bundle contains a signed header and a list of transactions. A bundle header contains:
-- The domain ID (e.g., EVM)
-- The operator ID of the bundle producer
-- The Merkle root of the trie of transactions included in this bundle
-- Execution receipt that should extend the domain receipt chain
-- The size of the bundle body in bytes, used to calculate the storage cost
-- The total estimated weight of all extrinsics in the bundle, used to prevent overloading the bundle with compute
-- The time slot claimed by the bundle
-- The global randomness at the claimed time slot derived from the proof-of-time chain
-- The proof-of-election of the operator as bundle producer for the claimed time slot based on slot challenge and the operator's stake in the current epoch
+Sebuah bundel berisi beberapa transaksi dari domain tertentu (misalnya, panggilan kontrak EVM) yang diurutkan secara deterministik untuk eksekusi, penyebaran, dan penyertaan yang efisien dalam blok. Di Subspace, sebuah bundel berisi header yang ditandatangani dan daftar transaksi. Header bundel berisi:
+- ID domain (misalnya, EVM)
+- ID operator dari produsen bundel
+- Akar Merkle dari tiga transaksi yang termasuk dalam bundel ini
+- Tanda terima eksekusi yang harus memperpanjang rantai tanda terima domain
+- Ukuran badan bundel dalam byte, yang digunakan untuk menghitung biaya penyimpanan
+- Perkiraan total berat semua ekstrinsik dalam bundel, digunakan untuk mencegah bundel membebani bundel dengan komputasi
+- Slot waktu yang diklaim oleh bundel
+- Keacakan global pada slot waktu yang diklaim yang berasal dari rantai bukti waktu
+- Bukti pemilihan operator sebagai produsen bundel untuk slot waktu yang diklaim berdasarkan tantangan slot dan kepemilikan operator pada zaman saat ini
 
-Each domain bundle can be seen as "a block inside a block," with its bundle header containing information about the domain and the bundle producer. Any consensus chain block may contain many bundles from different domains without burdening the consensus nodes. Consensus nodes check if bundles are well-formed and package them within a block. Consensus nodes do not execute any of the computations inside the bundles.
+Setiap bundel domain dapat dilihat sebagai "blok di dalam blok", dengan header bundel yang berisi informasi tentang domain dan produsen bundel. Setiap blok rantai konsensus dapat berisi banyak bundel dari domain yang berbeda tanpa membebani node konsensus. Node konsensus memeriksa apakah bundel terbentuk dengan baik dan mengemasnya dalam sebuah blok. Node konsensus tidak menjalankan komputasi apa pun di dalam bundel.
 
-## Domain Block
+## Blok Domain
 
-Each domain is an application-specific blockchain (app-chain) that relies on the consensus chain for data availability and settlement. 
-Domain chains consist of domain blocks, each containing solely the bundles relevant to this domain and disregarding any transactions concerning other domains. Domain chains have separate namespaced execution environments while receiving shared security and interoperability from the consensus chain.
+Setiap domain adalah blockchain khusus aplikasi (app-chain) yang bergantung pada rantai konsensus untuk ketersediaan dan penyelesaian data. 
+Rantai domain terdiri dari blok domain, masing-masing hanya berisi kumpulan yang relevan dengan domain ini dan mengabaikan transaksi apa pun yang berkaitan dengan domain lain. Rantai domain memiliki lingkungan eksekusi namespace yang terpisah, namun tetap mendapatkan keamanan dan interoperabilitas dari rantai konsensus.
 
 <div align="center">
     <img src="/img/Slot_To_Execution-light.svg#gh-light-mode-only" alt="Slot_To_Execution" />
