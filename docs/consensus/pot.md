@@ -1,7 +1,7 @@
 ---
 title: Proof-of-Time
 sidebar_position: 5
-description: Proof-of-Time consensus component
+description: Proof-of-Time komponen konsensus
 keywords:
     - Consensus
     - randomness
@@ -11,103 +11,103 @@ last_update:
   date: 02/06/2024
   author: Dariia Porechna
 ---
-In addition to the Proof-of-Space component described in the previous section, Dilithium is secured by a Proof-of-Time (PoT) component. The chosen PoT algorithm is sequential AES, tuned for 1 second per proof. PoT is a measure against long-range attacks, and addresses unpredictability and dynamic availability issues.
+Selain komponen Proof-of-Space yang dijelaskan pada bagian sebelumnya, Dilithium diamankan dengan komponen Proof-of-Time (PoT). Algoritma PoT yang dipilih adalah AES berurutan, yang disetel untuk 1 detik per pembuktian. PoT merupakan sebuah langkah untuk melawan serangan jarak jauh, dan mengatasi masalah ketidakpastian dan ketersediaan dinamis.
 
-The permissionless Proof-of-Work (PoW) used by Bitcoin remains the most robust consensus method in decentralized systems. However, mining requires massive energy expenditure to brute-force hash solutions, which has led to the introduction of various alternative consensus mechanisms. When transitioning to energy-efficient proof systems, like Proof-of-Stake and Proof-of-Space, however, several issues arise. 
+Proof-of-Work (PoW) tanpa izin yang digunakan oleh Bitcoin tetap menjadi metode konsensus yang paling kuat dalam sistem terdesentralisasi. Akan tetapi, penambangan membutuhkan pengeluaran energi yang besar untuk melakukan brute-force terhadap solusi hash, yang menyebabkan munculnya berbagai mekanisme konsensus alternatif. Akan tetapi, ketika bertransisi ke sistem bukti yang hemat energi, seperti Proof-of-Stake dan Proof-of-Space, ada beberapa masalah yang muncul. 
 
-## Design challenges
+## Tantangan desain
 ### Long-range attack
 
-Unlike in Proof-of-Work, the process of block production in Proof-of-Stake and Proof-of-Space-based
-blockchains is not physically constrained. This makes such protocols vulnerable to a _long-range attack_, where an attacker can produce, very quickly, an alternative chain all the way to the current time, and this chain can potentially be heavier than the current "canonical" chain.
+Tidak seperti pada Proof-of-Work, proses produksi blok pada Proof-of-Stake dan Proof-of-Space berbasis
+blockchain berbasis Proof-of-Space tidak dibatasi secara fisik. Hal ini membuat protokol tersebut rentan terhadap _serangan jarak jauh_, di mana penyerang dapat memproduksi, dengan sangat cepat, sebuah rantai alternatif sampai ke waktu saat ini, dan rantai ini berpotensi menjadi lebih berat daripada rantai "canonical" saat ini.
 
 <div align="center">
     <img src="/img/Long_Range_Attack-light.svg#gh-light-mode-only" alt="Long_Range_Attack" />
     <img src="/img/Long_Range_Attack-dark.svg#gh-dark-mode-only" alt="Long_Range_Attack" />
 </div>
 
-To perfrm a long-range attack, an adversary needs to control enough resources at some point of chain life to rewrite a significant portion of the chain history. In PoW protocols like Bitcoin, this requires controlling over 50% of the total network hashrate for a sustained period of time which is infeasible in practice. However, long-range attacks remain a serious threat in alternative consensus protocols that do not rely on Proof-of-Work.
+Untuk melakukan serangan jarak jauh, musuh harus mengontrol sumber daya yang cukup pada beberapa titik dalam kehidupan rantai untuk menulis ulang sebagian besar sejarah rantai. Dalam protokol PoW seperti Bitcoin, hal ini membutuhkan pengendalian lebih dari 50% total hashrate jaringan untuk jangka waktu yang lama, yang mana tidak dapat dilakukan pada praktiknya. Akan tetapi, serangan jarak jauh tetap menjadi ancaman serius dalam protokol konsensus alternatif yang tidak bergantung pada Proof-of-Work.
 
-Let's show how a Proof-of-Space blockchain can be vulnerable to long-range attacks. Similar attack applies to Proof-of-Stake.
-Suppose in the first year of the blockchain's operation, all farmers were honest and have collectively pledged 100TB of storage. Now, suppose by the second year the total storage pledged reached 1PB, out of which an adversary has dedicated 200TB worth of storage. At no point does an adversary control more than 20% of storage, which is way less than a majority. However, using his 200TB, an adversary could rewrite the past year's history by participating in all past lotteries to win blocks back to the genesis and then grow a chain instantaneously from the genesis to surpass the current longest chain. This is possible because the adversary's resources are enough to win a disproportionately large number of past lotteries compared to his share of total storage. Such a long-range rewrite seriously threatens the security and immutability of blockchain history.
+Mari kita tunjukkan bagaimana blockchain Proof-of-Space dapat rentan terhadap serangan jarak jauh. Serangan yang sama berlaku untuk Proof-of-Stake.
+Misalkan pada tahun pertama operasi blockchain, semua petani jujur dan secara kolektif menjanjikan penyimpanan sebesar 100TB. Sekarang, anggaplah pada tahun kedua total penyimpanan yang dijanjikan mencapai 1PB, di mana musuh telah mendedikasikan penyimpanan sebesar 200TB. Tidak ada titik di mana musuh mengendalikan lebih dari 20% penyimpanan, yang jauh lebih kecil dari mayoritas. Akan tetapi, dengan menggunakan 200TB miliknya, musuh dapat menulis ulang sejarah tahun lalu dengan berpartisipasi dalam semua lotere yang lalu untuk memenangkan blok kembali ke genesis dan kemudian menumbuhkan rantai secara instan dari genesis untuk melampaui rantai terpanjang saat ini. Hal ini dimungkinkan karena sumber daya musuh cukup untuk memenangkan sejumlah besar lotere masa lalu yang tidak proporsional dibandingkan dengan bagiannya dari total penyimpanan. Penulisan ulang jarak jauh seperti ini sangat mengancam keamanan dan keabadian riwayat blockchain.
 
-On the other hand, in PoW this attack is prevented as it takes a long time to mine an alternative chain from the past. Thus, PoW enforces an arrow of time, where it is not practical to “go back in time” (unless the attacker has more than 50% of the current hashrate). This property is key to tolerating a fully dynamic honest and adversarial participation.
+Di sisi lain, dalam PoW, serangan ini dapat dicegah karena dibutuhkan 
 
-### Availability and Unpredictability 
+### Ketersediaan dan Ketidakpastian 
 
-Alternative proof systems, including Proof-of-Stake and Proof-of-Space, strive for certain important features of PoW, like dynamic availability and unpredictability.
+Sistem bukti alternatif, termasuk Proof-of-Stake dan Proof-of-Space, mengupayakan fitur-fitur penting tertentu dari PoW, seperti ketersediaan dinamis dan ketidakpastian.
 
-Dynamic availability in blockchains refers to the capacity of the system to maintain robust operation in environments where nodes may join or leave dynamically. The permissionless PoW remains the most robust method for achieving consistent availability and unpredictability in a decentralized system. Bitcoin has been continuously available for over a decade despite an always varying hashrate due to miners joining and leaving the network. 
+Ketersediaan dinamis dalam blockchain mengacu pada kapasitas sistem untuk mempertahankan operasi yang kuat dalam lingkungan di mana node dapat bergabung atau keluar secara dinamis. PoW tanpa izin tetap menjadi metode yang paling kuat untuk mencapai ketersediaan yang konsisten dan tidak dapat diprediksi dalam sistem yang terdesentralisasi. Bitcoin terus tersedia selama lebih dari satu dekade meskipun hashrate selalu berubah-ubah karena penambang yang bergabung dan keluar dari jaringan. 
 
-In this setting, unpredictability refers to the inability to predict who will get to propose the next block. Unpredictability of block proposers is important for the security and liveness of the network. However, protocols using generic verifiable random functions to elect block proposers usually do not achieve this property at the same level as in PoW, and may suffer from a long predictability window of block challenges.
+Dalam kondisi ini, ketidakpastian mengacu pada ketidakmampuan untuk memprediksi siapa yang akan mengusulkan blok berikutnya. Ketidakpastian pengusul blok penting untuk keamanan dan kelangsungan jaringan. Akan tetapi, protokol yang menggunakan fungsi acak yang dapat diverifikasi secara umum untuk memilih pengusul blok biasanya tidak mencapai properti ini pada tingkat yang sama seperti pada PoW, dan mungkin mengalami jendela prediksi yang panjang untuk tantangan blok.
 
-## Subspace Approach
+## Pendekatan Subspace
 
-Subspace uses Proof-of-Time to a form a separate Proof-of-Time chain. The Proof-of-Space and Proof-of-Time chains are inter-connected, preventing long-range attacks. Additionally, challenges for block farming are based on the PoT outputs, which guarantee that the challenges, hence the block proposers, are not predictable.
+Subspace menggunakan Proof-of-Time untuk membentuk rantai Proof-of-Time yang terpisah. Rantai Proof-of-Space dan Proof-of-Time saling terhubung, mencegah serangan jarak jauh. Selain itu, tantangan untuk block farming didasarkan pada output PoT, yang menjamin bahwa tantangan, oleh karena itu, pengusul blok, tidak dapat diprediksi.
 
-Subspace's Proof-of-Time component addresses long-range attacks by enforcing an arrow of time similar to PoW. PoT guarantees that a certain amount of wall-clock time must elapse between block proposals, preventing an adversary from rewriting history by "going back in time". Similar to PoW, Proof-of-Time is constrained physically, however it is not parallelizable (technically, it is proof of _sequential_ work). We prevent the aforementioned attack by integrating the blockchain with a Proof-of-Time process. The attacker can not immediately generate a years-long fork on the spot even with faster hardware.
+Komponen Proof-of-Time dari Subspace mengatasi serangan jarak jauh dengan memberlakukan panah waktu yang mirip dengan PoW. PoT menjamin bahwa sejumlah waktu jam dinding harus berlalu di antara pengajuan blok, mencegah lawan untuk menulis ulang sejarah dengan "kembali ke masa lalu". Mirip dengan PoW, Proof-of-Time dibatasi secara fisik, namun tidak dapat diparalelkan (secara teknis, ini adalah bukti kerja _sequential_). Kami mencegah serangan yang disebutkan di atas dengan mengintegrasikan blockchain dengan proses Proof-of-Time. Penyerang tidak dapat langsung membuat garpu selama bertahun-tahun di tempat bahkan dengan perangkat keras yang lebih cepat.
 
-Subspace's consensus obtains a farming dynamic that mimics the random nature of Bitcoin's mining dynamic while only expending a small constant amount of electricity. This is achieved through a Proof-of-Time-based block challenges for the block proposal lottery, based on the paper [PoSAT: Proof-of-Work Availability and Unpredictability, without the Work](https://arxiv.org/abs/2010.08154) by Soubhik Deb, Sreeram Kannan and David Tse. It ensures the fairness of the farming process to all participants through complete unpredictability of who will get to propose a block next. This unpredictability is at the same level as PoW protocols and is stronger than in the protocols using verifiable random functions.
+Konsensus Subspace mendapatkan sebuah dinamika penambangan yang meniru sifat acak dari dinamika penambangan Bitcoin dengan hanya mengeluarkan sejumlah kecil listrik yang konstan. Hal ini dicapai melalui tantangan blok berbasis Proof-of-Time untuk lotre proposal blok, berdasarkan makalah [PoSAT: Proof-of-Work Availability and Unpredictability, without the Work] (https://arxiv.org/abs/2010.08154) oleh Soubhik Deb, Sreeram Kannan, dan David Tse. Sistem ini memastikan keadilan proses farming untuk semua peserta melalui ketidakpastian siapa yang akan mengajukan blok berikutnya. Ketidakpastian ini berada pada level yang sama dengan protokol PoW dan lebih kuat dibandingkan dengan protokol yang menggunakan fungsi acak yang dapat diverifikasi.
 
-The elapsed time guarantee is achieved by iterative evaluation of an inherently sequential function. The output of such a function is unpredictable and is used to build a randomness beacon for block challenges. 
+Jaminan waktu yang telah berlalu dicapai dengan evaluasi berulang dari fungsi yang secara inheren berurutan. Keluaran dari fungsi tersebut tidak dapat diprediksi dan digunakan untuk membangun suar keacakan untuk tantangan blok. 
 
-## Timekeeping
+## Pencatat Waktu
 
-For the task of running the time-chain, Subspace introduces a new role for nodes called Timekeepers. Timekeepers are responsible for evaluating the delay function and announcing the outputs to other nodes. Anyone can become a Timekeeper as long as they have a powerful CPU of last generation that is able to evaluate the delay function within the target time slot duration of 1 second. 
+Untuk tugas menjalankan rantai waktu, Subspace memperkenalkan peran baru untuk node yang disebut Pencatat Waktu. Pencatat waktu bertanggung jawab untuk mengevaluasi fungsi penundaan dan mengumumkan hasilnya ke node lain. Siapapun dapat menjadi Pencatat Waktu selama mereka memiliki CPU yang kuat dari generasi terakhir yang dapat mengevaluasi fungsi penundaan dalam durasi slot waktu target 1 detik. 
 
-A single honest timekeeper is sufficient for the security of the protocol, but for robustness and decentralization there should be multiple timekeepers running concurrently. We encourage interested participants to run the timekeeper component on their nodes to ensure the security and decentralization of the protocol. There is no explicit economic incentive to running a timekeeper, however, independent timekeeping contributes to stable block production, which benefits every participant of the network.
+Satu pencatat waktu yang jujur sudah cukup untuk keamanan protokol, tetapi untuk ketahanan dan desentralisasi harus ada beberapa pencatat waktu yang berjalan secara bersamaan. Kami mendorong peserta yang tertarik untuk menjalankan komponen pencatat waktu pada node mereka untuk memastikan keamanan dan desentralisasi protokol. Tidak ada insentif ekonomi eksplisit untuk menjalankan pencatat waktu, namun, pencatat waktu independen berkontribusi pada produksi blok yang stabil, yang menguntungkan setiap peserta jaringan.
 
-While a timekeeper can also be a farmer and participate in block production or an operator executing computation on a domain, operators are likely more suited for the task since they already have powerful hardware. Timekeeping will fully consume a dedicated CPU core. Ideally, it should be run on a separate last generation machine with no other processes interfering with the timekeeping. This setup will allow best performance and security of the protocol against malicious timekeepers.
+Meskipun pencatat waktu juga dapat menjadi petani dan berpartisipasi dalam produksi blok atau operator yang menjalankan komputasi pada domain, operator cenderung lebih cocok untuk tugas tersebut karena mereka sudah memiliki perangkat keras yang kuat. Pencatat waktu akan sepenuhnya menggunakan inti CPU khusus. Idealnya, ini harus dijalankan pada mesin generasi terakhir yang terpisah tanpa proses lain yang mengganggu ketepatan waktu. Pengaturan ini akan memungkinkan kinerja terbaik dan keamanan protokol terhadap pencatat waktu yang jahat.
 
-The Proof-of-Time chain starts at the genesis time of the Subspace consensus chain. The input to the first slot is a random seed which will be publicly announced at launch to ensure equal opportunity. For each subsequent slot, the output of the previous slot serves as the input. By chaining the outputs, the timekeepers enforce sequentiality and prevent skipping ahead in time.
+Rantai Proof-of-Time dimulai dari waktu awal dari rantai konsensus Subspace. Masukan ke slot pertama adalah sebuah seed acak yang akan diumumkan secara publik pada saat peluncuran untuk memastikan kesempatan yang sama. Untuk setiap slot berikutnya, output dari slot sebelumnya berfungsi sebagai input. Dengan merantai output, pencatat waktu menegakkan sekuensialitas dan mencegah melompati waktu.
 
-## Randomness Beacon
+## Suar Keacakan
 
-The fact that we have a sequence of random values coming from the Proof-of-Time evaluation allows us to use it
-as a source of randomness for block challenges. This is an additional advantage of our Proof-of-Time design, as other non-PoW protocols without Proof-of-Time suffer from predictability of the block challenge. Since we target a block challenge every second, we can set the delay function evaluation to output a proof every second. Then for every time slot, timekeepers will evaluate the delay function for a set number of iterations to generate fresh global randomness. They then announce the output to the network, which is used by farmers to determine the next block proposer.
+Fakta bahwa kita memiliki urutan nilai acak yang berasal dari evaluasi Proof-of-Time memungkinkan kita untuk menggunakannya
+sebagai sumber keacakan untuk tantangan blok. Ini merupakan keuntungan tambahan dari desain Proof-of-Time kami, karena protokol non-PoW lainnya yang tidak menggunakan Proof-of-Time tidak dapat diprediksi dari tantangan blok. Karena kami menargetkan tantangan blok setiap detik, kami dapat mengatur evaluasi fungsi penundaan untuk menghasilkan bukti setiap detik. Kemudian untuk setiap slot waktu, pencatat waktu akan mengevaluasi fungsi penundaan untuk sejumlah iterasi untuk menghasilkan keacakan global yang baru. Mereka kemudian mengumumkan output ke jaringan, yang digunakan oleh para petani untuk menentukan pengusul blok berikutnya.
 
 <div align="center">
     <img src="/img/PoT_Challenges-light.svg#gh-light-mode-only" alt="Proof_of_Time_Challenges" />
     <img src="/img/PoT_Challenges-dark.svg#gh-dark-mode-only" alt="Proof_of_Time_Challenges" />
 </div>
 
-Farmers receive fresh randomness from timekeepers, verify it and scan their plots to see if they contain any chunks of history close enough to the challenge threshold to claim the block. Farmers with the correct chunks provide a proof-of-space for those, propose a block and earn rewards. The randomness is revealed a few slots in advance to ensure every farmer on the network has had enough time to receive it, scan their plots and submit the proof-of-space if they win. The farmers include PoT outputs in the block header, and the PoT chain is persisted in the consensus chain in this way.
+Petani menerima keacakan baru dari pencatat waktu, memverifikasinya, dan memindai plot mereka untuk melihat apakah mereka memiliki potongan sejarah yang cukup dekat dengan ambang batas tantangan untuk mengklaim blok tersebut. Petani dengan potongan yang benar akan memberikan bukti ruang untuk mereka, mengajukan blok dan mendapatkan hadiah. Pengacakan dilakukan beberapa slot sebelumnya untuk memastikan setiap petani di jaringan memiliki cukup waktu untuk menerimanya, memindai plot mereka, dan menyerahkan bukti ruang jika mereka menang. Para petani memasukkan hasil PoT ke dalam header blok, dan rantai PoT dipertahankan dalam rantai konsensus dengan cara ini.
 
-Every 50 blocks, entropy from the consensus chain is injected back into the PoT chain. The injection takes the farming solution and PoT output from a deep consensus block header as the new input for the delay function. Injection also prevents an adversary from simulating a consensus chain fork without also having to simulate a PoT chain fork. Forks in the consensus chain will result in a different sequence of PoT outputs. Hence, an attacker that forks the chain in some historical point, will have to physically run the PoT algorithm. 
+Setiap 50 blok, entropi dari rantai konsensus disuntikkan kembali ke dalam rantai PoT. Injeksi mengambil solusi farming dan output PoT dari header blok konsensus yang dalam sebagai input baru untuk fungsi penundaan. Injeksi juga mencegah lawan untuk mensimulasikan fork rantai konsensus tanpa harus mensimulasikan fork rantai PoT. Fork pada rantai konsensus akan menghasilkan urutan output PoT yang berbeda. Oleh karena itu, seorang penyerang yang melakukan fork pada rantai di beberapa titik historis, harus menjalankan algoritma PoT secara fisik. 
 
-## Delay Function Choice
+## Pilihan Fungsi Penundaan
 
-Subspace uses repeated AES-128 encryption as an alternative to existing Verifiable Delay Functions (VDFs), such as repeated squaring in groups of unknown order. AES fulfills the requirements of being iterative, non-parallelizable and producing a short, random and verifiable output.
+Subspace menggunakan enkripsi AES-128 yang diulang sebagai alternatif dari Verifiable Delay Functions (VDF) yang sudah ada, seperti kuadrat berulang dalam kelompok dengan urutan yang tidak diketahui. AES memenuhi persyaratan untuk menjadi berulang, tidak dapat diparalelkan, dan menghasilkan keluaran yang pendek, acak, dan dapat diverifikasi.
 
-Following an extensive study of existing VDF constructions, we chose AES for the iterated function. AES has an advantage of research maturity compared to relatively new VDFs and an extremely efficient hardware and software implementation using hardware acceleration instructions. Based on a joint study with Supranational, we don't expect a significant speedup over the best AES implementation, even with an ASIC.
+Setelah melakukan studi ekstensif terhadap konstruksi VDF yang ada, kami memilih AES untuk fungsi iterasi. AES memiliki keunggulan dalam hal kematangan penelitian dibandingkan dengan VDF yang relatif baru dan implementasi perangkat keras dan perangkat lunak yang sangat efisien dengan menggunakan instruksi akselerasi perangkat keras. Berdasarkan penelitian bersama dengan Supranational, kami tidak mengharapkan percepatan yang signifikan dibandingkan implementasi AES terbaik, bahkan dengan ASIC.
 
-To achieve asymmetric verification time for the AES-based delay function timekeepers publish a set of intermediate checkpoints alongside the output, currently 8, spaced uniformly. Farmers can validate each checkpoint independently and in parallel to reduce overall verification time. Including checkpoints allows other nodes to validate the output ~7 times faster and use ~4x less power than evaluation by leveraging instruction-level parallelism. 
+Untuk mencapai waktu verifikasi asimetris untuk fungsi penundaan berbasis AES, pencatat waktu menerbitkan satu set pos pemeriksaan perantara di samping output, saat ini ada 8, dengan jarak yang seragam. Petani dapat memvalidasi setiap pos pemeriksaan secara independen dan paralel untuk mengurangi waktu verifikasi secara keseluruhan. Memasukkan pos pemeriksaan memungkinkan node lain untuk memvalidasi output ~7 kali lebih cepat dan menggunakan daya ~4x lebih sedikit daripada evaluasi dengan memanfaatkan paralelisme tingkat instruksi. 
 
 <div align="center">
     <img src="/img/Proof_of_Time-light.svg#gh-light-mode-only" alt="Proof_of_Time" />
     <img src="/img/Proof_of_Time-dark.svg#gh-dark-mode-only" alt="Proof_of_Time" />
 </div>
 
-The target number of iterations is currently set to ~183 million to achieve approximately 1 second per time slot on high-end CPUs. We will continuosly monitor hardware capabilities and will be adjusting the target to maintain approximately 1 second slots as needed. It is crucial to benchmark the delay function on best available hardware to ensure no one can gain an advantage by evaluating the delay function faster than others to predict future randomness outputs.
+Target jumlah iterasi saat ini ditetapkan pada ~183 juta untuk mencapai sekitar 1 detik per slot waktu pada CPU kelas atas. Kami akan terus memantau kemampuan perangkat keras dan akan menyesuaikan target untuk mempertahankan sekitar 1 detik slot sesuai kebutuhan. Sangat penting untuk membandingkan fungsi penundaan pada perangkat keras terbaik yang tersedia untuk memastikan tidak ada yang dapat memperoleh keuntungan dengan mengevaluasi fungsi penundaan lebih cepat daripada yang lain untuk memprediksi keluaran keacakan di masa depan.
 
-## Security Considerations
+## Pertimbangan Keamanan
 
-There are several security considerations to take into account when designing a randomness beacon in a decentralized protocol. The security claim for Subspace PoT is the following: 
+Ada beberapa pertimbangan keamanan yang perlu dipertimbangkan ketika mendesain sebuah suar keacakan dalam protokol yang terdesentralisasi. Klaim keamanan untuk Subspace PoT adalah sebagai berikut: 
 
-As long as there is at least one honest timekeeper online at all times, and network delay is bounded, all honest nodes can determine the correct PoT output, and hence the correct slot challenge.
+Selama ada setidaknya satu pencatat waktu yang jujur yang online setiap saat, dan penundaan jaringan dibatasi, semua node yang jujur dapat menentukan output PoT yang benar, dan karenanya tantangan slot yang benar.
 
-It is achieved by carefully taking care of the following aspects:
+Hal ini dicapai dengan memperhatikan aspek-aspek berikut dengan hati-hati:
 
-1. **Sequentiality**: Subspace PoT beacon achieves sequentiality by chaining the slot outputs. Each output is used as an input to the delay function for the next slot.
+1. **Sequentiality**: Suar PoT subruang mencapai sekuensialitas dengan merantai output slot. Setiap output digunakan sebagai input ke fungsi penundaan untuk slot berikutnya.
 
-2. **Network delay**: When a farmer receives a PoT output for the challenge, they immediately start auditing the plot and proving if they have a winning solution. However, they are only allowed to submit the solution after $r$ slots. This lag parameter is currently set to 4 slots, and can be tuned so that there is enough time to propagate, verify the PoT output and prove a solution on common farmer hardware. Increasing $r$ allows an honest node more time to solve for a challenge, but also gives a malicious node more time to attempt to plot on-the-fly.
+2. **Network delay**: Ketika petani menerima hasil PoT untuk tantangan tersebut, mereka segera mulai mengaudit kebunnya dan membuktikan apakah mereka memiliki solusi yang unggul. Namun, mereka hanya diizinkan untuk mengirimkan solusi setelah slot $r$. Parameter jeda ini saat ini diatur ke 4 slot, dan dapat disetel sehingga ada cukup waktu untuk menyebarkan, memverifikasi output PoT, dan membuktikan solusi pada perangkat keras petani yang umum. Meningkatkan $r$ memungkinkan node yang jujur memiliki lebih banyak waktu untuk menyelesaikan tantangan, tetapi juga memberikan lebih banyak waktu bagi node yang jahat untuk mencoba merencanakan dengan cepat.
 
-3. **Faster timekeeper**: An attacker who has access to a timekeeper hardware that is able to run PoT faster then any other timekeeper on the network presents several security risks and Subspace addresses them via a few mechanisms. First, the speed gains are not cumulative over time: because of entropy injection every 50 blocks (~5 min) the attackers advantage is reset. Second, if a faster timekeeper gossips their PoT to the network, other timekeepers will continuously sync up and catch up to them. If a faster timekeeper withholds PoT and only uses it to produce blocks on their own, they do have some prediction window (depending how much faster they are), but nevertheless they either need significant percentage of network's disk storage or attempt on-the-fly plotting, which is also hard, as described on the [Security](/docs/consensus/security.md#on-the-fly-plot-creation) page. A faster PoT also makes a long-range attack more feasible, but the attacker still requires as much storage as the average honest storage to pull it off as described above. 
+3. **Faster timekeeper**: Seorang penyerang yang memiliki akses ke perangkat keras pencatat waktu yang dapat menjalankan PoT lebih cepat daripada pencatat waktu lainnya di jaringan menghadirkan beberapa risiko keamanan dan Subspace mengatasinya melalui beberapa mekanisme. Pertama, peningkatan kecepatan tidak bersifat kumulatif dari waktu ke waktu: karena injeksi entropi setiap 50 blok (~5 menit), keuntungan penyerang akan diatur ulang. Kedua, jika pencatat waktu yang lebih cepat mengabarkan PoT mereka ke jaringan, pencatat waktu lainnya akan terus menerus melakukan sinkronisasi dan mengejar mereka. Jika pencatat waktu yang lebih cepat menahan PoT dan hanya menggunakannya untuk memproduksi blok mereka sendiri, mereka memiliki beberapa jendela prediksi (tergantung seberapa cepat mereka), tetapi bagaimanapun juga mereka membutuhkan persentase yang signifikan dari penyimpanan disk jaringan atau mencoba membuat plot secara on-the-fly, yang juga sulit, seperti yang dijelaskan di halaman [Security](/docs/consensus/security.md#on-the-fly-plot-creation). PoT yang lebih cepat juga membuat serangan jarak jauh lebih memungkinkan, tetapi penyerang masih membutuhkan penyimpanan sebanyak rata-rata penyimpanan yang jujur untuk melakukannya seperti yang dijelaskan di atas. 
 
-    The network will continuosly monitor the rate of PoT progression in comparison to real wall-clock time to detect the possibility of a faster timekeeper existence.
+    Jaringan akan terus memantau laju perkembangan PoT dibandingkan dengan waktu jam dinding yang sebenarnya untuk mendeteksi kemungkinan adanya pencatat waktu yang lebih cepat.
 
-4. **Difficulty adjustment**: The iteration count for the PoT delay function is benchmarked to be as close to the real wall-clock time as possible. With improvements in hardware, faster honest timekeepers can be deployed onto the network and iteration count increased to match the real wall-clock time.
+4. **Penyesuaian tingkat kesulitan**: Jumlah iterasi untuk fungsi penundaan PoT dibandingkan agar sedekat mungkin dengan waktu jam dinding yang sebenarnya. Dengan peningkatan pada perangkat keras, pencatat waktu yang lebih cepat dan jujur dapat digunakan pada jaringan dan jumlah iterasi ditingkatkan untuk menyamai waktu jam dinding yang sebenarnya.
 
-5. **Predictability**: Slot challenges can only be predicted in advance if the attacker has a faster timekeeper and even then it only lasts until the next injection.
+5. **Prediktabilitas**: Tantangan slot hanya dapat diprediksi sebelumnya jika penyerang memiliki pencatat waktu yang lebih cepat dan bahkan hanya bertahan hingga injeksi berikutnya.
 
-6. **Biasing randomness**: Subspace PoT does not allows the attacker to control the slot challenges of the next time interval by releasing/withholding their blocks from the current interval via the injection mechanism. See, [Ouroboros Praos](https://eprint.iacr.org/2017/573.pdf) for a security proof.
+6. **Biasing randomness**: Subspace PoT tidak mengijinkan penyerang untuk mengontrol slot tantangan pada interval waktu berikutnya dengan melepaskan/menahan blok mereka dari interval saat ini melalui mekanisme injeksi. Lihat, [Ouroboros Praos](https://eprint.iacr.org/2017/573.pdf) untuk bukti keamanan.
