@@ -10,11 +10,11 @@ last_update:
   author: Saeid Yazdinejad
 ---
 
-Subspace is a modular blockchain network divided into a base-layer consensus chain, known as the core protocol, and a nearly unlimited number of secondary execution chains, known as domains. The core protocol manages consensus, data availability, and settlement for transaction bundles, which operators execute on their respective domains. Domains are essentially enshrined rollups that can support any conceivable state transition framework and smart contract execution environment.
+Autonomys Network is a modular blockchain network divided into a base-layer consensus chain, known as the core protocol, and a nearly unlimited number of secondary execution chains, known as domains. The core protocol manages consensus, data availability, and settlement for transaction bundles, which operators execute on their respective domains. Domains are essentially enshrined rollups that can support any conceivable state transition framework and smart contract execution environment.
 
-We often use the term "Subspace" interchangeably to refer to the entire system, including the consensus layer, domains, distributed storage network, client applications, and developer tools built on top. Together, this creates an open, scalable and interoperable blockchain infrastructure to power the decentralized applications and services of the future.
+We often use the term "Autonomys Network" interchangeably to refer to the entire system, including the consensus layer, domains, distributed storage network, client applications, and developer tools built on top. Together, this creates an open, scalable and interoperable blockchain infrastructure to power the decentralized applications and services of the future.
 
-Subspace Labs also maintains the Autonomys Network software client open-source [reference implementation](https://github.com/subspace/subspace). It is written in Rust based on Substrate and provides a full-featured CLI for farmers and operators to participate in the network.
+Autonomys Labs also maintains the Autonomys Network software client open-source [reference implementation](https://github.com/subspace/subspace). It is written in Rust based on Substrate and provides a full-featured CLI for farmers and operators to participate in the network.
 
 ## The Autonomys Network Stack
 
@@ -47,12 +47,12 @@ The Autonomys Network decouples consensus from computation by separating transac
 
 Domains are run by operators, who pledge their more powerful hardware and stake to execution of the domain. They are incentivized through execution fees (similar to gas fees on Ethereum).Operators are free to choose any infrastructure that meets performance and cost requirements to run their domains.
 
-Domains can support any conceivable state transition framework and are execution environment agnostic. As the first execution domain launched with Autonomys Network, the Ethereum Virtual Machine (EVM) domain, Nova, supports running Ethereum smart contracts and executing Ethereum transactions. Nova allows Ethereum dApps and DeFi protocols to run on Subspace with significantly higher throughput, lower costs, and improved scalability.
+Domains can support any conceivable state transition framework and are execution environment agnostic. As the first execution domain launched with Autonomys Network, the Ethereum Virtual Machine (EVM) domain, Nova, supports running Ethereum smart contracts and executing Ethereum transactions. Nova allows Ethereum dApps and DeFi protocols to run on Autonomys Network with significantly higher throughput, lower costs, and improved scalability.
 
 ## Applications
 
-This is the interface layer where decentralized applications (DApps) interact with the blockchain. DApps can send contract calls to the blockchain, which then get executed in the versatile Decoupled Execution layer. Developers can build and deploy applications without worrying about the underlying execution and consensus details. It provides abstraction, making Subspace more accessible for developers.Applications built atop a modular blockchain stack, can leverage the security, immutability, and decentralization properties of the underlying layers.
+This is the interface layer where decentralized applications (DApps) interact with the blockchain. DApps can send contract calls to the blockchain, which then get executed in the versatile Decoupled Execution layer. Developers can build and deploy applications without worrying about the underlying execution and consensus details. It provides abstraction, making Autonomys more accessible for developers. Applications built atop a modular blockchain stack, can leverage the security, immutability, and decentralization properties of the underlying layers.
 
-Some specialized applications and functionalities we envision built on Subspace include decentralized identity (DID), decentralized autonomous organizations (DAOs), autonomous AI agents, and virtual worlds.
+Some specialized applications and functionalities we envision built on Autonomys Network include decentralized identity (DID), decentralized autonomous organizations (DAOs), autonomous AI agents, and virtual worlds.
 Decentralized Identifiers enable verifiable, self-sovereign digital identities. They are a key building block for many decentralized applications including DAOs, organizations represented by rules encoded as a computer program that is transparent and controlled by shareholders.
 Autonomous AI agents can make decisions, execute payments or other tasks based on natural language input of the user. Agents have the potential to abstract away the complexity that has long stood barrier to mass adoption of blockchain technologies.
