@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: update-last-update
+        name: Update Last Update Field
+        entry: scripts/update_last_update.sh
+        language: script
+        files: '\.md$'
