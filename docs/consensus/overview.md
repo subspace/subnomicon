@@ -6,13 +6,13 @@ keywords:
     - Consensus
     - Dilithium
 last_update:
-  date: 02/06/2024
-  author: Dariia Porechna
+  date: 04/30/2024
+  author: Saeid Yazdinejad
 ---
 
 Subspace is powered by *Dilithium* - a lightweight and secure consensus mechanism that is environmentally friendly, permissionless, and fair. *Dilithium* is a Proof-of-Archival-Storage (PoAS), Nakamoto-style consensus protocol based on proofs of storing the blockchain history. 
 
-*Dilithium* is a second-generation PoAS consensus algorithm that uses erasure coding and KZG commitments for distributed archiving while combining polynomial encoding with an ASIC-resistant Proof-of-Space for plotting and drawing block challenges from AES-based Proof-of-Time. The protocol represents a significant step forward in security and user experience for Subspace Network participants. *Dilithium* is also designed to be SSD-friendly, further enhancing energy efficiency and decentralization. 
+*Dilithium* is a second-generation PoAS consensus algorithm that uses erasure coding and KZG commitments for distributed archiving while combining polynomial encoding with an ASIC-resistant Proof-of-Space for plotting and drawing block challenges from AES-based Proof-of-Time. The protocol represents a significant step forward in security and user experience for Autonomys Network participants. *Dilithium* is also designed to be SSD-friendly, further enhancing energy efficiency and decentralization. 
 
 For those familiar with our initial consensus design, *Dilithium* fulfills all the fundamental ideas described in the original [whitepaper](https://subspace.network/news/subspace-network-whitepaper) but applies them better.
 
@@ -20,7 +20,7 @@ In PoAS, farmers (not miners) store as many unique pieces of the blockchain hist
 
 ## Technical Overview
 
-Similar to other Proof-of-Storage projects, the resource that participants allocate to secure the Subspace network is
+Similar to other Proof-of-Storage projects, the resource that participants allocate to secure the Autonomys Network is
 disk space. As a resource, disk space is widely distributed and in general the notion of an ASIC does not apply to
 storage. As such, the Subspace protocol has the potential to be highly decentralized and more fair than
 other blockchain protocols.

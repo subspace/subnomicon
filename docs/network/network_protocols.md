@@ -8,15 +8,15 @@ keywords:
     - Node
     - Peer
 last_update:
-  date: 10/13/2023
-  author: Dariia Porechna
+  date: 04/30/2024
+  author: Saeid Yazdinejad
 ---
 
-Subspace networking stack is based on libp2p and implements Subspace-specific protocols like piece and archived segment header retrieval. The networking layers handle a variety of essential tasks:
+Autonomys Networking stack is based on libp2p and implements Subspace-specific protocols like piece and archived segment header retrieval. The networking layers handle a variety of essential tasks:
 
 ## Transaction Propagation
 
-Transactions are propagated across the network to ensure nodes have a consistent view of unconfirmed transactions. The Subspace Network uses a gossip mechanism to propagate transactions to peers. When a node receives a new transaction, it first validates the transaction and, if valid, adds it to its transaction pool and broadcasts it to its directly connected peers. When a connected peer receives the transaction, they verify its validity. If deemed valid, they retain a copy and share it with all their connected peers, excluding the one from which it was received. Consequently, the transaction disseminates from its source, spreading throughout the network, ensuring every node gets a copy. 
+Transactions are propagated across the network to ensure nodes have a consistent view of unconfirmed transactions. The Autonomys Network uses a gossip mechanism to propagate transactions to peers. When a node receives a new transaction, it first validates the transaction and, if valid, adds it to its transaction pool and broadcasts it to its directly connected peers. When a connected peer receives the transaction, they verify its validity. If deemed valid, they retain a copy and share it with all their connected peers, excluding the one from which it was received. Consequently, the transaction disseminates from its source, spreading throughout the network, ensuring every node gets a copy. 
 
 ## Block and Bundle Relay
 
@@ -28,7 +28,7 @@ A similar mechanism is also used for bundle relay, where a compact bundle contai
 
 ## Synchronization
 
-Subspace Network employs an adaptive synchronization protocol to sync nodes to the latest state of the network efficiently. The adaptive protocol chooses between DSN sync and block sync based on how deep the node is behind.
+Autonomys Network employs an adaptive synchronization protocol to sync nodes to the latest state of the network efficiently. The adaptive protocol chooses between DSN sync and block sync based on how deep the node is behind.
 
 ### DSN Sync
 
@@ -38,5 +38,5 @@ Once the node has downloaded all missing segments and imported archived history,
 
 ## Piece Retrieval
 
-Another essential protocol implemented by the Subspace networking stack is piece retrieval. When a node needs pieces for plotting or when requested by a client application, it sends a request to peers whose ID is close to the piece index hash. With a high probability, the peer who receives the request will have the piece available in the piece cache and can respond with the piece data. In a rare case when none of the peers have the piece, the request falls back to asking them to decode the piece from their plots.
+Another essential protocol implemented by the Autonomys Networking stack is piece retrieval. When a node needs pieces for plotting or when requested by a client application, it sends a request to peers whose ID is close to the piece index hash. With a high probability, the peer who receives the request will have the piece available in the piece cache and can respond with the piece data. In a rare case when none of the peers have the piece, the request falls back to asking them to decode the piece from their plots.
 The piece retrieval protocol allows nodes to retrieve history pieces from the network with minimum hops efficiently.

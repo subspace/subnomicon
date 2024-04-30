@@ -7,11 +7,11 @@ keywords:
     - Genesis
     - Config
 last_update:
-  date: 10/13/2023
-  author: Dariia Porechna
+  date: 04/30/2024
+  author: Saeid Yazdinejad
 ---
 
-The genesis process of Subspace Network involves the initialization and configuration of the blockchain's starting state. It includes the following steps:
+The genesis process of Autonomys Network involves the initialization and configuration of the blockchain's starting state. It includes the following steps:
 
 1. **Genesis Configuration**: The genesis process begins with creating a genesis configuration. It defines the initial parameters for the blockchain, such as the consensus parameters, initial balances, boot nodes, network protocol settings, and other configurations.
 

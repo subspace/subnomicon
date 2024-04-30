@@ -1,12 +1,12 @@
 ---
 title: Introduction
 sidebar_position: 1
-description: Intro to the Subspace Network Protocol
+description: Intro to the Autonomys Network Protocol
 keywords:
     - Introduction
     - Welcome
 last_update:
-  date: 04/29/2024
+  date: 04/30/2024
   author: Saeid Yazdinejad
 ---
 
@@ -51,7 +51,7 @@ Subnomicon provides a comprehensive overview of the Subspace Protocol, covering 
 
 ## Learn About the Autonomys Network
 ---
-<!-- - [What is the Subspace Network](https://subspace.network/technology)
+<!-- - [What is the Autonomys Network](https://subspace.network/technology)
 - [Frequently Asked Questions](https://subspace.network/faq) -->
 - [Whitepaper - *Summarized*](https://subspace.network/news/subspace-network-whitepaper)
 - [Whitepaper - *Full Length*](https://assets.website-files.com/61526a2af87a54e565b0ae92/617759c00edd0e3bd279aa29_Subspace_%20A%20solution%20to%20the%20farmer%27s%20dilemma.pdf)

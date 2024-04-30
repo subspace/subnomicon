@@ -1,19 +1,19 @@
 ---
 title: Rewards & Fees
 sidebar_position: 8
-description: Rewards and Fees paid and received by Subspace Network participants
+description: Rewards and Fees paid and received by Autonomys Network participants
 keywords:
     - Rewards
     - Fees
     - Tokenomics
 last_update:
-  date: 03/21/2024
-  author: Dariia Porechna
+  date: 04/30/2024
+  author: Saeid Yazdinejad
 ---
 
-All the participants of the Subspace Network are compensated for the work they do to keep the network live and secure. In this context, we define the following terms:
-- **Fees**: The payments for transactions on the Subspace Network.
-- **Rewards**: The compensation for the work performed by the participants of the Subspace Network via the issuance of the newly minted SSC by the protocol.
+All the participants of the Autonomys Network are compensated for the work they do to keep the network live and secure. In this context, we define the following terms:
+- **Fees**: The payments for transactions on the Autonomys Network.
+- **Rewards**: The compensation for the work performed by the participants of the Autonomys Network via the issuance of the newly minted SSC by the protocol.
 
 Different participants receive their compensation through a combination of the above based on their role.
 
@@ -71,8 +71,8 @@ The remaining 10% of each vote reward is given to the proposer of the block that
 
 ## Transaction Fees
 
-Each transaction on the Subspace Network has a length and a weight. Length of a transaction is the number of bytes it consumes on the network. Weight of a transaction is the number of picoseconds it takes to execute it by a node with reference hardware.
-Subspace Network separates the fees to be paid for a transaction into storage and compute fees. Storage fees are paid by the participants of the Subspace Network for the storage space they consume for including the transaction in a block and eventually archiving it. Compute fees are paid for the computational resources they consume while executing the transaction.
+Each transaction on the Autonomys Network has a length and a weight. Length of a transaction is the number of bytes it consumes on the network. Weight of a transaction is the number of picoseconds it takes to execute it by a node with reference hardware.
+Autonomys Network separates the fees to be paid for a transaction into storage and compute fees. Storage fees are paid by the participants of the Autonomys Network for the storage space they consume for including the transaction in a block and eventually archiving it. Compute fees are paid for the computational resources they consume while executing the transaction.
 
 Storage fee depends on the length of the transaction and the amount of available storage on the network. The formula for the storage fee is:
 

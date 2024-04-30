@@ -7,8 +7,8 @@ keywords:
     - Cryptography
     - Consensus
 last_update:
-  date: 10/13/2023
-  author: Dariia Porechna
+  date: 04/30/2024
+  author: Saeid Yazdinejad
 ---
 
 The Subspace protocol uses the following cryptographic primitives:
@@ -51,7 +51,7 @@ The synergy between KZG and Reed-Solomon erasure code allows us to have:
 - efficient verification
 - provably correct erasure coding
 
-KZG requires a one-time trusted setup of the universal reference values (public parameters). In the spirit of interoperability, Subspace Network uses the same reference values as Ethereum, computed during a distributed multi-party computation ceremony held by the Ethereum Foundation. This choice allows cross-chain compatibility of KZG proofs between Subspace and Ethereum.
+KZG requires a one-time trusted setup of the universal reference values (public parameters). In the spirit of interoperability, Autonomys Network uses the same reference values as Ethereum, computed during a distributed multi-party computation ceremony held by the Ethereum Foundation. This choice allows cross-chain compatibility of KZG proofs between Subspace and Ethereum.
 
 ## Merkle Tree
 

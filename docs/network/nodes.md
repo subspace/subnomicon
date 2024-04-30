@@ -1,15 +1,15 @@
 ---
 title: Node Types and Roles
 sidebar_position: 1
-description: Participants in the Subspace Network
+description: Participants in the Autonomys Network
 keywords:
     - Consensus
     - Network
     - Node
     - Peer
 last_update:
-  date: 10/18/2023
-  author: Dariia Porechna
+  date: 04/30/2024
+  author: Saeid Yazdinejad
 ---
 
 A Subspace Node can run in several modes depending on configuration:
@@ -31,7 +31,7 @@ Subspace is dedicated to promoting decentralization through full nodes by keepin
 
 ## Node Roles
 
-The Subspace network is made up of different types of nodes that each play a specific role:
+The Autonomys Network is made up of different types of nodes that each play a specific role:
 
 ### Farmer
 
