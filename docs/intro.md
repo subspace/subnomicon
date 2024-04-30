@@ -6,24 +6,24 @@ keywords:
     - Introduction
     - Welcome
 last_update:
-  date: 02/22/2024
-  author: Dariia Porechna
+  date: 04/29/2024
+  author: Saeid Yazdinejad
 ---
 
 # The Subspace Protocol
-Subspace is the first layer-one blockchain that can fully resolve the blockchain trilemma. 
+The Autonomys Network is the first layer-one blockchain that can fully resolve the blockchain trilemma. 
 
 <div align="center">
     <img src="/img/Trilemma.png" alt="Farmers_Trilemma" />
 </div>
 
-We have built Subspace from the first principles to simultaneously achieve scalability, security and decentralization. At its core, Subspace introduces a novel storage-based consensus protocol that separates consensus from execution. This proposer-builder separation allows Subspace to independently scale transaction throughput and storage requirements while maintaining a fully decentralized blockchain.
+We have built the Autonomys Network from the first principles to simultaneously achieve scalability, security and decentralization. At its core, Autonomys Network introduces a novel storage-based consensus protocol that separates consensus from execution. This proposer-builder separation allows Autonomys Network to independently scale transaction throughput and storage requirements while maintaining a fully decentralized blockchain.
 
 ## Motivation
 
-We have been drawn to the crypto space because of the opportunity it presents for a more open and inclusive future. However, the reality today is far from the dream. We set out to build the Subspace Network to address this gap at a fundamental level and be a network able to realize Nakamoto's original vision for a more equitable and decentralized future.
+We have been drawn to the crypto space because of the opportunity it presents for a more open and inclusive future. However, the reality today is far from the dream. We set out to build the Autonomys Network to address this gap at a fundamental level and be a network able to realize Nakamoto's original vision for a more equitable and decentralized future.
 
-Subspace Network was designed from the ground up to achieve this vision - by:
+Autonomys Network was designed from the ground up to achieve this vision - by:
 
 1. Providing an energy-efficient and eco-friendly alternative to crypto mining, which still allows for mass participation by ordinary users.
 2. Creating an incentive-compatible network that encourages and maintains decentralization over the long term.
@@ -35,7 +35,7 @@ We have been very intentional about solving these problems in a manner that refl
 - The power to control a blockchain network should be distributed amongst as many stakeholders as possible — we are unapologetic *decentralization maximalists*
 - The barriers to entry should be as low as possible, allowing access to anyone who desires to participate — we believe blockchains should be *permissionless systems*
 - Everyone who participates in the ecosystem should be treated equally, regardless of the resources at their disposal — the network should be *fair for all*
-- The time and effort we have spent building the Subspace Network should benefit the entire ecosystem, not just ourselves — we believe in *open-source collaboration* and *sharing knowledge* for the betterment of all
+- The time and effort we have spent building the Autonomys Network should benefit the entire ecosystem, not just ourselves — we believe in *open-source collaboration* and *sharing knowledge* for the betterment of all
 
 ## Scope
 Subnomicon provides a comprehensive overview of the Subspace Protocol, covering the following:
@@ -49,7 +49,7 @@ Subnomicon provides a comprehensive overview of the Subspace Protocol, covering 
 7. Blockspace Marketplace (Coming soon) - *How Subspace prices blockspace through a two-sided marketplace.*
 8. Governance (Coming soon) - *How the community governs Subspace protocol.*
 
-## Learn About the Subspace Network 
+## Learn About the Autonomys Network
 ---
 <!-- - [What is the Subspace Network](https://subspace.network/technology)
 - [Frequently Asked Questions](https://subspace.network/faq) -->
