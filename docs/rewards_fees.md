@@ -13,7 +13,7 @@ last_update:
 
 All the participants of the Autonomys Network are compensated for the work they do to keep the network live and secure. In this context, we define the following terms:
 - **Fees**: The payments for transactions on the Autonomys Network.
-- **Rewards**: The compensation for the work performed by the participants of the Autonomys Network via the issuance of the newly minted SSC by the protocol.
+- **Rewards**: The compensation for the work performed by the participants of the Autonomys Network via the issuance of the newly minted ATC by the protocol.
 
 Different participants receive their compensation through a combination of the above based on their role.
 
@@ -34,17 +34,17 @@ Currently, nominators receive a portion of the fees of the operator they nominat
 
 ## Dynamic Issuance
 
-The issuance of the newly minted SSC by the protocol is dynamic and depends on the block height and the recent demand for blockspace.
+The issuance of the newly minted ATC by the protocol is dynamic and depends on the block height and the recent demand for blockspace.
 
-Initially, farmers receive exactly 0.1 tSSC for the block rewards for the blocks they propose and 0.1 tSSC for votes they submit. Subspace implements a decay function, that will gradually reduce these rewards every block as the chain progresses. Over the long-term, the decrease follows the exponential decay:
+Initially, farmers receive exactly 0.1 tATC for the block rewards for the blocks they propose and 0.1 tATC for votes they submit. Autonomys implements a decay function, that will gradually reduce these rewards every block as the chain progresses. Over the long-term, the decrease follows the exponential decay:
 
 $$\text{reference\_subsidy}=\text{initial\_subsidy}*e^{-\text{initial\_subsidy}*(n-\text{decay\_block\_start})/\text{max\_issuance\_tokens}}$$
 
-where $\text{initial\_subsidy}=0.1$ tSSC per block, $n$ is current block height, $\text{decay\_block\_start}=718 959$ is the block when the decay function was activated, and $\text{max\_issuance\_tokens}=100 000 000$ tSSC is the total number of credits to be ever issued by the Gemini-3h testnet protocol for this reward. Both block proposer rewards and vote rewards are computed using the same formula.
+where $\text{initial\_subsidy}=0.1$ tATC per block, $n$ is current block height, $\text{decay\_block\_start}=718 959$ is the block when the decay function was activated, and $\text{max\_issuance\_tokens}=100 000 000$ tATC is the total number of credits to be ever issued by the Gemini-3h testnet protocol for this reward. Both block proposer rewards and vote rewards are computed using the same formula.
 
 This smooth reduction allows for higher rewards for early adopters, gradual increase of the circulating supply in a more controlled manner and an extended lifetime of issuance for the long-term viability of the chain.
 
-On Gemini-3h, the reference subsidy issuance is expected to decay following the curve below. For example, for the first 1 296 000 blocks (~90 days) it starts at 0.1 tSSC per block and decreases as follows:
+On Gemini-3h, the reference subsidy issuance is expected to decay following the curve below. For example, for the first 1 296 000 blocks (~90 days) it starts at 0.1 tATC per block and decreases as follows:
 
 <div align="center">
     <img src="/img/Gemini3h_Issuance_Decay-light.svg#gh-light-mode-only" alt="Gemini3h_Issuance_Decay" />
@@ -80,10 +80,10 @@ $$\text{storage fee per byte}  = \frac{\text{total credit supply}}{\text{total s
 
 $$\text{storage fee} \left(\text{tx}\right) = \text{storage fee per byte}*\text{length(tx)}\ shannons$$
 
-For the purposes of storage fee calculation, the total credit supply consists of all SSC in existence including staked or otherwise locked. The total space pledged to the network is divided by the protocol's minimum replication factor of 50, which ensures that the network is able to reliably store all the transactions that are included in the consensus chain. The history size is the total size of all the blocks in the consensus chain that are archived.
+For the purposes of storage fee calculation, the total credit supply consists of all ATC in existence including staked or otherwise locked. The total space pledged to the network is divided by the protocol's minimum replication factor of 50, which ensures that the network is able to reliably store all the transactions that are included in the consensus chain. The history size is the total size of all the blocks in the consensus chain that are archived.
 
 Compute fee depends on the weight of the transaction and the demand on the network. Compute fees for the execution of extrinsics on the consensus chain (e.g., balance transfers) are collected by the block proposer. 
-Compute fees for executing transaction bundles on domains are paid to the domain operators who submit the Execution Receipt (ER) containing this bundle (split equally between all operators who submit this ER) after the ER has cleared the challenge period. Subspace implements Polkadot’s [slow adjusting fee](https://research.web3.foundation/Polkadot/overview/token-economics#2-slow-adjusting-mechanism) mechanism. The fee is slightly adjusted every block based on utilization of available block weight by normal extrinsics.
+Compute fees for executing transaction bundles on domains are paid to the domain operators who submit the Execution Receipt (ER) containing this bundle (split equally between all operators who submit this ER) after the ER has cleared the challenge period. Autonomys implements Polkadot’s [slow adjusting fee](https://research.web3.foundation/Polkadot/overview/token-economics#2-slow-adjusting-mechanism) mechanism. The fee is slightly adjusted every block based on utilization of available block weight by normal extrinsics.
 
 The formula for the compute fee is:
 
