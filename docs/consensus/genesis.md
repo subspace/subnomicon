@@ -7,7 +7,7 @@ keywords:
     - Genesis
     - Config
 last_update:
-  date: 04/30/2024
+  date: 05/01/2024
   author: Saeid Yazdinejad
 ---
 
@@ -24,7 +24,7 @@ Having completed the steps above, we can deem the genesis phase finished. The fo
 
 4. **Archiving of the First Segment**: The data attached to the genesis block triggers the Archiving of the first segment of the canonical history of the chain. It produces the first 256 pieces and announces them to the DSN.
 
-5. **History Seeding**: The Subspace team will upload to the network an initial archive of useful data, such the whitepaper, archived data of the previous test networks, etc.
+5. **History Seeding**: The developer team will upload to the network an initial archive of useful data, such the whitepaper, archived data of the previous test networks, etc.
 
 6. **Initial Plotting**: Farmers create their plots from the newly archived pieces. As soon as plotting is done, they can start farming blocks.
 
