@@ -1,119 +1,32 @@
+---
+title: Overview
+sidebar_position: 1
+description: Decoupled Execution Overview
+keywords:
+    - DecEx
+    - Domains
+last_update:
+  date: 05/01/2024
+  author: Saeid Yazdinejad
+---
 
+Autonomys Network introduces a decoupled execution framework (DecEx) to resolve the problem of state-bloat. Under this framework, farmers will only confirm the availability of transactions and provide an ordering. At the same time, a secondary network of staked operator nodes will execute the transactions and maintain the resulting chain state. 
 
-    $\text{shares\_per\_ATC} = \text{total\_shares} / (\text{pool\_total\_stake} + \text{fees}*(1-\text{nomination\_tax}))$.
+DecEx separates the probabilistic process of coming to a consensus over ordering transactions from the deterministic process of executing transactions. Since these roles are now decoupled, we can have different hardware requirements for each node type, allowing us to keep farming lightweight and open to anyone while also providing a foundation for scaling execution both vertically, based on the hardware capabilities of operators, and horizontally, by later partitioning operators into different namespaced execution domains.
 
-    2. Assign the $\text{shares}$ to this nominator based on the $\text{shares\_per\_ATC}$ of the pool 
-    
-    $\text{shares} = \text{deposit\_amount} * \text{shares\_per\_ATC}$.
+In this model, users submit execution transactions directly to operators, who will then pre-validate and batch these transactions into bundles through a (probabilistic) stake-weighted election process. These bundles are then submitted to farmers, who treat them as base-layer transactions. Farmers will only verify the proof-of-election and ensure the data is available before batching bundles into blocks in the usual manner. Execution transactions are then ordered deterministically, using a secure cryptographic shuffle based on the unique PoAS produced by the farmer, mitigating the Miner Extractable Value (MEV). Operators then execute the transactions according to this ordering and produce a deterministic state commitment in the form of an execution receipt. These state commitments are then included in the following bundle, forming a deterministic receipt chain tracked by all farmers within the core protocol. The initial default implementation of DecEX employs an optimistic fraud-proof validation scheme.
 
-    3. The $\text{deposit\_amount}$ is added to $\text{pool\_total\_stake}$ of the operator's pool and domain’s total stake.
-    4. The $\text{shares}$ of this nominator are added to $\text{total\_shares}$ of the operator's pool.
+While conceptually similar to rollups on Ethereum, such as Optimism, DecEx differs heavily in its protocol implementation. Unlike Ethereum, Autonomys Network does not have a global smart contract execution environment within the core protocol. 
 
-The nomination pools in Autonomys Network are "lazy": any fees earned by the operator are assigned to the pool and are not deposited to the nominators wallet unless they ask for a withdrawal. Unless withdrawn, the fees are "auto-staked" - they count towards the total stake of the pool, increasing its chance of being elected to produce bundles.
-
-When the nominator decides to withdraw their stake or fees, they submit a withdraw extrinsic. The withdraw extrinsic is processed at the end of the epoch and the stake is removed from the operator's pool and the domain's total stake. The nominator is then entitled to the fees percentage based on the stake shares and the amount of time they have staked.
-
-Operators can also withdraw their stake and fees at any time by submitting a `withdraw_stake` extrinsic. Operators who wish to withdraw all of their stake and earned fees have to submit a deregistration extrinsic, as it is forbidden to withdraw below the domain's minimum stake requirements. The deregistered operator will be removed from the domain and their stake and the stakes of all nominators will be returned to their accounts.
+Instead, DecEx is enshrined within the semantics of the core protocol itself. Despite being implemented at the protocol level, DecEx can still provide rollup protocol designers with a flexible framework, which can support any state transition integrity framework for verifying the receipt chain, including optimistic fraud proofs and zero-knowledge validity proofs. DecEx can also currently support any smart contract execution environment that can be implemented within the Substrate framework, such as the Ethereum Virtual Machine (EVM) or WebAssembly (WASM). 
 
 <div align="center">
-    <img src="/img/Nomination_Pool-light.svg#gh-light-mode-only" alt="Nomination_Pool" />
-    <img src="/img/Nomination_Pool-dark.svg#gh-dark-mode-only" alt="Nomination_Pool" />
+    <img src="/img/Domain_Chains-light.svg#gh-light-mode-only" alt="Domain_Chains" />
+    <img src="/img/Domain_Chains-dark.svg#gh-dark-mode-only" alt="Domain_Chains" />
 </div>
 
-### Unlocking Funds
+## Domains
 
-Withdrawals have a lock period of 2 days (currently 28 800 blocks, ~ 48 hours). After the locking period, the withdrawn amount can be unlocked in the user's account with the `unlock_funds` extrinsic. All withdrawals requested in the same stake epoch are aggregated together and the total amount is unlocked at once. This locking period is necessary to ensure that the domain block executing the withdrawal is confirmed and not challenged by a fraud proof in order to increase the economic stability of domains. 
+Domains are the logical extension of our basic decoupled execution framework, taking it from a single monolithic execution environment into a modular and interoperable network of namespaced execution environments. Autonomys Network supports a programmable and configurable notion of namespaced execution environments called domains. Each domain is a programmable layer-two rollup, or application-specific blockchain (app-chain), that relies on the consensus chain for consensus, data availability, and settlement. 
 
-### Example
-
-Operator $O$ has staked $100$ ATC and registered as an operator with minimum nominator stake of $10$ ATC and nomination tax of $5\%$. The required storage fee reserve deposit is $20\%$. Operator $O$ has 2 nominators $N_1$ and $N_2$ each staked $50$ ATC. Initially $\text{shares\_per\_ATC} = 1$, so $O$ gets 80 shares, and $N_1$ and $N_2$ each get 40 shares and $\text{total\_shares}=80+40+40=160$ in the stake.  
-Each deposit transfers $20\%$ towards a storage fee fund: $O$ reserves $20$ ATC, $N_1$ and $N_2$ reserve 10 each, with total of $40$ ATC reserved.
-
-The staking summary will look like this:
-
-| Nominator             | $O$ | $N_1$ | $N_2$ |
-| -----------           | --- | ---   | ---   |
-| Shares                | 80  | 40    | 40    |
-| Storage fee deposit   | 20  | 10    | 10    |
-
-| Total stake | Total shares | Total storage fee deposits  | Storage fee fund |
-| ---         | ---          | ---                         | ---    |
-| 160 ATC     | 160          | 40 ATC                      | 40 ATC |
-
-In the next epoch, the pool has earned $20$ ATC of compute fees and refunded an extra $4$ ATC of storage fees. The operator took $5\%$ of compute fees as a commission ($1$ ATC) automatically restaked for 1 share and $0.05$ ATC deposited to storage fee fund. The pool stake is now $160+20 +1 =181$ ATC and storage reserve is now $40+4=44$ ATC.
-The pool end-of-epoch $\text{shares\_per\_ATC}$ is now $160/(160 + 20 * (1-0.05)) = 0.893855$. Notice that $4$ ATC of storage fees refunded do not count into $\text{shares\_per\_ATC}$ calculation, which allows us to sustain stable stake distribution despite the fluctuating size of the storage fee fund. 
-
-If a new nominator $N_3$ stakes 33.6 ATC, 6.72 ATC will be transferred to the storage fee fund, and the $\text{shares}$ $N_3$  will get is $((33.6-6.72) * 0.893855) = 24$. The pool total stake becomes $181+26.88=207.88$ ATC, total shares $160+24+1=185$ and storage fee reserve $50.72$ ATC.
-
-At the end of the epoch, the updated staking summary for the next epoch will look like this:
-
-| Nominator             | $O$    | $N_1$ | $N_2$ | $N_3$ |
-| -----------           | ---    | ---   | ---   | ---   |
-| Shares                | 81     | 40    | 40    | 24    |
-| Storage fee deposit   | 20.05  | 10    | 10    | 6.72  |
-
-| Total stake | Total shares | Total storage fee deposits  | Storage fee fund |
-| ---         | ---          | ---                         | ---    |
-| 207.88 ATC  | 185          | 46.72 ATC                   | 50.72 ATC |
-
-Suppose after some time $\text{shares\_per\_ATC}$ value of this pool becomes $0.8$ and the storage fee fund balance is $52$ ATC. Suppose $N_1$ wants to "sell" $\text{withdraw\_shares}=20$ shares. At the end of the epoch, the 20 shares will be unstaked, and the corresponding amount of $20/0.8=25$ ATC will be deducted from the pool's total stake. The total amount of Auto Coins $N_1$ will get is $\frac{\text{withdraw\_shares}}{\text{shares\_per\_ATC}}+\text{storage\_fee\_fund\_balance}*\frac{\text{storage\_fee\_deposit}}{\text{total\_storage\_fee\_deposits}}*\frac{\text{withdraw\_shares}}{\text{shares}}=25 + 52*\frac{10}{46.72}*\frac{20}{40}=30.57$ ATC.
-
-If $N_1$ wanted to withdraw all their stake and fees, that is sell all their $\text{withdraw\_shares}=40$ shares, they would get $\frac{40}{0.8}+52*\frac{10}{46.72}*\frac{40}{40}=61.13$ ATC, earning $11.13$ ATC in fees. After waiting the locking period, the withdrawn amount can be unlocked in their account.
-
-The example is intended for illustration, the actual calculation is performed with shannons ($1\ \text{ATC} = 10^{18}\  \text{shannons}$).
-
-## Staking Epochs
-
-Staking epoch is a period of time during which staking distribution remains the same. This period is currently set to 100 blocks, or roughly 10 minutes. The end of each epoch triggers a series of events to transition to the next epoch. These events include:
-
-- allocation of fees earned for the blocks confirmed during the epoch,
-- deposits and withdrawals of stake,
-- operator registrations and deregistrations,
-- recalculation of stake distribution for the slot leader election.
-
-Because of this, new operators must wait for the end of the current epoch to register as an operator, new nominators must wait for the end of the current epoch to nominate, and new stake deposits and withdrawals must wait for the end of the current epoch to be processed.
-As soon as the end of the epoch transition is finalized, the next epoch begins.
-
-## Power Balance 
-
-Token holders and farmers who have earned storage rewards can nominate operators to execute transactions. This system balances the power between nominating farmers (or holders) and operators, and both parties share the fees and the potential penalties (slashing). Nominated operators get a higher chance to produce blocks proportional to the amount of stake backing them, thus, higher revenues. Farmers and holders have the power to nominate operators they trust to execute transactions properly. On the other hand, operators compete to be nominated by providing good service, maintaining a good reputation within the community, and having reasonable commission. 
-Nominators also retain the power to withdraw their nominations at any time, ensuring operators remain accountable.
-
-This two-tiered structure provides robust security guarantees. By enabling the consolidation of vast quantities of stake — far exceeding the ATC holdings of any individual party — it creates significant barriers for malicious actors trying to elect dishonest operators. Gaining the necessary backing requires building a considerable reputation, making it challenging for adversaries. Additionally, attacking the system would be prohibitively expensive, leading to large amounts of stake slashed. We anticipate that a substantial portion of the ATC supply will be staked in the NPoS system at any time.
-nd, and the $\text{shares}$ $N_3$  will get is $((33.6-6.72) * 0.893855) = 24$. The pool total stake becomes $181+26.88=207.88$ ATC, total shares $160+24+1=185$ and storage fee reserve $50.72$ ATC.
-
-At the end of the epoch, the updated staking summary for the next epoch will look like this:
-
-| Nominator             | $O$    | $N_1$ | $N_2$ | $N_3$ |
-| -----------           | ---    | ---   | ---   | ---   |
-| Shares                | 81     | 40    | 40    | 24    |
-| Storage fee deposit   | 20.05  | 10    | 10    | 6.72  |
-
-| Total stake | Total shares | Total storage fee deposits  | Storage fee fund |
-| ---         | ---          | ---                         | ---    |
-| 207.88 ATC  | 185          | 46.72 ATC                   | 50.72 ATC |
-
-Suppose after some time $\text{shares\_per\_ATC}$ value of this pool becomes $0.8$ and the storage fee fund balance is $52$ ATC. Suppose $N_1$ wants to "sell" $\text{withdraw\_shares}=20$ shares. At the end of the epoch, the 20 shares will be unstaked, and the corresponding amount of $20/0.8=25$ ATC will be deducted from the pool's total stake. The total amount of Auto Coins $N_1$ will get is $\frac{\text{withdraw\_shares}}{\text{shares\_per\_ATC}}+\text{storage\_fee\_fund\_balance}*\frac{\text{storage\_fee\_deposit}}{\text{total\_storage\_fee\_deposits}}*\frac{\text{withdraw\_shares}}{\text{shares}}=25 + 52*\frac{10}{46.72}*\frac{20}{40}=30.57$ ATC.
-
-If $N_1$ wanted to withdraw all their stake and fees, that is sell all their $\text{withdraw\_shares}=40$ shares, they would get $\frac{40}{0.8}+52*\frac{10}{46.72}*\frac{40}{40}=61.13$ ATC, earning $11.13$ ATC in fees. After waiting the locking period, the withdrawn amount can be unlocked in their account.
-
-The example is intended for illustration, the actual calculation is performed with shannons ($1\ \text{ATC} = 10^{18}\  \text{shannons}$).
-
-## Staking Epochs
-
-Staking epoch is a period of time during which staking distribution remains the same. This period is currently set to 100 blocks, or roughly 10 minutes. The end of each epoch triggers a series of events to transition to the next epoch. These events include:
-
-- allocation of fees earned for the blocks confirmed during the epoch,
-- deposits and withdrawals of stake,
-- operator registrations and deregistrations,
-- recalculation of stake distribution for the slot leader election.
-
-Because of this, new operators must wait for the end of the current epoch to register as an operator, new nominators must wait for the end of the current epoch to nominate, and new stake deposits and withdrawals must wait for the end of the current epoch to be processed.
-As soon as the end of the epoch transition is finalized, the next epoch begins.
-
-## Power Balance 
-
-Token holders and farmers who have earned storage rewards can nominate operators to execute transactions. This system balances the power between nominating farmers (or holders) and operators, and both parties share the fees and the potential penalties (slashing). Nominated operators get a higher chance to produce blocks proportional to the amount of stake backing them, thus, higher revenues. Farmers and holders have the power to nominate operators they trust to execute transactions properly. On the other hand, operators compete to be nominated by providing good service, maintaining a good reputation within the community, and having reasonable commission. 
-Nominators also retain the power to withdraw their nominations at any time, ensuring operators remain accountable.
-
-This two-tiered structure provides robust security guarantees. By enabling the consolidation of vast quantities of stake — far exceeding the ATC holdings of any individual party — it creates significant barriers for malicious actors trying to elect dishonest operators. Gaining the necessary backing requires building a considerable reputation, making it challenging for adversaries. Additionally, attacking the system would be prohibitively expensive, leading to large amounts of stake slashed. We anticipate that a substantial portion of the ATC supply will be staked in the NPoS system at any time.
+Domains allow builders to easily launch their own network without bootstrapping a new validator set while still receiving shared security and interoperability from the root chain. They aim to make deploying a rollup on Autonomys Network as easy as deploying a smart contract on Ethereum. 
