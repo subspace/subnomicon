@@ -2,7 +2,7 @@
 
 ### You Rock!
 
-First off, thank you for considering contributing to the Subspace Network. It's through the amazing collaboration of people like yourself that truly makes the Open Source community amazing. ❤️
+First off, thank you for considering contributing to the Autonomys Network. It's through the amazing collaboration of people like yourself that truly makes the Open Source community amazing. ❤️
 
 ### Help us, Help you, Help us!
 
