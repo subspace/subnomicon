@@ -6,15 +6,15 @@ keywords:
     - Architecture
     - Overview
 last_update:
-  date: 04/30/2024
+  date: 05/02/2024
   author: Saeid Yazdinejad
 ---
 
 Autonomys Network is a modular blockchain network divided into a base-layer consensus chain, known as the core protocol, and a nearly unlimited number of secondary execution chains, known as domains. The core protocol manages consensus, data availability, and settlement for transaction bundles, which operators execute on their respective domains. Domains are essentially enshrined rollups that can support any conceivable state transition framework and smart contract execution environment.
 
-We often use the term "Autonomys Network" interchangeably to refer to the entire system, including the consensus layer, domains, distributed storage network, client applications, and developer tools built on top. Together, this creates an open, scalable and interoperable blockchain infrastructure to power the decentralized applications and services of the future.
+We have often used the term "Subspace" interchangeably to refer to the entire system, including the consensus layer, domains, distributed storage network, client applications, and developer tools built on top. The Autonomys Network implements the Subspace Protocol and together, this creates an open, scalable and interoperable blockchain infrastructure to power the decentralized applications and services of the future.
 
-Autonomys Labs also maintains the Autonomys Network software client open-source [reference implementation](https://github.com/subspace/subspace). It is written in Rust based on Substrate and provides a full-featured CLI for farmers and operators to participate in the network.
+Autonomys also maintains the Autonomys Network software client open-source [reference implementation](https://github.com/subspace/subspace). It is written in Rust based on Substrate and provides a full-featured CLI for farmers and operators to participate in the network.
 
 ## The Autonomys Network Stack
 

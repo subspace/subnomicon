@@ -7,7 +7,7 @@ keywords:
     - Definitions
     - Glossary
 last_update:
-  date: 05/01/2024
+  date: 05/02/2024
   author: Saeid Yazdinejad
 ---
 
@@ -91,7 +91,7 @@ An integral part of Dilithium consensus, Farming is a process of participation i
 ## Segment
 
 A collection of (potentially partial) blocks of the blockchain history
-Specifically, in Autonomys Network means two things:
+Specifically, in Subspace protocol means two things:
 - **Recorded History Segment**: a fixed-size portion of the Blockchain History in a buffer before Archiving. A Recorded History Segment consists of Raw Records.
 - **Archived History Segment**: a fixed-size portion of the Archived History. An Archived History Segment is a Recorded History Segment transformed by the Archiving process. An Archived History Segment consists of Pieces. An Archived History Segment can be later turned back into a Recorded History Segment History with Reconstructing process
 
