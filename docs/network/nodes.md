@@ -8,7 +8,7 @@ keywords:
     - Node
     - Peer
 last_update:
-  date: 05/01/2024
+  date: 05/02/2024
   author: Saeid Yazdinejad
 ---
 
@@ -20,7 +20,7 @@ Full Nodes participate fully in the network by processing all blocks and serving
 
 ### Archival Node
 
-Archival Nodes' responsibilities are a superset of those of full nodes. They retain the entire blockchain history and state and perform all the functions of full nodes. Archival nodes are helpful for block explorers and historical queries. Autonomys Labs will maintain several archival nodes as a public good.
+Archival Nodes' responsibilities are a superset of those of full nodes. They retain the entire blockchain history and state and perform all the functions of full nodes. Archival nodes are helpful for block explorers and historical queries. The Subspace Foundation will maintain several archival nodes as a public good.
 
 ### Light Client
 

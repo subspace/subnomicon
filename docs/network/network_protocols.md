@@ -8,11 +8,11 @@ keywords:
     - Node
     - Peer
 last_update:
-  date: 05/01/2024
+  date: 05/02/2024
   author: Saeid Yazdinejad
 ---
 
-Autonomys Network stack is based on libp2p and implements Subspace-specific protocols like piece and archived segment header retrieval. The networking layers handle a variety of essential tasks:
+Autonomys networking stack is based on libp2p and implements Subspace-specific protocols like piece and archived segment header retrieval. The networking layers handle a variety of essential tasks:
 
 ## Transaction Propagation
 
@@ -38,5 +38,5 @@ Once the node has downloaded all missing segments and imported archived history,
 
 ## Piece Retrieval
 
-Another essential protocol implemented by the Autonomys Networking stack is piece retrieval. When a node needs pieces for plotting or when requested by a client application, it sends a request to peers whose ID is close to the piece index hash. With a high probability, the peer who receives the request will have the piece available in the piece cache and can respond with the piece data. In a rare case when none of the peers have the piece, the request falls back to asking them to decode the piece from their plots.
+Another essential protocol implemented by the networking stack is piece retrieval. When a node needs pieces for plotting or when requested by a client application, it sends a request to peers whose ID is close to the piece index hash. With a high probability, the peer who receives the request will have the piece available in the piece cache and can respond with the piece data. In a rare case when none of the peers have the piece, the request falls back to asking them to decode the piece from their plots.
 The piece retrieval protocol allows nodes to retrieve history pieces from the network with minimum hops efficiently.

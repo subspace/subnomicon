@@ -6,18 +6,18 @@ keywords:
     - Introduction
     - Welcome
 last_update:
-  date: 05/01/2024
+  date: 05/02/2024
   author: Saeid Yazdinejad
 ---
 
 # The Autonomys Network Protocol
-The Autonomys Network is the first layer-one blockchain that can fully resolve the blockchain trilemma. 
+The Autonomys Network is the first layer-one blockchain that can fully resolve the blockchain trilemma.  It implements the Subspace protocol, based on the original multi-year research.
 
 <div align="center">
     <img src="/img/Trilemma.png" alt="Farmers_Trilemma" />
 </div>
 
-We have built the Autonomys Network from the first principles to simultaneously achieve scalability, security and decentralization. At its core, Autonomys Network introduces a novel storage-based consensus protocol that separates consensus from execution. This proposer-builder separation allows Autonomys Network to independently scale transaction throughput and storage requirements while maintaining a fully decentralized blockchain.
+We have built the Autonomys Network from the first principles to simultaneously achieve scalability, security and decentralization. At its core, Autonomys Network implements Subspace, a novel storage-based consensus protocol that separates consensus from execution. This proposer-builder separation allows Autonomys Network to independently scale transaction throughput and storage requirements while maintaining a fully decentralized blockchain.
 
 ## Motivation
 
