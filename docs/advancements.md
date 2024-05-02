@@ -7,11 +7,11 @@ keywords:
   - Motivation
   - Goals
 last_update:
-  date: 05/01/2024
+  date: 05/02/2024
   author: Saeid Yazdinejad
 ---
 
-Designed from first principles, the Autonomys Network Protocol resolves several critical challenges within the industry.
+Designed from first principles, the Subspace Protocol resolves several critical challenges within the industry.
 
 ## Resolving Farmer's Dilemma
 
@@ -51,17 +51,17 @@ high levels of participation.
 
 ## Eliminating Blockchain Bloat
 
-The Autonomys Network consensus protocol is designed to overcome the critical problem of blockchain bloat or the tendency for blockchains to become more centralized over time, especially as they scale. Bloat is a result of the desire for every full node to store the chain's entire transaction history and resulting execution state. Autonomys Network eliminates bloat by uniquely combining the best parts of layer-one blockchains like Ethereum, Filecoin and Chia, resulting in a new storage-based consensus protocol, a permanent distributed storage service, and a scalable off-chain execution framework. 
+The Dilithium consensus protocol is designed to overcome the critical problem of blockchain bloat or the tendency for blockchains to become more centralized over time, especially as they scale. Bloat is a result of the desire for every full node to store the chain's entire transaction history and resulting execution state. Autonomys Network eliminates bloat by uniquely combining the best parts of layer-one blockchains like Ethereum, Filecoin and Chia, resulting in a new storage-based consensus protocol, a permanent distributed storage service, and a scalable off-chain execution framework. 
 
 ## Addressing State Bloat
 
-To resolve the problem of state bloat, Autonomys introduces a decoupled execution framework (DecEx). Under this framework, farmers will only confirm the availability of transactions and provide an ordering. At the same time, a secondary network of staked operator nodes will execute the transactions and maintain the resulting chain state. DecEx separates the probabilistic process of coming to a consensus over ordering transactions from the deterministic process of executing transactions. Since these roles are now decoupled, we can have different hardware requirements for each node type, allowing us to keep farming lightweight and open to anyone while also providing a foundation for scaling execution both vertically, based on the hardware capabilities of operators, and horizontally, by later partitioning operators into different namespaced execution domains.
+To resolve the problem of state bloat, Subspace introduces a decoupled execution framework (DecEx). Under this framework, farmers will only confirm the availability of transactions and provide an ordering. At the same time, a secondary network of staked operator nodes will execute the transactions and maintain the resulting chain state. DecEx separates the probabilistic process of coming to a consensus over ordering transactions from the deterministic process of executing transactions. Since these roles are now decoupled, we can have different hardware requirements for each node type, allowing us to keep farming lightweight and open to anyone while also providing a foundation for scaling execution both vertically, based on the hardware capabilities of operators, and horizontally, by later partitioning operators into different namespaced execution domains.
 
 ## Scaling Blockspace
 
 The overall execution throughput is ultimately constrained by the blockspace bandwidth. Blockspace is space on a blockchain that can run code or store data. To achieve optimal throughput, our scalability framework should seek to increase the blockspace linearly as more nodes contribute resources to the network – without reducing security or decentralization. 
 
-Autonomys Network achieves optimal scalability through Orthogonal Execution (OE) by first horizontally scaling the blockspace of the base data availability layer and then vertically scaling the transaction throughput for each domain. OE starts with the unique properties of the Autonomys Network protocol and extends them with several ideas originating within the Tse Lab at Stanford University. These include the Prism protocol for vertical scaling, the Free2Shard protocol for horizontal scaling, the Semi-AVID-PR scheme for distributed data availability, and the Ebb-and-Flow protocols for flexible finality.
+Autonomys Network achieves optimal scalability through Orthogonal Execution (OE) by first horizontally scaling the blockspace of the base data availability layer and then vertically scaling the transaction throughput for each domain. OE starts with the unique properties of the Subspace protocol and extends them with several ideas originating within the Tse Lab at Stanford University. These include the Prism protocol for vertical scaling, the Free2Shard protocol for horizontal scaling, the Semi-AVID-PR scheme for distributed data availability, and the Ebb-and-Flow protocols for flexible finality.
 
 ## Aligning Incentives for Optimal Scalability
 
