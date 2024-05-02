@@ -6,7 +6,7 @@ keywords:
     - DecEx
     - Domains
 last_update:
-  date: 05/01/2024
+  date: 05/02/2024
   author: Saeid Yazdinejad
 ---
 
@@ -18,11 +18,11 @@ Domains are effectively enshrined rollups. An enshrined rollup is a particular t
 
 ## Standard Rollups 
 
-While regular rollups on Ethereum are validated through smart contracts, domains are validated by the Autonomys Network core protocol, making them more similar to parachains on Polkadot. Unlike parachains with a monolithic validation model and a permissioned deployment system, domains support a modular validation framework and permissionless deployment process. Unlike Cosmos zones and Avalanche subnets, domains have shared security and trust-minimized interoperability since they all settle on the root chain. 
+While regular rollups on Ethereum are validated through smart contracts, domains are validated by the Subspace core protocol, making them more similar to parachains on Polkadot. Unlike parachains with a monolithic validation model and a permissioned deployment system, domains support a modular validation framework and permissionless deployment process. Unlike Cosmos zones and Avalanche subnets, domains have shared security and trust-minimized interoperability since they all settle on the root chain.
 
 ## Sovereign Rollups 
 
-Like sovereign rollups on Celestia, domains leverage the base layer protocol for consensus and data availability but extend this model to include a shared settlement layer as the default pattern. This is made possible by allowing operators to re-stake, as initially proposed by Free2Shard and later implemented within the EigenLayer protocol on Ethereum. Unlike Eigenlayer, which is implemented through smart contracts, Autonomys Network enshrines the re-staking model within the semantics of the core protocol. 
+Like sovereign rollups on Celestia, domains leverage the base layer protocol for consensus and data availability but extend this model to include a shared settlement layer as the default pattern. This is made possible by allowing operators to re-stake, as initially proposed by Free2Shard and later implemented within the EigenLayer protocol on Ethereum. Unlike Eigenlayer, which is implemented through smart contracts, Subspace enshrines the re-staking model within the semantics of the core protocol. 
 
 ## Permissionlessness
 

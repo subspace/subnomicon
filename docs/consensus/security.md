@@ -7,7 +7,7 @@ keywords:
     - Security
     - Attacks
 last_update:
-  date: 05/01/2024
+  date: 05/02/2024
   author: Saeid Yazdinejad
 ---
 <!-- TODO
@@ -20,7 +20,7 @@ while other are focused on Proof-of-Space and specifically Proof-of-Archival-Sto
 This page gives an overview of how such attacks are mitigated in the Subspace protocol. There are many things 
 to cover, so the reader should be aware that at the current state this page is not exhaustive. Furthermore, the 
 presentation mostly highlights the techniques and methods, without the full technical details.
-For detailed security analysis please refer to our paper [Dilithium: A Proof-of-Archival-Storage Consensus Protocol for Autonomys Network](https://github.com/subspace/consensus-v2-research-paper).
+For detailed security analysis please refer to our paper [Dilithium: A Proof-of-Archival-Storage Consensus Protocol for Subspace](https://github.com/subspace/consensus-v2-research-paper).
 
 ## Security against general blockchain attacks
 
