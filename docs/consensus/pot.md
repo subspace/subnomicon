@@ -8,7 +8,7 @@ keywords:
     - challenge
     - timekeeper
 last_update:
-  date: 05/01/2024
+  date: 05/02/2024
   author: Saeid Yazdinejad
 ---
 In addition to the Proof-of-Space component described in the previous section, Dilithium is secured by a Proof-of-Time (PoT) component. The chosen PoT algorithm is sequential AES, tuned for 1 second per proof. PoT is a measure against long-range attacks, and addresses unpredictability and dynamic availability issues.
@@ -45,7 +45,7 @@ In this setting, unpredictability refers to the inability to predict who will ge
 
 Autonomys Network uses Proof-of-Time to a form a separate Proof-of-Time chain. The Proof-of-Space and Proof-of-Time chains are inter-connected, preventing long-range attacks. Additionally, challenges for block farming are based on the PoT outputs, which guarantee that the challenges, hence the block proposers, are not predictable.
 
-Autonomys's Proof-of-Time component addresses long-range attacks by enforcing an arrow of time similar to PoW. PoT guarantees that a certain amount of wall-clock time must elapse between block proposals, preventing an adversary from rewriting history by "going back in time". Similar to PoW, Proof-of-Time is constrained physically, however it is not parallelizable (technically, it is proof of _sequential_ work). We prevent the aforementioned attack by integrating the blockchain with a Proof-of-Time process. The attacker can not immediately generate a years-long fork on the spot even with faster hardware.
+The Proof-of-Time component addresses long-range attacks by enforcing an arrow of time similar to PoW. PoT guarantees that a certain amount of wall-clock time must elapse between block proposals, preventing an adversary from rewriting history by "going back in time". Similar to PoW, Proof-of-Time is constrained physically, however it is not parallelizable (technically, it is proof of _sequential_ work). We prevent the aforementioned attack by integrating the blockchain with a Proof-of-Time process. The attacker can not immediately generate a years-long fork on the spot even with faster hardware.
 
 Autonomys's consensus obtains a farming dynamic that mimics the random nature of Bitcoin's mining dynamic while only expending a small constant amount of electricity. This is achieved through a Proof-of-Time-based block challenges for the block proposal lottery, based on the paper [PoSAT: Proof-of-Work Availability and Unpredictability, without the Work](https://arxiv.org/abs/2010.08154) by Soubhik Deb, Sreeram Kannan and David Tse. It ensures the fairness of the farming process to all participants through complete unpredictability of who will get to propose a block next. This unpredictability is at the same level as PoW protocols and is stronger than in the protocols using verifiable random functions.
 
