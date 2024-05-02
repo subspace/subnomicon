@@ -6,11 +6,11 @@ keywords:
     - Consensus
     - Archiving
 last_update:
-  date: 05/01/2024
+  date: 05/02/2024
   author: Saeid Yazdinejad
 ---
 
-**Archiving** is one of the three core processes in the Autonomys Network consensus. It transforms the chain blocks at a configured depth (currently 100 blocks) from the tip of the chain into a canonical history ready to be distributed to farmers for storage.
+**Archiving** is one of the three core processes in the Subspace consensus. It transforms the chain blocks at a configured depth (currently 100 blocks) from the tip of the chain into a canonical history ready to be distributed to farmers for storage.
 
 The Archiving construction is primarily based on the paper **[Information Dispersal with Provable Retrievability for Rollups](https://eprint.iacr.org/2021/1544)**. The key idea we inherit from this paper is to view the data to be archived as a matrix and a “1.5D approach” with column-wise erasure coding and row-wise KZG commitment.
 
@@ -22,7 +22,7 @@ When a block reaches archiving depth, its contents are added to a raw chain hist
 
 A *record* of blockchain history is a vector of $2^{15}$ *chunks*.
 
-A *chunk* is Autonomys Network’s smallest atomic unit of data measurement. A *chunk* is a field element for KZG and is 254 bits in size. We usually round it up to 32 bytes by padding with zero for convenience. 
+A *chunk* is Subspace’s smallest atomic unit of data measurement. A *chunk* is a field element for KZG and is 254 bits in size. We usually round it up to 32 bytes by padding with zero for convenience. 
 
 A *piece* is a *record* concatenated with a *KZG commitment* and a *witness* of inclusion in a specific *segment*.
 
