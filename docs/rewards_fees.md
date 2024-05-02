@@ -7,7 +7,7 @@ keywords:
     - Fees
     - Tokenomics
 last_update:
-  date: 05/01/2024
+  date: 05/02/2024
   author: Saeid Yazdinejad
 ---
 
@@ -36,15 +36,15 @@ Currently, nominators receive a portion of the fees of the operator they nominat
 
 The issuance of the newly minted ATC by the protocol is dynamic and depends on the block height and the recent demand for blockspace.
 
-Initially, farmers receive exactly 0.1 tATC for the block rewards for the blocks they propose and 0.1 tATC for votes they submit. Autonomys implements a decay function, that will gradually reduce these rewards every block as the chain progresses. Over the long-term, the decrease follows the exponential decay:
+Initially, farmers receive exactly 0.1 ATC for the block rewards for the blocks they propose and 0.1 ATC for votes they submit. Autonomys implements a decay function, that will gradually reduce these rewards every block as the chain progresses. Over the long-term, the decrease follows the exponential decay:
 
 $$\text{reference\_subsidy}=\text{initial\_subsidy}*e^{-\text{initial\_subsidy}*(n-\text{decay\_block\_start})/\text{max\_issuance\_tokens}}$$
 
-where $\text{initial\_subsidy}=0.1$ tATC per block, $n$ is current block height, $\text{decay\_block\_start}=718 959$ is the block when the decay function was activated, and $\text{max\_issuance\_tokens}=100 000 000$ tATC is the total number of Auto Coins to be ever issued by the Gemini-3h testnet protocol for this reward. Both block proposer rewards and vote rewards are computed using the same formula.
+where $\text{initial\_subsidy}=0.1$ ATC per block, $n$ is current block height, $\text{decay\_block\_start}=718 959$ is the block when the decay function was activated, and $\text{max\_issuance\_tokens}=100 000 000$ ATC is the total number of Auto Coins to be ever issued by the Gemini-3h testnet protocol for this reward. Both block proposer rewards and vote rewards are computed using the same formula.
 
 This smooth reduction allows for higher rewards for early adopters, gradual increase of the circulating supply in a more controlled manner and an extended lifetime of issuance for the long-term viability of the chain.
 
-On Gemini-3h, the reference subsidy issuance is expected to decay following the curve below. For example, for the first 1 296 000 blocks (~90 days) it starts at 0.1 tATC per block and decreases as follows:
+On Gemini-3h, the reference subsidy issuance is expected to decay following the curve below. For example, for the first 1 296 000 blocks (~90 days) it starts at 0.1 ATC per block and decreases as follows:
 
 <div align="center">
     <img src="/img/Gemini3h_Issuance_Decay-light.svg#gh-light-mode-only" alt="Gemini3h_Issuance_Decay" />

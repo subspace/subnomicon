@@ -12,7 +12,7 @@ last_update:
   author: Saeid Yazdinejad
 ---
 
-A Autonomys Network Node can run in several modes depending on configuration:
+An Autonomys Network Node can run in several modes depending on configuration:
 
 ### Full Node
 
