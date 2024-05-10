@@ -2,16 +2,16 @@
 id: crypto_primitives  
 title: Cryptographic Primitives
 sidebar_position: 1
-description: Cryptographic Primitives used in Subspace protocol
+description: Cryptographic Primitives used in Autonomys Network protocol
 keywords:
     - Cryptography
     - Consensus
 last_update:
-  date: 10/13/2023
-  author: Dariia Porechna
+  date: 05/02/2024
+  author: Saeid Yazdinejad
 ---
 
-The Subspace protocol uses the following cryptographic primitives:
+The Autonomys Network protocol, Subspace, uses the following cryptographic primitives:
 
 ## Hash
 
@@ -51,7 +51,7 @@ The synergy between KZG and Reed-Solomon erasure code allows us to have:
 - efficient verification
 - provably correct erasure coding
 
-KZG requires a one-time trusted setup of the universal reference values (public parameters). In the spirit of interoperability, Subspace Network uses the same reference values as Ethereum, computed during a distributed multi-party computation ceremony held by the Ethereum Foundation. This choice allows cross-chain compatibility of KZG proofs between Subspace and Ethereum.
+KZG requires a one-time trusted setup of the universal reference values (public parameters). In the spirit of interoperability, Subspace uses the same reference values as Ethereum, computed during a distributed multi-party computation ceremony held by the Ethereum Foundation. This choice allows cross-chain compatibility of KZG proofs between Subspace and Ethereum.
 
 ## Merkle Tree
 

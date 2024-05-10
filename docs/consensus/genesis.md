@@ -7,11 +7,11 @@ keywords:
     - Genesis
     - Config
 last_update:
-  date: 10/13/2023
-  author: Dariia Porechna
+  date: 05/02/2024
+  author: Saeid Yazdinejad
 ---
 
-The genesis process of Subspace Network involves the initialization and configuration of the blockchain's starting state. It includes the following steps:
+The genesis process of Autonomys Network involves the initialization and configuration of the blockchain's starting state. It includes the following steps:
 
 1. **Genesis Configuration**: The genesis process begins with creating a genesis configuration. It defines the initial parameters for the blockchain, such as the consensus parameters, initial balances, boot nodes, network protocol settings, and other configurations.
 
@@ -24,7 +24,7 @@ Having completed the steps above, we can deem the genesis phase finished. The fo
 
 4. **Archiving of the First Segment**: The data attached to the genesis block triggers the Archiving of the first segment of the canonical history of the chain. It produces the first 256 pieces and announces them to the DSN.
 
-5. **History Seeding**: The Subspace team will upload to the network an initial archive of useful data, such the whitepaper, archived data of the previous test networks, etc.
+5. **History Seeding**: The developer team will upload to the network an initial archive of useful data, such the whitepaper, archived data of the previous test networks, etc.
 
 6. **Initial Plotting**: Farmers create their plots from the newly archived pieces. As soon as plotting is done, they can start farming blocks.
 
@@ -32,4 +32,4 @@ Having completed the steps above, we can deem the genesis phase finished. The fo
 
 8. **Space Race**: The Space Race is a collaborative effort between the farmers to bootstrap the security of the network. We set a goal of certain amount of space pledged to the network such that it is difficult for a single party to control the majority of it (for example, 8PiB for Gemini-3h). As soon as the goal is reached, the Space Race ends and the block and vote rewards are automatically enabled.
 
-9. **Block Rewards**: The block and vote rewards are issued to the farmers who successfully audit their plots for a block or vote-eligible solution. Both block and vote rewards start at 0.1 tSSC and will decrease over time according to the dynamic issuance schedule.
+9. **Block Rewards**: The block and vote rewards are issued to the farmers who successfully audit their plots for a block or vote-eligible solution. Both block and vote rewards start at 0.1 test credits on Gemini-3h and will decrease over time according to the dynamic issuance schedule.

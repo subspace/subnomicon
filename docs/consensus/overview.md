@@ -6,13 +6,13 @@ keywords:
     - Consensus
     - Dilithium
 last_update:
-  date: 02/06/2024
-  author: Dariia Porechna
+  date: 05/01/2024
+  author: Saeid Yazdinejad
 ---
 
-Subspace is powered by *Dilithium* - a lightweight and secure consensus mechanism that is environmentally friendly, permissionless, and fair. *Dilithium* is a Proof-of-Archival-Storage (PoAS), Nakamoto-style consensus protocol based on proofs of storing the blockchain history. 
+Autonomys Network is powered by *Dilithium* - a lightweight and secure consensus mechanism that is environmentally friendly, permissionless, and fair. *Dilithium* is a Proof-of-Archival-Storage (PoAS), Nakamoto-style consensus protocol based on proofs of storing the blockchain history. 
 
-*Dilithium* is a second-generation PoAS consensus algorithm that uses erasure coding and KZG commitments for distributed archiving while combining polynomial encoding with an ASIC-resistant Proof-of-Space for plotting and drawing block challenges from AES-based Proof-of-Time. The protocol represents a significant step forward in security and user experience for Subspace Network participants. *Dilithium* is also designed to be SSD-friendly, further enhancing energy efficiency and decentralization. 
+*Dilithium* is a second-generation PoAS consensus algorithm that uses erasure coding and KZG commitments for distributed archiving while combining polynomial encoding with an ASIC-resistant Proof-of-Space for plotting and drawing block challenges from AES-based Proof-of-Time. The protocol represents a significant step forward in security and user experience for Autonomys Network participants. *Dilithium* is also designed to be SSD-friendly, further enhancing energy efficiency and decentralization. 
 
 For those familiar with our initial consensus design, *Dilithium* fulfills all the fundamental ideas described in the original [whitepaper](https://subspace.network/news/subspace-network-whitepaper) but applies them better.
 
@@ -20,13 +20,13 @@ In PoAS, farmers (not miners) store as many unique pieces of the blockchain hist
 
 ## Technical Overview
 
-Similar to other Proof-of-Storage projects, the resource that participants allocate to secure the Subspace network is
+Similar to other Proof-of-Storage projects, the resource that participants allocate to secure the Autonomys Network is
 disk space. As a resource, disk space is widely distributed and in general the notion of an ASIC does not apply to
-storage. As such, the Subspace protocol has the potential to be highly decentralized and more fair than
+storage. As such, the Autonomys Network protocol, Subspace, has the potential to be highly decentralized and more fair than
 other blockchain protocols.
 
 Unlike other Proof-of-Storage projects where the data stored is some "cryptographic data", uniquely generated per
-participant, in Subspace the participants, called farmers, store the blockchain history. Not only that in Subspace we
+participant, in Autonomys Network the participants, called farmers, store the blockchain history. Not only that in Autonomys we
 have found a way to store "useful data", but we also solve the so-called _farmer's dilemma_, where a rational farmer
 prefers to use her disk space to store more (non-useful) cryptographic data, consequentially not storing the current
 state or the blockchain history -- a strategy that if followed by all farmers, will lead to a unfunctional network.
@@ -46,7 +46,7 @@ farmers could share a single copy of the blockchain history to emulate unlimited
 challenge is how to make the _plot_ each farmer stores unique. This is done as part of the plotting phase explained
 below.
 
-Before the plotting phase, farmers need to "prepare" the raw blockchain history for compatibility with the Subspace
+Before the plotting phase, farmers need to "prepare" the raw blockchain history for compatibility with the Autonomys
 plotting protocol. This is done in the archiving phase. Archiving is a deterministic process performed by all nonde. It is done
 ongoingly, as the blockchain progresses and more blocks are produced. When archiving, farmers apply a technique called
 error-correction coding, specifically the Reed--Solomon code. This is used to guarantee that even if some piece of data
@@ -54,7 +54,7 @@ error-correction coding, specifically the Reed--Solomon code. This is used to gu
 recovered by other pieces. The replication factor used is 1/2, which means that half of the storage on the network is
 used is dedicated specifically for this error-correction technique. However, for recovery purposes, it is much better
 than using this space to store each block twice. Besides of applying the Reed-Solomon code, the archiving phase also
-involves a cryptographic primitive called commitment scheme (in Subspace we use a specific type called polynomial
+involves a cryptographic primitive called commitment scheme (in Autonomys we use a specific type called polynomial
 commitments) in order to make the farming phase, where a farmer proves that she stored some piece of history, easier
 both for the proving farmer and for the verifiers. More technical details can be found in the [**Archiving** page](consensus/archiving.md).
 
@@ -74,7 +74,7 @@ indeed this was the masking data for that specific piece of history and farmer I
 In practice, masking in Subspace is done by producing a string of bits that are XOR-ed with the bit representation of
 the selected piece of history. It is crucial that the masking bits are produced in a process that takes a long time and
 is expensive, otherwise dishonest farmers can attempt to produce the masking data on the fly and re-use their raw data
-for several plots. In Subspace, we chose to adopt the cryptographic data that is used in the [Chia protocol](https://www.chia.net/),
+for several plots. In Autonomys Network, we chose to adopt the cryptographic data that is used in the [Chia protocol](https://www.chia.net/),
 which demands both time and electricity for generation.
 
 Once a farmer created her plot, she can start farming it. This phase is similar to other blockchains where some

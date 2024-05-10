@@ -9,7 +9,7 @@ const katex = require('rehype-katex');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Subnomicon',
-  tagline: 'Subnomicon is the source of knowledge about the Subspace Network scalable blockchain protocol',
+  tagline: 'Subnomicon is the source of knowledge about the Autonomys Network scalable blockchain protocol, Subspace',
   url: 'https://subnomicon.subspace.network',
   baseUrl: '/',
   onBrokenLinks: 'throw',

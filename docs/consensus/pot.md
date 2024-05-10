@@ -8,8 +8,8 @@ keywords:
     - challenge
     - timekeeper
 last_update:
-  date: 02/06/2024
-  author: Dariia Porechna
+  date: 05/02/2024
+  author: Saeid Yazdinejad
 ---
 In addition to the Proof-of-Space component described in the previous section, Dilithium is secured by a Proof-of-Time (PoT) component. The chosen PoT algorithm is sequential AES, tuned for 1 second per proof. PoT is a measure against long-range attacks, and addresses unpredictability and dynamic availability issues.
 
@@ -41,25 +41,25 @@ Dynamic availability in blockchains refers to the capacity of the system to main
 
 In this setting, unpredictability refers to the inability to predict who will get to propose the next block. Unpredictability of block proposers is important for the security and liveness of the network. However, protocols using generic verifiable random functions to elect block proposers usually do not achieve this property at the same level as in PoW, and may suffer from a long predictability window of block challenges.
 
-## Subspace Approach
+## Autonomys Approach
 
-Subspace uses Proof-of-Time to a form a separate Proof-of-Time chain. The Proof-of-Space and Proof-of-Time chains are inter-connected, preventing long-range attacks. Additionally, challenges for block farming are based on the PoT outputs, which guarantee that the challenges, hence the block proposers, are not predictable.
+Autonomys Network uses Proof-of-Time to a form a separate Proof-of-Time chain. The Proof-of-Space and Proof-of-Time chains are inter-connected, preventing long-range attacks. Additionally, challenges for block farming are based on the PoT outputs, which guarantee that the challenges, hence the block proposers, are not predictable.
 
-Subspace's Proof-of-Time component addresses long-range attacks by enforcing an arrow of time similar to PoW. PoT guarantees that a certain amount of wall-clock time must elapse between block proposals, preventing an adversary from rewriting history by "going back in time". Similar to PoW, Proof-of-Time is constrained physically, however it is not parallelizable (technically, it is proof of _sequential_ work). We prevent the aforementioned attack by integrating the blockchain with a Proof-of-Time process. The attacker can not immediately generate a years-long fork on the spot even with faster hardware.
+The Proof-of-Time component addresses long-range attacks by enforcing an arrow of time similar to PoW. PoT guarantees that a certain amount of wall-clock time must elapse between block proposals, preventing an adversary from rewriting history by "going back in time". Similar to PoW, Proof-of-Time is constrained physically, however it is not parallelizable (technically, it is proof of _sequential_ work). We prevent the aforementioned attack by integrating the blockchain with a Proof-of-Time process. The attacker can not immediately generate a years-long fork on the spot even with faster hardware.
 
-Subspace's consensus obtains a farming dynamic that mimics the random nature of Bitcoin's mining dynamic while only expending a small constant amount of electricity. This is achieved through a Proof-of-Time-based block challenges for the block proposal lottery, based on the paper [PoSAT: Proof-of-Work Availability and Unpredictability, without the Work](https://arxiv.org/abs/2010.08154) by Soubhik Deb, Sreeram Kannan and David Tse. It ensures the fairness of the farming process to all participants through complete unpredictability of who will get to propose a block next. This unpredictability is at the same level as PoW protocols and is stronger than in the protocols using verifiable random functions.
+Autonomys's consensus obtains a farming dynamic that mimics the random nature of Bitcoin's mining dynamic while only expending a small constant amount of electricity. This is achieved through a Proof-of-Time-based block challenges for the block proposal lottery, based on the paper [PoSAT: Proof-of-Work Availability and Unpredictability, without the Work](https://arxiv.org/abs/2010.08154) by Soubhik Deb, Sreeram Kannan and David Tse. It ensures the fairness of the farming process to all participants through complete unpredictability of who will get to propose a block next. This unpredictability is at the same level as PoW protocols and is stronger than in the protocols using verifiable random functions.
 
 The elapsed time guarantee is achieved by iterative evaluation of an inherently sequential function. The output of such a function is unpredictable and is used to build a randomness beacon for block challenges. 
 
 ## Timekeeping
 
-For the task of running the time-chain, Subspace introduces a new role for nodes called Timekeepers. Timekeepers are responsible for evaluating the delay function and announcing the outputs to other nodes. Anyone can become a Timekeeper as long as they have a powerful CPU of last generation that is able to evaluate the delay function within the target time slot duration of 1 second. 
+For the task of running the time-chain, Autonomys Network introduces a new role for nodes called Timekeepers. Timekeepers are responsible for evaluating the delay function and announcing the outputs to other nodes. Anyone can become a Timekeeper as long as they have a powerful CPU of last generation that is able to evaluate the delay function within the target time slot duration of 1 second. 
 
 A single honest timekeeper is sufficient for the security of the protocol, but for robustness and decentralization there should be multiple timekeepers running concurrently. We encourage interested participants to run the timekeeper component on their nodes to ensure the security and decentralization of the protocol. There is no explicit economic incentive to running a timekeeper, however, independent timekeeping contributes to stable block production, which benefits every participant of the network.
 
 While a timekeeper can also be a farmer and participate in block production or an operator executing computation on a domain, operators are likely more suited for the task since they already have powerful hardware. Timekeeping will fully consume a dedicated CPU core. Ideally, it should be run on a separate last generation machine with no other processes interfering with the timekeeping. This setup will allow best performance and security of the protocol against malicious timekeepers.
 
-The Proof-of-Time chain starts at the genesis time of the Subspace consensus chain. The input to the first slot is a random seed which will be publicly announced at launch to ensure equal opportunity. For each subsequent slot, the output of the previous slot serves as the input. By chaining the outputs, the timekeepers enforce sequentiality and prevent skipping ahead in time.
+The Proof-of-Time chain starts at the genesis time of the Autonomys Network consensus chain. The input to the first slot is a random seed which will be publicly announced at launch to ensure equal opportunity. For each subsequent slot, the output of the previous slot serves as the input. By chaining the outputs, the timekeepers enforce sequentiality and prevent skipping ahead in time.
 
 ## Randomness Beacon
 
@@ -77,7 +77,7 @@ Every 50 blocks, entropy from the consensus chain is injected back into the PoT 
 
 ## Delay Function Choice
 
-Subspace uses repeated AES-128 encryption as an alternative to existing Verifiable Delay Functions (VDFs), such as repeated squaring in groups of unknown order. AES fulfills the requirements of being iterative, non-parallelizable and producing a short, random and verifiable output.
+Autonomys Network uses repeated AES-128 encryption as an alternative to existing Verifiable Delay Functions (VDFs), such as repeated squaring in groups of unknown order. AES fulfills the requirements of being iterative, non-parallelizable and producing a short, random and verifiable output.
 
 Following an extensive study of existing VDF constructions, we chose AES for the iterated function. AES has an advantage of research maturity compared to relatively new VDFs and an extremely efficient hardware and software implementation using hardware acceleration instructions. Based on a joint study with Supranational, we don't expect a significant speedup over the best AES implementation, even with an ASIC.
 
@@ -92,17 +92,17 @@ The target number of iterations is currently set to ~183 million to achieve appr
 
 ## Security Considerations
 
-There are several security considerations to take into account when designing a randomness beacon in a decentralized protocol. The security claim for Subspace PoT is the following: 
+There are several security considerations to take into account when designing a randomness beacon in a decentralized protocol. The security claim for Autonomys Network PoT is the following: 
 
 As long as there is at least one honest timekeeper online at all times, and network delay is bounded, all honest nodes can determine the correct PoT output, and hence the correct slot challenge.
 
 It is achieved by carefully taking care of the following aspects:
 
-1. **Sequentiality**: Subspace PoT beacon achieves sequentiality by chaining the slot outputs. Each output is used as an input to the delay function for the next slot.
+1. **Sequentiality**: Autonomys Network PoT beacon achieves sequentiality by chaining the slot outputs. Each output is used as an input to the delay function for the next slot.
 
 2. **Network delay**: When a farmer receives a PoT output for the challenge, they immediately start auditing the plot and proving if they have a winning solution. However, they are only allowed to submit the solution after $r$ slots. This lag parameter is currently set to 4 slots, and can be tuned so that there is enough time to propagate, verify the PoT output and prove a solution on common farmer hardware. Increasing $r$ allows an honest node more time to solve for a challenge, but also gives a malicious node more time to attempt to plot on-the-fly.
 
-3. **Faster timekeeper**: An attacker who has access to a timekeeper hardware that is able to run PoT faster then any other timekeeper on the network presents several security risks and Subspace addresses them via a few mechanisms. First, the speed gains are not cumulative over time: because of entropy injection every 50 blocks (~5 min) the attackers advantage is reset. Second, if a faster timekeeper gossips their PoT to the network, other timekeepers will continuously sync up and catch up to them. If a faster timekeeper withholds PoT and only uses it to produce blocks on their own, they do have some prediction window (depending how much faster they are), but nevertheless they either need significant percentage of network's disk storage or attempt on-the-fly plotting, which is also hard, as described on the [Security](/docs/consensus/security.md#on-the-fly-plot-creation) page. A faster PoT also makes a long-range attack more feasible, but the attacker still requires as much storage as the average honest storage to pull it off as described above. 
+3. **Faster timekeeper**: An attacker who has access to a timekeeper hardware that is able to run PoT faster then any other timekeeper on the network presents several security risks and Autonomys Network addresses them via a few mechanisms. First, the speed gains are not cumulative over time: because of entropy injection every 50 blocks (~5 min) the attackers advantage is reset. Second, if a faster timekeeper gossips their PoT to the network, other timekeepers will continuously sync up and catch up to them. If a faster timekeeper withholds PoT and only uses it to produce blocks on their own, they do have some prediction window (depending how much faster they are), but nevertheless they either need significant percentage of network's disk storage or attempt on-the-fly plotting, which is also hard, as described on the [Security](/docs/consensus/security.md#on-the-fly-plot-creation) page. A faster PoT also makes a long-range attack more feasible, but the attacker still requires as much storage as the average honest storage to pull it off as described above. 
 
     The network will continuosly monitor the rate of PoT progression in comparison to real wall-clock time to detect the possibility of a faster timekeeper existence.
 
@@ -110,4 +110,4 @@ It is achieved by carefully taking care of the following aspects:
 
 5. **Predictability**: Slot challenges can only be predicted in advance if the attacker has a faster timekeeper and even then it only lasts until the next injection.
 
-6. **Biasing randomness**: Subspace PoT does not allows the attacker to control the slot challenges of the next time interval by releasing/withholding their blocks from the current interval via the injection mechanism. See, [Ouroboros Praos](https://eprint.iacr.org/2017/573.pdf) for a security proof.
+6. **Biasing randomness**: Autonomys Network PoT does not allows the attacker to control the slot challenges of the next time interval by releasing/withholding their blocks from the current interval via the injection mechanism. See, [Ouroboros Praos](https://eprint.iacr.org/2017/573.pdf) for a security proof.

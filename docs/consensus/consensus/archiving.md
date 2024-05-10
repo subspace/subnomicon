@@ -6,8 +6,8 @@ keywords:
     - Consensus
     - Archiving
 last_update:
-  date: 10/27/2023
-  author: Dariia Porechna
+  date: 05/02/2024
+  author: Saeid Yazdinejad
 ---
 
 **Archiving** is one of the three core processes in the Subspace consensus. It transforms the chain blocks at a configured depth (currently 100 blocks) from the tip of the chain into a canonical history ready to be distributed to farmers for storage.

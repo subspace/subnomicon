@@ -7,15 +7,15 @@ keywords:
     - Security
     - Attacks
 last_update:
-  date: 02/06/2024
-  author: Dariia Porechna
+  date: 05/02/2024
+  author: Saeid Yazdinejad
 ---
 <!-- TODO
 - Handling Equivocation
  -->
 
-A complex system like the Subspace protocol has many potential attack vectors, some are more general, blockchain related, 
-while other are focused on Proof-of-Space and specifically Proof-of-Archival-Storage, as used in Subspace.  
+A complex system like the Autonomys Network protocol, Subspace, has many potential attack vectors, some are more general, blockchain related, 
+while other are focused on Proof-of-Space and specifically Proof-of-Archival-Storage, as used in Autonomys Network.  
 
 This page gives an overview of how such attacks are mitigated in the Subspace protocol. There are many things 
 to cover, so the reader should be aware that at the current state this page is not exhaustive. Furthermore, the 

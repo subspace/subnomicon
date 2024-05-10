@@ -7,11 +7,11 @@ keywords:
     - Domains
     - Staking
 last_update:
-  date: 01/29/2024
-  author: Dariia Porechna
+  date: 04/30/2024
+  author: Saeid Yazdinejad
 ---
 
-The following is an overview of domain sub-protocols. The existence of domains assumes a live consensus chain with at least one farmer and block production. On its own, the consensus chain will only issue rewards to farmers and allow for balance transfers of SSC. 
+The following is an overview of domain sub-protocols. The existence of domains assumes a live consensus chain with at least one farmer and block production. On its own, the consensus chain will only issue rewards to farmers and allow for balance transfers of ATC. 
     
 ## Domain Creation
     
@@ -21,7 +21,7 @@ The sudo user then instantiates the first domain on the previously registered do
     
 ## Operator Staking
     
-After a domain is instantiated, anyone may deposit SSC and stake as an operator of this domain, allowing them to participate in the leader election to produce bundles and execute domain blocks. 
+After a domain is instantiated, anyone may deposit ATC and stake as an operator of this domain, allowing them to participate in the leader election to produce bundles and execute domain blocks. 
 They do this by submitting a registration extrinsic with a staking deposit, targeting the first domain instance. They will be listed in the Operator Registry and eligible to participate in the leader election on the next stake epoch. 
     
 ## Domain Transactions

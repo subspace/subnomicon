@@ -6,8 +6,8 @@ keywords:
     - DecEx
     - Domains
 last_update:
-  date: 10/25/2023
-  author: Dariia Porechna
+  date: 05/02/2024
+  author: Saeid Yazdinejad
 ---
 
 Domains are best understood along a spectrum of possible rollup architectures compared to other ecosystems.
@@ -18,7 +18,7 @@ Domains are effectively enshrined rollups. An enshrined rollup is a particular t
 
 ## Standard Rollups 
 
-While regular rollups on Ethereum are validated through smart contracts, domains are validated by the subspace core protocol, making them more similar to parachains on Polkadot. Unlike parachains with a monolithic validation model and a permissioned deployment system, domains support a modular validation framework and permissionless deployment process. Unlike Cosmos zones and Avalanche subnets, domains have shared security and trust-minimized interoperability since they all settle on the root chain. 
+While regular rollups on Ethereum are validated through smart contracts, domains are validated by the Subspace core protocol, making them more similar to parachains on Polkadot. Unlike parachains with a monolithic validation model and a permissioned deployment system, domains support a modular validation framework and permissionless deployment process. Unlike Cosmos zones and Avalanche subnets, domains have shared security and trust-minimized interoperability since they all settle on the root chain.
 
 ## Sovereign Rollups 
 

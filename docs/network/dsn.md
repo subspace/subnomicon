@@ -8,8 +8,8 @@ keywords:
     - Storage
     - DSN
 last_update:
-  date: 03/04/2023
-  author: Nazar Mokrynskyi
+  date: 05/01/2024
+  author: Saeid Yazdinejad
 ---
 
 To ensure every piece of the blockchain history is recoverable, no matter how large it grows, Subspace organizes farmers into a Distributed Storage Network (DSN), which ensures both the ephemeral and permanent availability of all chain data.
@@ -24,7 +24,7 @@ whether accidentally or through malicious intent.
 - permissionless, without any central coordination
 - accounting for the dynamic availability of farmers and the uneven growth of the history over time.
 
-The Subspace DSN achieves the above by leveraging consistent hashing, erasure coding, and a Kademlia Distributed Hash Table (K-DHT). To incentivize the farmer network to maintain the desired replication factor for the history, Subspace introduces a novel algorithm that dynamically adjusts the cost of on-chain storage, or blockspace, in response to fluctuations in supply and demand for storage. These features allow the history to bloat well beyond the storage capacity of any single farmer while letting each farmer pledge as much or as little space as they desire. 
+The Subspace DSN achieves the above by leveraging consistent hashing, erasure coding, and a Kademlia Distributed Hash Table (K-DHT). To incentivize the farmer network to maintain the desired replication factor for the history, Autonomys Network introduces a novel algorithm that dynamically adjusts the cost of on-chain storage, or blockspace, in response to fluctuations in supply and demand for storage. These features allow the history to bloat well beyond the storage capacity of any single farmer while letting each farmer pledge as much or as little space as they desire. 
 
 ## Layers
 

@@ -1,18 +1,18 @@
 ---
 title: Data Flow
 sidebar_position: 3
-description: Lifecycle of Data on Subspace Blockchain
+description: Lifecycle of Data on Autonomys Network
 keywords:
     - Consensus
     - Data
     - Storage
     - Transactions
 last_update:
-  date: 02/06/2024
-  author: Dariia Porechna
+  date: 05/01/2024
+  author: Saeid Yazdinejad
 ---
 
-From the moment a transaction is submitted to the Subspace blockchain to the point it is permanently archived, data goes through several stages:
+From the moment a transaction is submitted to the Autonomys Network to the point it is permanently archived, data goes through several stages:
 
 1. The transaction is validated and included in a consensus chain block directly or through inclusions of domain bundles.
 2. Transactions and bundles in the block are executed, activating a global and domain state change.

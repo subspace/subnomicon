@@ -31,7 +31,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Subnomicon for Subspace Network">
+      description="Subnomicon for Autonomys Network">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
