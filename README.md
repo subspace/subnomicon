@@ -1,6 +1,10 @@
-<img src="./static/img/subspace-network.svg" align="center" />
 
-The [Subnomicon](https://subnomicon.subspace.network) is a knowledge base about the Subspace Protocol. Subnomicon provides a comprehensive overview of the current state of protocol, covering the following:
+# Archive Notice :warning:
+As of 06-17-2024, this project has been archived and is no longer actively maintained. The contents of this repository have been merged into [Autonomys Academy](https://github.com/subspace/autonomys_gitbook) also available via [Autonomys Academy website](https://academy.autonomys.net/).
+
+# Subnomicon
+
+The  Subnomicon is a knowledge base about the Subspace Protocol. Subnomicon provides a comprehensive overview of the current state of protocol, covering the following:
 
 1. [Architecture Overview](/docs/overview.md) - *The Subspace modular architecture.*
 2. [Advancing Blockchain](/docs/advancements.md) - *How Subspace advances the state of blockchain technology.*
