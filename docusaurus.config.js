@@ -155,6 +155,14 @@ const config = {
           // }
         ],
       },
+      announcementBar: {
+        id: 'academy',
+        content:
+          '<br /><h4>Subnomicon has been integrated into <a target="_blank" href="https://academy.autonomys.net/subspace-protocol/introduction">Autonomys Academy</a>.</h4>',
+        backgroundColor: '#ac9dc7',
+        textColor: '#292929',
+        isCloseable: false,
+      },
       footer: {
         style: 'dark',
         links: [
