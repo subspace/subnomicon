@@ -47,7 +47,7 @@ challenge is how to make the _plot_ each farmer stores unique. This is done as p
 below.
 
 Before the plotting phase, farmers need to "prepare" the raw blockchain history for compatibility with the Autonomys
-plotting protocol. This is done in the archiving phase. Archiving is a deterministic process performed by all nonde. It is done
+plotting protocol. This is done in the archiving phase. Archiving is a deterministic process performed by all node. It is done
 ongoingly, as the blockchain progresses and more blocks are produced. When archiving, farmers apply a technique called
 error-correction coding, specifically the Reed--Solomon code. This is used to guarantee that even if some piece of data
 (a collection of blocks) is not stored by any of the farmers (hence not stored on the entire network), it could be
